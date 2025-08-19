@@ -15,9 +15,9 @@ const config: Config = {
         '1000': '1000px',
       },
       fontFamily: {
+        'tnanti': ['var(--font-tnanti)', 'sans-serif'],
         'caveat': ['Caveat', 'cursive'],
         'dancing': ['Dancing Script', 'cursive'],
-        'gaegu': ['Gaegu', 'cursive'],
         'pacifico': ['Pacifico', 'cursive'],
         'satisfy': ['Satisfy', 'cursive'],
       },

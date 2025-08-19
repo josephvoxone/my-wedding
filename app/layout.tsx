@@ -1,12 +1,12 @@
 import type { Metadata } from 'next'
-import { Gaegu } from 'next/font/google'
+import localFont from 'next/font/local'
 import './globals.css'
 import LenisProvider from '@/components/LenisProvider'
 
-const gaegu = Gaegu({ 
-  weight: ['300', '400', '700'],
-  subsets: ['latin'],
+const tnanti = localFont({
+  src: '../public/font/nkcthi/TNanti.otf',
   display: 'swap',
+  variable: '--font-tnanti',
 })
 
 export const metadata: Metadata = {
@@ -24,9 +24,9 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Dancing+Script:wght@400;700&family=Gaegu:wght@300;400;700&family=Pacifico&family=Satisfy&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Dancing+Script:wght@400;700&family=Pacifico&family=Satisfy&display=swap" rel="stylesheet" />
       </head>
-      <body className={gaegu.className}>
+      <body className={`${tnanti.variable} font-tnanti`}>
         <LenisProvider>
           {children}
         </LenisProvider>

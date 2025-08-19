@@ -14,7 +14,7 @@ export default function Footer() {
       >
         <div className="glass-effect rounded-2xl p-8 mb-8">
           <h3 className="font-dancing text-3xl text-gray-800 mb-4">Terima Kasih</h3>
-          <p className="font-gaegu text-xl text-gray-600 mb-6">
+          <p className="font-tnanti text-xl text-gray-600 mb-6">
             Kehadiran dan doa restu kamu adalah kado terindah buat kami. <br/>
             Sampai jumpa di hari bahagia kami!
           </p>
@@ -29,10 +29,10 @@ export default function Footer() {
 
         <div className="text-center">
           <p className="font-dancing text-4xl text-gray-800 mb-2">Joseph & Ayu</p>
-          <p className="font-gaegu text-lg text-gray-600">
+          <p className="font-tnanti text-lg text-gray-600">
             #JosephAyuWedding
           </p>
-          <p className="font-gaegu text-sm text-gray-500 mt-4">
+          <p className="font-tnanti text-sm text-gray-500 mt-4">
             © 2025 Dibuat dengan penuh cinta untuk hari spesial kami
           </p>
         </div>

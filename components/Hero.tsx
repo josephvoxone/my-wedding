@@ -41,14 +41,14 @@ export default function Hero() {
           transition={{ duration: 0.8 }}
           className="absolute top-20 text-center z-10"
         >
-          <p className="font-gaegu text-2xl md:text-3xl text-gray-700 mb-2">
+          <p className="font-tnanti text-2xl md:text-3xl text-gray-700 mb-2">
             Kepada Yth.
           </p>
           <h2 className="font-dancing text-3xl md:text-4xl text-gray-800 mb-2">
             {guestName}
           </h2>
           {personalMessage && (
-            <p className="font-gaegu text-lg md:text-xl text-gray-600 italic max-w-md mx-auto">
+            <p className="font-tnanti text-lg md:text-xl text-gray-600 italic max-w-md mx-auto">
               "{personalMessage}"
             </p>
           )}
@@ -63,7 +63,7 @@ export default function Hero() {
         className="text-center z-10"
       >
         <motion.p
-          className="font-gaegu text-xl md:text-2xl text-gray-600 mb-4"
+          className="font-tnanti text-xl md:text-2xl text-gray-600 mb-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.2 }}
@@ -86,7 +86,7 @@ export default function Hero() {
         </motion.h1>
         
         <motion.p 
-          className="font-gaegu text-lg md:text-xl text-gray-600 mb-8 italic"
+          className="font-tnanti text-lg md:text-xl text-gray-600 mb-8 italic"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.6 }}
@@ -100,13 +100,13 @@ export default function Hero() {
           transition={{ duration: 1, delay: 0.8 }}
           className="glass-effect rounded-2xl p-6 md:p-8 inline-block"
         >
-          <p className="font-gaegu text-xl md:text-2xl text-gray-700 mb-2 font-bold">
+          <p className="font-tnanti text-xl md:text-2xl text-gray-700 mb-2 font-bold">
             Selasa, 9 September 2025
           </p>
-          <p className="font-gaegu text-lg md:text-xl text-gray-600">
+          <p className="font-tnanti text-lg md:text-xl text-gray-600">
             Pukul 10.00 WITA
           </p>
-          <p className="font-gaegu text-base md:text-lg text-gray-500 mt-2">
+          <p className="font-tnanti text-base md:text-lg text-gray-500 mt-2">
             Bali, Indonesia
           </p>
         </motion.div>
@@ -119,7 +119,7 @@ export default function Hero() {
         >
           <a
             href="#our-story"
-            className="inline-block font-gaegu text-xl text-gray-700 hover:text-gray-900 transition-colors"
+            className="inline-block font-tnanti text-xl text-gray-700 hover:text-gray-900 transition-colors"
           >
             <span className="block">Gulir untuk membaca kisah kami</span>
             <svg 

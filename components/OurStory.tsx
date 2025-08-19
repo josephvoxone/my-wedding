@@ -81,8 +81,8 @@ function StoryChapter({ chapter, index }: { chapter: typeof storyChapters[0], in
             {chapter.image}
           </motion.div>
           <h3 className="font-dancing text-3xl text-gray-800 mb-2">{chapter.title}</h3>
-          <p className="font-gaegu text-xl text-gray-600 mb-4">{chapter.date}</p>
-          <p className="font-gaegu text-gray-700 leading-relaxed">{chapter.content}</p>
+          <p className="font-tnanti text-xl text-gray-600 mb-4">{chapter.date}</p>
+          <p className="font-tnanti text-gray-700 leading-relaxed">{chapter.content}</p>
         </motion.div>
       </div>
     </motion.div>
@@ -103,7 +103,7 @@ export default function OurStory() {
           <h2 className="font-dancing text-5xl md:text-6xl text-gray-800 mb-4 text-shadow-soft">
             Kisah Cinta Kami
           </h2>
-          <p className="font-gaegu text-2xl text-gray-600">
+          <p className="font-tnanti text-2xl text-gray-600">
             "Cinta sejati bukanlah menemukan seseorang yang sempurna, tapi belajar melihat seseorang yang tidak sempurna dengan sempurna"
           </p>
         </motion.div>
