@@ -14,7 +14,6 @@ export default function LenisProvider({ children }: { children: React.ReactNode 
       gestureOrientation: 'vertical',
       smoothWheel: true,
       wheelMultiplier: 1,
-      smoothTouch: false,
       touchMultiplier: 2,
       infinite: false,
     })
@@ -37,7 +36,7 @@ export default function LenisProvider({ children }: { children: React.ReactNode 
         e.preventDefault()
         const targetId = anchor.getAttribute('href')
         if (targetId && targetId !== '#') {
-          const targetElement = document.querySelector(targetId)
+          const targetElement = document.querySelector(targetId) as HTMLElement
           if (targetElement) {
             lenis.scrollTo(targetElement, {
               offset: 0,
