@@ -32,7 +32,7 @@ export default function Hero() {
   }, [searchParams])
   
   return (
-    <section ref={containerRef} className="min-h-screen flex flex-col items-center justify-center relative px-4 overflow-hidden">
+    <section id="hero" ref={containerRef} className="min-h-screen flex flex-col items-center justify-center relative px-4 overflow-hidden">
       {/* Personalized Greeting */}
       {guestName && (
         <motion.div
