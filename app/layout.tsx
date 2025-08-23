@@ -1,12 +1,13 @@
 import type { Metadata } from 'next'
-import localFont from 'next/font/local'
+import { Homemade_Apple } from 'next/font/google'
 import './globals.css'
 import LenisProvider from '@/components/LenisProvider'
 
-const tnanti = localFont({
-  src: '../public/font/nkcthi/TNanti.otf',
+const homemadeApple = Homemade_Apple({
+  weight: '400',
+  subsets: ['latin'],
   display: 'swap',
-  variable: '--font-tnanti',
+  variable: '--font-homemade-apple',
 })
 
 export const metadata: Metadata = {
@@ -24,9 +25,9 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Dancing+Script:wght@400;700&family=Pacifico&family=Satisfy&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet" />
       </head>
-      <body className={`${tnanti.variable} font-tnanti`}>
+      <body className={`${homemadeApple.variable} font-homemade`}>
         <LenisProvider>
           {children}
         </LenisProvider>

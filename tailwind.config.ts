@@ -15,11 +15,8 @@ const config: Config = {
         '1000': '1000px',
       },
       fontFamily: {
-        'tnanti': ['var(--font-tnanti)', 'sans-serif'],
-        'caveat': ['Caveat', 'cursive'],
+        'homemade': ['var(--font-homemade-apple)', 'cursive'],
         'dancing': ['Dancing Script', 'cursive'],
-        'pacifico': ['Pacifico', 'cursive'],
-        'satisfy': ['Satisfy', 'cursive'],
       },
       animation: {
         'float': 'float 20s ease-in-out infinite',

@@ -16,7 +16,7 @@ export default function Location() {
           <h2 className="font-dancing text-5xl md:text-6xl text-gray-800 mb-4 text-shadow-soft">
             Lokasi Acara
           </h2>
-          <p className="font-tnanti text-2xl text-gray-600">
+          <p className="font-homemade text-2xl text-gray-600">
             Jangan sampai salah tempat ya!
           </p>
         </motion.div>
@@ -34,20 +34,20 @@ export default function Location() {
               <div className="flex items-start gap-3">
                 <span className="text-2xl">📍</span>
                 <div>
-                  <p className="font-tnanti text-lg text-gray-700 font-bold">Masjid Al-Hikmah</p>
-                  <p className="font-tnanti text-gray-600">Jl. Raya Ubud No. 88, Gianyar, Bali</p>
+                  <p className="font-homemade text-lg text-gray-700 font-bold">Masjid Al-Hikmah</p>
+                  <p className="font-homemade text-gray-600">Jl. Raya Ubud No. 88, Gianyar, Bali</p>
                 </div>
               </div>
               <div className="flex items-center gap-3">
                 <span className="text-2xl">🕰️</span>
-                <p className="font-tnanti text-gray-700">Selasa, 9 September 2025 - 10:00 WITA</p>
+                <p className="font-homemade text-gray-700">Selasa, 9 September 2025 - 10:00 WITA</p>
               </div>
               <div className="mt-4">
                 <a 
                   href="https://maps.google.com" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-block bg-gradient-to-r from-blue-100 to-blue-200 hover:from-blue-200 hover:to-blue-300 text-gray-800 font-tnanti px-6 py-3 rounded-lg transition-all duration-300"
+                  className="inline-block bg-gradient-to-r from-blue-100 to-blue-200 hover:from-blue-200 hover:to-blue-300 text-gray-800 font-homemade px-6 py-3 rounded-lg transition-all duration-300"
                 >
                   Buka di Google Maps
                 </a>
@@ -67,20 +67,20 @@ export default function Location() {
               <div className="flex items-start gap-3">
                 <span className="text-2xl">📍</span>
                 <div>
-                  <p className="font-tnanti text-lg text-gray-700 font-bold">The Royal Pita Maha</p>
-                  <p className="font-tnanti text-gray-600">Jl. Sanggingan, Kedewatan, Ubud, Bali</p>
+                  <p className="font-homemade text-lg text-gray-700 font-bold">The Royal Pita Maha</p>
+                  <p className="font-homemade text-gray-600">Jl. Sanggingan, Kedewatan, Ubud, Bali</p>
                 </div>
               </div>
               <div className="flex items-center gap-3">
                 <span className="text-2xl">🕰️</span>
-                <p className="font-tnanti text-gray-700">Selasa, 9 September 2025 - 19:00 WITA</p>
+                <p className="font-homemade text-gray-700">Selasa, 9 September 2025 - 19:00 WITA</p>
               </div>
               <div className="mt-4">
                 <a 
                   href="https://maps.google.com" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-block bg-gradient-to-r from-purple-100 to-purple-200 hover:from-purple-200 hover:to-purple-300 text-gray-800 font-tnanti px-6 py-3 rounded-lg transition-all duration-300"
+                  className="inline-block bg-gradient-to-r from-purple-100 to-purple-200 hover:from-purple-200 hover:to-purple-300 text-gray-800 font-homemade px-6 py-3 rounded-lg transition-all duration-300"
                 >
                   Buka di Google Maps
                 </a>
@@ -97,11 +97,11 @@ export default function Location() {
           className="mt-12 text-center"
         >
           <div className="glass-effect rounded-2xl p-6 inline-block">
-            <p className="font-tnanti text-lg text-gray-600 mb-2">Catatan Penting:</p>
-            <p className="font-tnanti text-gray-700">
+            <p className="font-homemade text-lg text-gray-600 mb-2">Catatan Penting:</p>
+            <p className="font-homemade text-gray-700">
               Mohon hadir tepat waktu ya! Parkir tersedia di lokasi acara.
             </p>
-            <p className="font-tnanti text-gray-700 mt-2">
+            <p className="font-homemade text-gray-700 mt-2">
               Untuk yang datang dari luar kota, ada beberapa hotel terdekat yang bisa dipilih.
             </p>
           </div>

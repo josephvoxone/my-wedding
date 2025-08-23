@@ -77,7 +77,7 @@ export default function RSVP() {
               💌
             </motion.div>
             <h3 className="font-dancing text-4xl text-gray-800 mb-4">Terima Kasih!</h3>
-            <p className="font-tnanti text-xl text-gray-600">
+            <p className="font-homemade text-xl text-gray-600">
               Kehadiran kamu adalah hadiah terindah buat kami. Sampai jumpa di hari bahagia kami!
             </p>
           </motion.div>
@@ -109,7 +109,7 @@ export default function RSVP() {
           >
             Konfirmasi Kehadiran
           </motion.h2>
-          <p className="font-tnanti text-2xl text-gray-600">
+          <p className="font-homemade text-2xl text-gray-600">
             Yuk, kasih tau kami kalau kamu bisa hadir!
           </p>
         </motion.div>
@@ -124,7 +124,7 @@ export default function RSVP() {
         >
           <motion.div className="space-y-6">
             <motion.div variants={itemVariants}>
-              <label className="block font-tnanti text-xl text-gray-700 mb-2">
+              <label className="block font-homemade text-xl text-gray-700 mb-2">
                 Nama Kamu
               </label>
               <input
@@ -133,13 +133,13 @@ export default function RSVP() {
                 required
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-blue-300 focus:outline-none transition-colors font-tnanti"
+                className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-blue-300 focus:outline-none transition-colors font-homemade"
                 placeholder="Nama lengkap"
               />
             </motion.div>
 
             <motion.div variants={itemVariants}>
-              <label className="block font-tnanti text-xl text-gray-700 mb-2">
+              <label className="block font-homemade text-xl text-gray-700 mb-2">
                 Email atau No. WhatsApp
               </label>
               <input
@@ -148,20 +148,20 @@ export default function RSVP() {
                 required
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-blue-300 focus:outline-none transition-colors font-tnanti"
+                className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-blue-300 focus:outline-none transition-colors font-homemade"
                 placeholder="email@gmail.com atau 0812xxx"
               />
             </motion.div>
 
             <motion.div variants={itemVariants}>
-              <label className="block font-tnanti text-xl text-gray-700 mb-2">
+              <label className="block font-homemade text-xl text-gray-700 mb-2">
                 Kamu bisa hadir?
               </label>
               <select
                 name="attendance"
                 value={formData.attendance}
                 onChange={handleChange}
-                className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-blue-300 focus:outline-none transition-colors font-tnanti"
+                className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-blue-300 focus:outline-none transition-colors font-homemade"
               >
                 <option value="yes">Insya Allah hadir!</option>
                 <option value="no">Maaf, belum bisa hadir</option>
@@ -176,14 +176,14 @@ export default function RSVP() {
                   animate="visible"
                   exit="hidden"
                 >
-                  <label className="block font-tnanti text-xl text-gray-700 mb-2">
+                  <label className="block font-homemade text-xl text-gray-700 mb-2">
                     Jumlah Tamu
                   </label>
                   <select
                     name="guests"
                     value={formData.guests}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-blue-300 focus:outline-none transition-colors font-tnanti"
+                    className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-blue-300 focus:outline-none transition-colors font-homemade"
                   >
                     <option value="1">1 orang</option>
                     <option value="2">2 orang</option>
@@ -195,7 +195,7 @@ export default function RSVP() {
             </AnimatePresence>
 
             <motion.div variants={itemVariants}>
-              <label className="block font-tnanti text-xl text-gray-700 mb-2">
+              <label className="block font-homemade text-xl text-gray-700 mb-2">
                 Ucapan & Doa untuk kami
               </label>
               <textarea
@@ -203,7 +203,7 @@ export default function RSVP() {
                 value={formData.message}
                 onChange={handleChange}
                 rows={4}
-                className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-blue-300 focus:outline-none transition-colors resize-none font-tnanti"
+                className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-blue-300 focus:outline-none transition-colors resize-none font-homemade"
                 placeholder="Tulis ucapan dan doa terbaik kamu..."
               />
             </motion.div>
@@ -213,7 +213,7 @@ export default function RSVP() {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               type="submit"
-              className="w-full bg-gradient-to-r from-blue-100 to-purple-100 hover:from-blue-200 hover:to-purple-200 text-gray-800 font-tnanti text-xl py-4 rounded-lg transition-all duration-300"
+              className="w-full bg-gradient-to-r from-blue-100 to-purple-100 hover:from-blue-200 hover:to-purple-200 text-gray-800 font-homemade text-xl py-4 rounded-lg transition-all duration-300"
             >
               Kirim Konfirmasi
             </motion.button>

@@ -36,7 +36,7 @@ export default function Gallery() {
           <h2 className="font-dancing text-5xl md:text-6xl text-gray-800 mb-4 text-shadow-soft">
             Galeri Kenangan
           </h2>
-          <p className="font-tnanti text-2xl text-gray-600">
+          <p className="font-homemade text-2xl text-gray-600">
             Setiap foto punya cerita, setiap cerita penuh makna
           </p>
         </motion.div>
@@ -72,7 +72,7 @@ export default function Gallery() {
                 transition={{ duration: 0.6 }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                <p className="font-tnanti text-white text-xl">{photo.caption}</p>
+                <p className="font-homemade text-white text-xl">{photo.caption}</p>
               </div>
             </motion.div>
           ))}
@@ -94,7 +94,7 @@ export default function Gallery() {
               alt={selectedImage.caption}
               className="w-full h-auto rounded-2xl"
             />
-            <p className="font-tnanti text-white text-2xl text-center mt-4">
+            <p className="font-homemade text-white text-2xl text-center mt-4">
               {selectedImage.caption}
             </p>
           </motion.div>

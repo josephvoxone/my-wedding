@@ -45,7 +45,7 @@ export default function EventDetails() {
           <h2 className="font-dancing text-5xl md:text-6xl text-gray-800 mb-4 text-shadow-soft">
             Save The Date
           </h2>
-          <p className="font-tnanti text-2xl text-gray-600">
+          <p className="font-homemade text-2xl text-gray-600">
             Dengan penuh rasa syukur, kami mengundang kamu untuk hadir di hari bahagia kami
           </p>
         </motion.div>
@@ -86,12 +86,12 @@ export default function EventDetails() {
               </motion.div>
               <h3 className="font-dancing text-3xl text-gray-800 mb-4">{event.title}</h3>
               <div className="space-y-2 mb-6">
-                <p className="font-tnanti text-xl text-gray-700">{event.date}</p>
-                <p className="font-tnanti text-2xl text-gray-800 font-bold">{event.time}</p>
+                <p className="font-homemade text-xl text-gray-700">{event.date}</p>
+                <p className="font-homemade text-2xl text-gray-800 font-bold">{event.time}</p>
               </div>
               <div className="border-t border-gray-200 pt-4">
-                <p className="font-tnanti text-xl text-gray-700 mb-1 font-bold">{event.venue}</p>
-                <p className="font-tnanti text-gray-600 text-sm">{event.address}</p>
+                <p className="font-homemade text-xl text-gray-700 mb-1 font-bold">{event.venue}</p>
+                <p className="font-homemade text-gray-600 text-sm">{event.address}</p>
               </div>
             </motion.div>
           ))}
@@ -105,8 +105,8 @@ export default function EventDetails() {
           className="text-center mt-12"
         >
           <div className="glass-effect rounded-2xl p-6 inline-block">
-            <p className="font-tnanti text-xl text-gray-700 mb-2">Dress Code</p>
-            <p className="font-tnanti text-2xl text-gray-800 font-bold">Batik & Formal</p>
+            <p className="font-homemade text-xl text-gray-700 mb-2">Dress Code</p>
+            <p className="font-homemade text-2xl text-gray-800 font-bold">Batik & Formal</p>
             <div className="flex gap-3 justify-center mt-4">
               <div className="w-8 h-8 rounded-full bg-rose-200" />
               <div className="w-8 h-8 rounded-full bg-blue-200" />
