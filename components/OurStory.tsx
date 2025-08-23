@@ -81,8 +81,8 @@ function StoryChapter({ chapter, index }: { chapter: typeof storyChapters[0], in
             {chapter.image}
           </motion.div>
           <h3 className="font-dancing text-3xl text-gray-800 mb-2">{chapter.title}</h3>
-          <p className="font-homemade text-xl text-gray-600 mb-4">{chapter.date}</p>
-          <p className="font-homemade text-gray-700 leading-relaxed">{chapter.content}</p>
+          <p className="font-libre text-xl text-gray-600 mb-4">{chapter.date}</p>
+          <p className="font-libre text-gray-700 leading-relaxed">{chapter.content}</p>
         </motion.div>
       </div>
     </motion.div>
@@ -91,7 +91,7 @@ function StoryChapter({ chapter, index }: { chapter: typeof storyChapters[0], in
 
 export default function OurStory() {
   return (
-    <section id="our-story" className="py-20 px-4">
+    <section id="our-story" className="min-h-screen flex items-center py-20 px-4">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -103,7 +103,7 @@ export default function OurStory() {
           <h2 className="font-dancing text-5xl md:text-6xl text-gray-800 mb-4 text-shadow-soft">
             Kisah Cinta Kami
           </h2>
-          <p className="font-homemade text-2xl text-gray-600">
+          <p className="font-libre text-2xl text-gray-600">
             "Cinta sejati bukanlah menemukan seseorang yang sempurna, tapi belajar melihat seseorang yang tidak sempurna dengan sempurna"
           </p>
         </motion.div>

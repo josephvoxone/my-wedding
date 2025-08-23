@@ -1,9 +1,8 @@
 import { Suspense } from 'react'
 import HelloSection from '@/components/HelloSection'
 import Hero from '@/components/Hero'
-import CloudAnimation from '@/components/CloudAnimation'
+import Parents from '@/components/Parents'
 import OurStory from '@/components/OurStory'
-import EventDetails from '@/components/EventDetails'
 import Location from '@/components/Location'
 import Gallery from '@/components/Gallery'
 import RSVP from '@/components/RSVP'
@@ -13,7 +12,6 @@ import MusicPlayer from '@/components/MusicPlayer'
 export default function Home() {
   return (
     <main className="relative">
-      <CloudAnimation />
       <MusicPlayer />
       <Suspense fallback={<div className="min-h-screen" />}>
         <HelloSection />
@@ -21,11 +19,11 @@ export default function Home() {
       <Suspense fallback={<div className="min-h-screen" />}>
         <Hero />
       </Suspense>
+      <Parents />
       <OurStory />
-      <EventDetails />
       <Location />
-      <Gallery />
       <RSVP />
+      <Gallery />
       <Footer />
     </main>
   )

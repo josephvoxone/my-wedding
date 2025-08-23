@@ -4,8 +4,8 @@ import { motion } from 'framer-motion'
 
 export default function Location() {
   return (
-    <section id="location" className="py-20 px-4 bg-gradient-to-b from-white to-sky-50">
-      <div className="max-w-6xl mx-auto">
+    <section id="location" className="min-h-screen flex items-center py-20 px-4 bg-gradient-to-b from-cream-dark to-cream">
+      <div className="max-w-6xl mx-auto w-full">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -13,96 +13,132 @@ export default function Location() {
           transition={{ duration: 1 }}
           className="text-center mb-16"
         >
-          <h2 className="font-dancing text-5xl md:text-6xl text-gray-800 mb-4 text-shadow-soft">
-            Lokasi Acara
+          <p className="font-libre text-xl md:text-2xl text-sage mb-4">
+            Wedding Venue
+          </p>
+          <h2 className="font-libre text-4xl md:text-5xl text-brown mb-6 font-bold text-shadow-soft">
+            SM Tower Hotel Convention Centre
           </h2>
-          <p className="font-homemade text-2xl text-gray-600">
-            Jangan sampai salah tempat ya!
+          <p className="font-libre text-lg md:text-xl text-brown-soft">
+            Berau, Kalimantan Timur
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="glass-effect rounded-2xl p-8"
-          >
-            <h3 className="font-dancing text-3xl text-gray-800 mb-4">Akad Nikah</h3>
-            <div className="space-y-3">
-              <div className="flex items-start gap-3">
-                <span className="text-2xl">📍</span>
-                <div>
-                  <p className="font-homemade text-lg text-gray-700 font-bold">Masjid Al-Hikmah</p>
-                  <p className="font-homemade text-gray-600">Jl. Raya Ubud No. 88, Gianyar, Bali</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-3">
-                <span className="text-2xl">🕰️</span>
-                <p className="font-homemade text-gray-700">Selasa, 9 September 2025 - 10:00 WITA</p>
-              </div>
-              <div className="mt-4">
-                <a 
-                  href="https://maps.google.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="inline-block bg-gradient-to-r from-blue-100 to-blue-200 hover:from-blue-200 hover:to-blue-300 text-gray-800 font-homemade px-6 py-3 rounded-lg transition-all duration-300"
-                >
-                  Buka di Google Maps
-                </a>
-              </div>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="glass-effect rounded-2xl p-8"
-          >
-            <h3 className="font-dancing text-3xl text-gray-800 mb-4">Resepsi</h3>
-            <div className="space-y-3">
-              <div className="flex items-start gap-3">
-                <span className="text-2xl">📍</span>
-                <div>
-                  <p className="font-homemade text-lg text-gray-700 font-bold">The Royal Pita Maha</p>
-                  <p className="font-homemade text-gray-600">Jl. Sanggingan, Kedewatan, Ubud, Bali</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-3">
-                <span className="text-2xl">🕰️</span>
-                <p className="font-homemade text-gray-700">Selasa, 9 September 2025 - 19:00 WITA</p>
-              </div>
-              <div className="mt-4">
-                <a 
-                  href="https://maps.google.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="inline-block bg-gradient-to-r from-purple-100 to-purple-200 hover:from-purple-200 hover:to-purple-300 text-gray-800 font-homemade px-6 py-3 rounded-lg transition-all duration-300"
-                >
-                  Buka di Google Maps
-                </a>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-
+        {/* Single Venue Card */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 1, delay: 0.4 }}
-          className="mt-12 text-center"
+          transition={{ duration: 0.8 }}
+          className="max-w-3xl mx-auto"
         >
-          <div className="glass-effect rounded-2xl p-6 inline-block">
-            <p className="font-homemade text-lg text-gray-600 mb-2">Catatan Penting:</p>
-            <p className="font-homemade text-gray-700">
-              Mohon hadir tepat waktu ya! Parkir tersedia di lokasi acara.
+          <div className="bg-white-soft/80 backdrop-blur-sm rounded-3xl shadow-xl overflow-hidden">
+            {/* Map Preview */}
+            <div className="relative h-64 md:h-80 bg-sage/10">
+              <div className="absolute inset-0 flex items-center justify-center">
+                <svg className="w-20 h-20 text-sage/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              </div>
+            </div>
+            
+            {/* Venue Details */}
+            <div className="p-8 md:p-10">
+              <div className="space-y-6">
+                {/* Ceremony */}
+                <div>
+                  <h3 className="font-monsieur text-3xl md:text-4xl text-brown mb-4">Holy Matrimony</h3>
+                  <div className="space-y-3 text-brown-soft">
+                    <div className="flex items-start gap-3">
+                      <svg className="w-5 h-5 mt-0.5 text-sage" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      </svg>
+                      <p className="font-libre">Tuesday, September 9th, 2025</p>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <svg className="w-5 h-5 mt-0.5 text-sage" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      <p className="font-libre">09:00 AM WITA</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Reception */}
+                <div className="border-t border-sage/20 pt-6">
+                  <h3 className="font-monsieur text-3xl md:text-4xl text-brown mb-4">Wedding Reception</h3>
+                  <div className="space-y-3 text-brown-soft">
+                    <div className="flex items-start gap-3">
+                      <svg className="w-5 h-5 mt-0.5 text-sage" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      <p className="font-libre">12:00 PM - 09:00 PM WITA</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Address */}
+                <div className="border-t border-sage/20 pt-6">
+                  <div className="flex items-start gap-3">
+                    <svg className="w-5 h-5 mt-0.5 text-sage" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                    <div>
+                      <p className="font-libre text-brown-soft">
+                        Jl. Teuku Umar No.RT 09, Gayam<br/>
+                        Kec. Tj. Redeb, Kabupaten Berau<br/>
+                        Kalimantan Timur 77315
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Navigation Buttons */}
+                <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                  <a 
+                    href="https://maps.app.goo.gl/8BVDSi76WxSTC4rk9" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex-1 flex items-center justify-center gap-2 bg-sage/10 hover:bg-sage/20 text-sage-dark font-libre px-6 py-3 rounded-full transition-all duration-300"
+                  >
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+                    </svg>
+                    Open in Google Maps
+                  </a>
+                  <a 
+                    href="https://ul.waze.com/ul?place=ChIJTZq_q7D1DTIR7ueMXwTYnRE&ll=2.14389040%2C117.49787940&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex-1 flex items-center justify-center gap-2 bg-gold-elegant/10 hover:bg-gold-elegant/20 text-brown font-libre px-6 py-3 rounded-full transition-all duration-300"
+                  >
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                    </svg>
+                    Navigate with Waze
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Additional Info */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, delay: 0.4 }}
+          className="mt-16 text-center max-w-2xl mx-auto"
+        >
+          <div className="space-y-4">
+            <p className="font-libre text-sage-dark">
+              <span className="font-bold">Dress Code:</span> Formal Attire
             </p>
-            <p className="font-homemade text-gray-700 mt-2">
-              Untuk yang datang dari luar kota, ada beberapa hotel terdekat yang bisa dipilih.
+            <p className="font-libre text-sage-dark text-sm md:text-base">
+              Parking available at venue • Wheelchair accessible
             </p>
           </div>
         </motion.div>

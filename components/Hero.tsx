@@ -4,10 +4,18 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import { useSearchParams } from 'next/navigation'
 import { useEffect, useState, useRef } from 'react'
 
+interface TimeLeft {
+  days: number
+  hours: number
+  minutes: number
+  seconds: number
+}
+
 export default function Hero() {
   const searchParams = useSearchParams()
   const [guestName, setGuestName] = useState('')
   const [personalMessage, setPersonalMessage] = useState('')
+  const [timeLeft, setTimeLeft] = useState<TimeLeft>({ days: 0, hours: 0, minutes: 0, seconds: 0 })
   const containerRef = useRef(null)
   
   const { scrollYProgress } = useScroll({
@@ -30,30 +38,34 @@ export default function Hero() {
       setPersonalMessage(decodeURIComponent(message))
     }
   }, [searchParams])
+
+  useEffect(() => {
+    const calculateTimeLeft = () => {
+      // Wedding date: September 9, 2025, 09:00 WITA (UTC+8)
+      const weddingDate = new Date('2025-09-09T09:00:00+08:00')
+      const now = new Date()
+      const difference = weddingDate.getTime() - now.getTime()
+
+      if (difference > 0) {
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24))
+        const hours = Math.floor((difference / (1000 * 60 * 60)) % 24)
+        const minutes = Math.floor((difference / 1000 / 60) % 60)
+        const seconds = Math.floor((difference / 1000) % 60)
+
+        setTimeLeft({ days, hours, minutes, seconds })
+      } else {
+        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 })
+      }
+    }
+
+    calculateTimeLeft()
+    const timer = setInterval(calculateTimeLeft, 1000)
+
+    return () => clearInterval(timer)
+  }, [])
   
   return (
     <section id="hero" ref={containerRef} className="min-h-screen flex flex-col items-center justify-center relative px-4 overflow-hidden">
-      {/* Personalized Greeting */}
-      {guestName && (
-        <motion.div
-          initial={{ opacity: 0, y: -30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="absolute top-20 text-center z-10"
-        >
-          <p className="font-homemade text-2xl md:text-3xl text-gray-700 mb-2">
-            Kepada Yth.
-          </p>
-          <h2 className="font-dancing text-3xl md:text-4xl text-gray-800 mb-2">
-            {guestName}
-          </h2>
-          {personalMessage && (
-            <p className="font-homemade text-lg md:text-xl text-gray-600 italic max-w-md mx-auto">
-              "{personalMessage}"
-            </p>
-          )}
-        </motion.div>
-      )}
       
       <motion.div
         style={{ y, opacity, scale }}
@@ -63,7 +75,7 @@ export default function Hero() {
         className="text-center z-10"
       >
         <motion.p
-          className="font-homemade text-xl md:text-2xl text-gray-600 mb-4"
+          className="font-libre text-xl md:text-2xl text-sage mb-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.2 }}
@@ -72,66 +84,101 @@ export default function Hero() {
         </motion.p>
         
         <motion.h1 
-          className="font-dancing text-6xl md:text-8xl text-gray-800 mb-4 text-shadow-soft"
-          initial={{ opacity: 0, scale: 0.5, rotateY: -180 }}
-          animate={{ opacity: 1, scale: 1, rotateY: 0 }}
+          className="font-monsieur text-6xl md:text-8xl text-brown mb-12 text-shadow-soft"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ 
-            duration: 1.5, 
+            duration: 1.2, 
             delay: 0.4,
             type: "spring",
-            stiffness: 50
+            stiffness: 80,
+            damping: 15
           }}
         >
           Joseph & Ayu
         </motion.h1>
         
-        <motion.p 
-          className="font-homemade text-lg md:text-xl text-gray-600 mb-8 italic"
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.6 }}
+          className="mb-8 mt-14"
         >
-          "Dua jiwa, satu cinta, satu janji selamanya"
-        </motion.p>
+          <div className="flex items-center justify-center gap-3 md:gap-4 mb-4">
+            <p className="font-libre text-lg md:text-xl text-gold-elegant font-bold">
+              Selasa, 09 Sept 2025
+            </p>
+            <span className="text-gold-elegant/40 text-xl">|</span>
+            <p className="font-libre text-lg md:text-xl text-gold-elegant font-bold">
+              09:00 WITA
+            </p>
+          </div>
+          <div className="text-center">
+            <p className="font-libre text-base md:text-lg text-sage-dark">
+              SM Tower Hotel Convention Centre
+            </p>
+            <p className="font-libre text-base md:text-lg text-sage-dark">
+              Berau, Kalimantan Timur
+            </p>
+          </div>
+        </motion.div>
 
+        {/* Countdown Timer */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, delay: 1 }}
+          className="mt-8"
+        >
+          <p className="font-libre text-sm md:text-base text-sage-dark mb-4">Menghitung hari menuju momen bahagia</p>
+          <div className="flex gap-4 md:gap-6 justify-center">
+            <motion.div 
+              className="bg-white-soft/60 backdrop-blur-sm border border-sage/20 rounded-xl p-4 md:p-6 shadow-md"
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <p className="font-monsieur text-3xl md:text-5xl text-brown font-bold">{timeLeft.days}</p>
+              <p className="font-libre text-sm md:text-base text-brown-soft mt-1">Hari</p>
+            </motion.div>
+            <motion.div 
+              className="bg-white-soft/60 backdrop-blur-sm border border-sage/20 rounded-xl p-4 md:p-6 shadow-md"
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <p className="font-monsieur text-3xl md:text-5xl text-brown font-bold">{timeLeft.hours}</p>
+              <p className="font-libre text-sm md:text-base text-brown-soft mt-1">Jam</p>
+            </motion.div>
+            <motion.div 
+              className="bg-white-soft/60 backdrop-blur-sm border border-sage/20 rounded-xl p-4 md:p-6 shadow-md"
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <p className="font-monsieur text-3xl md:text-5xl text-brown font-bold">{timeLeft.minutes}</p>
+              <p className="font-libre text-sm md:text-base text-brown-soft mt-1">Menit</p>
+            </motion.div>
+            <motion.div 
+              className="bg-white-soft/60 backdrop-blur-sm border border-sage/20 rounded-xl p-4 md:p-6 shadow-md"
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <p className="font-monsieur text-3xl md:text-5xl text-brown font-bold">{timeLeft.seconds}</p>
+              <p className="font-libre text-sm md:text-base text-brown-soft mt-1">Detik</p>
+            </motion.div>
+          </div>
+        </motion.div>
+
+        {/* Bible Verse */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.8 }}
-          className="glass-effect rounded-2xl p-6 md:p-8 inline-block"
+          transition={{ duration: 1, delay: 1.2 }}
+          className="mt-14 max-w-2xl mx-auto text-center"
         >
-          <p className="font-homemade text-xl md:text-2xl text-gray-700 mb-2 font-bold">
-            Selasa, 9 September 2025
-          </p>
-          <p className="font-homemade text-lg md:text-xl text-gray-600">
-            Pukul 10.00 WITA
-          </p>
-          <p className="font-homemade text-base md:text-lg text-gray-500 mt-2">
-            Bali, Indonesia
+          <p className="font-libre text-base md:text-lg text-brown-soft leading-relaxed">
+            "So they are no longer two, but one flesh. Therefore what God has joined together, let no one separate."
           </p>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 1 }}
-          className="mt-12"
-        >
-          <a
-            href="#our-story"
-            className="inline-block font-homemade text-xl text-gray-700 hover:text-gray-900 transition-colors"
-          >
-            <span className="block">Gulir untuk membaca kisah kami</span>
-            <svg 
-              className="w-6 h-6 mx-auto mt-2 animate-bounce" 
-              fill="none" 
-              stroke="currentColor" 
-              viewBox="0 0 24 24"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-            </svg>
-          </a>
-        </motion.div>
       </motion.div>
     </section>
   )

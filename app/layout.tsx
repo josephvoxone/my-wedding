@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Homemade_Apple } from 'next/font/google'
+import { Homemade_Apple, Libre_Baskerville, Monsieur_La_Doulaise } from 'next/font/google'
 import './globals.css'
 import LenisProvider from '@/components/LenisProvider'
 
@@ -8,6 +8,20 @@ const homemadeApple = Homemade_Apple({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-homemade-apple',
+})
+
+const libreBaskerville = Libre_Baskerville({
+  weight: ['400', '700'],
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-libre',
+})
+
+const monsieurLaDoulaise = Monsieur_La_Doulaise({
+  weight: '400',
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-monsieur',
 })
 
 export const metadata: Metadata = {
@@ -22,12 +36,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet" />
-      </head>
-      <body className={`${homemadeApple.variable} font-homemade`}>
+      <body className={`${homemadeApple.variable} ${libreBaskerville.variable} ${monsieurLaDoulaise.variable} font-libre`}>
         <LenisProvider>
           {children}
         </LenisProvider>
