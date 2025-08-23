@@ -1,4 +1,5 @@
 import { Suspense } from 'react'
+import HelloSection from '@/components/HelloSection'
 import Hero from '@/components/Hero'
 import CloudAnimation from '@/components/CloudAnimation'
 import OurStory from '@/components/OurStory'
@@ -14,6 +15,9 @@ export default function Home() {
     <main className="relative">
       <CloudAnimation />
       <MusicPlayer />
+      <Suspense fallback={<div className="min-h-screen" />}>
+        <HelloSection />
+      </Suspense>
       <Suspense fallback={<div className="min-h-screen" />}>
         <Hero />
       </Suspense>
