@@ -65,18 +65,33 @@ export default function Gallery() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
           {photos.map((photo, index) => (
-            <div
+            <motion.div
               key={photo.id}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ 
+                opacity: 1, 
+                y: 0,
+                rotate: index % 2 === 0 ? -1 : 1
+              }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ 
+                duration: 0.6,
+                delay: index * 0.1,
+                type: "spring",
+                stiffness: 100
+              }}
+              whileHover={{ 
+                scale: 1.05,
+                rotate: 0,
+                transition: { duration: 0.3 }
+              }}
               className="group cursor-pointer"
               onClick={() => setSelectedImage(photo)}
-              style={{
-                transform: `rotate(${index % 2 === 0 ? -2 : 2}deg)`,
-              }}
             >
               {/* Polaroid Container */}
-              <div className="bg-white p-3 pb-16 shadow-xl hover:shadow-2xl transition-shadow duration-300">
+              <div className="bg-white p-4 shadow-2xl transform hover:shadow-2xl transition-all duration-300">
                 {/* Photo */}
-                <div className="relative w-full aspect-square overflow-hidden">
+                <div className="relative w-full h-80 md:h-96 overflow-hidden">
                   <Image
                     src={photo.src}
                     alt={photo.caption}
@@ -87,46 +102,60 @@ export default function Gallery() {
                 </div>
                 
                 {/* Caption */}
-                <div className="pt-4 flex items-center justify-center h-12">
-                  <p className="font-homemade text-brown text-base md:text-lg text-center">
+                <div className="mt-4 text-center">
+                  <p className="font-homemade text-lg text-brown">
                     {photo.caption}
                   </p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
 
       {/* Lightbox */}
       {selectedImage && (
-        <div
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
           className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
           onClick={() => setSelectedImage(null)}
         >
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="max-w-4xl w-full"
+            initial={{ scale: 0.8, rotate: -5 }}
+            animate={{ scale: 1, rotate: 0 }}
+            exit={{ scale: 0.8, rotate: 5 }}
+            transition={{ type: "spring", stiffness: 200 }}
+            className="max-w-3xl w-full"
+            onClick={(e) => e.stopPropagation()}
           >
-            <div className="bg-white p-4 pb-20 shadow-2xl">
-              <div className="relative w-full aspect-video md:aspect-square">
+            <div className="bg-white p-4 shadow-2xl">
+              <div className="relative w-full h-[60vh] md:h-[70vh]">
                 <Image
                   src={selectedImage.src}
                   alt={selectedImage.caption}
                   fill
-                  className="object-contain filter grayscale"
+                  className="object-contain"
                   sizes="(max-width: 1200px) 100vw, 1200px"
                 />
               </div>
-              <div className="pt-6 flex items-center justify-center">
-                <p className="font-homemade text-brown text-2xl md:text-3xl text-center">
+              <div className="mt-4 text-center">
+                <p className="font-homemade text-2xl text-brown">
                   {selectedImage.caption}
                 </p>
               </div>
             </div>
+            
+            {/* Close button */}
+            <button
+              onClick={() => setSelectedImage(null)}
+              className="absolute top-4 right-4 text-white bg-black/50 rounded-full w-10 h-10 flex items-center justify-center hover:bg-black/70 transition-colors"
+            >
+              ✕
+            </button>
           </motion.div>
-        </div>
+        </motion.div>
       )}
     </section>
   )
