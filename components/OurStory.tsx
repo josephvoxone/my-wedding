@@ -84,7 +84,7 @@ function PolaroidPhoto({ image, title, year, index }: { image: string; title: st
       className="inline-block cursor-pointer"
     >
       <div className="bg-white p-4 shadow-2xl transform hover:shadow-2xl transition-all duration-300">
-        <div className="relative w-64 h-80 md:w-80 md:h-96 overflow-hidden">
+        <div className="relative w-72 h-[350px] md:w-[300px] md:h-[375px] overflow-hidden">
           <Image
             src={image}
             alt={title}
@@ -153,7 +153,7 @@ export default function OurStory() {
           </TextReveal>
           
           {/* Polaroid Photo */}
-          <div className="flex justify-center -mt-96 px-8">
+          <div className="flex justify-center -mt-64 px-8 mb-20">
             <PolaroidPhoto 
               image={story.image} 
               title={story.title}

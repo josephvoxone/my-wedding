@@ -91,7 +91,7 @@ export default function Gallery() {
               {/* Polaroid Container */}
               <div className="bg-white p-4 shadow-2xl transform hover:shadow-2xl transition-all duration-300">
                 {/* Photo */}
-                <div className="relative w-full h-80 md:h-96 overflow-hidden">
+                <div className="relative w-full h-[350px] md:h-[375px] overflow-hidden">
                   <Image
                     src={photo.src}
                     alt={photo.caption}
