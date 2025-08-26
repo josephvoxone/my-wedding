@@ -73,7 +73,7 @@ export default function RSVP() {
 
   if (submitted) {
     return (
-      <section id="rsvp" className="min-h-screen flex items-center py-20 px-8 bg-gradient-to-b from-cream to-cream-dark">
+      <section id="rsvp" className="min-h-screen flex items-center py-20 px-4 bg-gradient-to-b from-cream to-cream-dark">
         <div className="w-full text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.5, rotateY: 180 }}
@@ -106,7 +106,7 @@ export default function RSVP() {
   }
 
   return (
-    <section id="rsvp" className="min-h-screen flex items-center py-20 px-8 bg-gradient-to-b from-cream to-cream-dark">
+    <section id="rsvp" className="min-h-screen flex items-center py-20 px-4 bg-gradient-to-b from-cream to-cream-dark">
       <div className="w-full">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

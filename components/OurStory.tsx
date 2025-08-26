@@ -1,7 +1,6 @@
 'use client'
 
-import { motion, useScroll, useTransform } from 'framer-motion'
-import { useRef } from 'react'
+import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { useLanguage } from '@/contexts/LanguageContext'
 import { TextReveal } from '@/components/magicui/text-reveal'
@@ -62,31 +61,29 @@ const storyData = {
 }
 
 function PolaroidPhoto({ image, title, year, index }: { image: string; title: string; year: string; index: number }) {
-  const ref = useRef(null)
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"]
-  })
-  
-  const rotate = useTransform(
-    scrollYProgress,
-    [0, 0.5, 1],
-    [index % 2 === 0 ? -2 : 2, 0, index % 2 === 0 ? 2 : -2]
-  )
-  
-  const scale = useTransform(
-    scrollYProgress,
-    [0, 0.5, 1],
-    [0.9, 1, 0.9]
-  )
-
   return (
     <motion.div
-      ref={ref}
-      style={{ rotate, scale }}
-      className="relative"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ 
+        opacity: 1, 
+        y: 0,
+        rotate: index % 2 === 0 ? -1 : 1
+      }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ 
+        duration: 0.6,
+        delay: 0.2,
+        type: "spring",
+        stiffness: 100
+      }}
+      whileHover={{ 
+        scale: 1.05,
+        rotate: 0,
+        transition: { duration: 0.3 }
+      }}
+      className="inline-block cursor-pointer"
     >
-      <div className="bg-white p-4 shadow-2xl transform hover:scale-105 transition-transform duration-300">
+      <div className="bg-white p-4 shadow-2xl transform hover:shadow-2xl transition-all duration-300">
         <div className="relative w-64 h-80 md:w-80 md:h-96 overflow-hidden">
           <Image
             src={image}

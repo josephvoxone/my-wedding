@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 
 export default function Location() {
   return (
-    <section id="location" className="min-h-screen flex items-center py-20 px-8 bg-gradient-to-b from-cream-dark to-cream">
+    <section id="location" className="min-h-screen flex items-center py-20 px-4 bg-gradient-to-b from-cream-dark to-cream">
       <div className="max-w-6xl mx-auto w-full">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
