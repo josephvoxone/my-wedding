@@ -71,13 +71,13 @@ function PolaroidPhoto({ image, title, year, index }: { image: string; title: st
   const rotate = useTransform(
     scrollYProgress,
     [0, 0.5, 1],
-    [index % 2 === 0 ? -5 : 5, 0, index % 2 === 0 ? 5 : -5]
+    [index % 2 === 0 ? -2 : 2, 0, index % 2 === 0 ? 2 : -2]
   )
   
   const scale = useTransform(
     scrollYProgress,
     [0, 0.5, 1],
-    [0.8, 1, 0.8]
+    [0.9, 1, 0.9]
   )
 
   return (
@@ -156,7 +156,7 @@ export default function OurStory() {
           </TextReveal>
           
           {/* Polaroid Photo */}
-          <div className={`flex ${index % 2 === 0 ? 'justify-start pl-8 md:pl-20' : 'justify-end pr-8 md:pr-20'} -mt-96`}>
+          <div className="flex justify-center -mt-96 px-8">
             <PolaroidPhoto 
               image={story.image} 
               title={story.title}
