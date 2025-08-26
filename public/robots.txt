@@ -1,0 +1,14 @@
+# Robots.txt for Joseph & Ayu Wedding Website
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /_next/
+Allow: /_next/image
+
+# Sitemap location
+Sitemap: https://wedding-joseph-ayu.com/sitemap.xml
+
+# Crawl-delay
+User-agent: *
+Crawl-delay: 1
