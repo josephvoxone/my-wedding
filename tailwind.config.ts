@@ -18,6 +18,7 @@ const config: Config = {
         'libre': ['var(--font-libre)', 'serif'],
         'homemade': ['var(--font-homemade-apple)', 'cursive'],
         'monsieur': ['var(--font-monsieur)', 'cursive'],
+        'bodoni': ['var(--font-bodoni)', 'serif'],
       },
       animation: {
         'float': 'float 20s ease-in-out infinite',

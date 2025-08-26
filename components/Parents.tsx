@@ -15,11 +15,11 @@ export default function Parents() {
           className="text-center"
         >
           <div className="mb-16 md:mb-20">
-            <p className="font-monsieur text-3xl md:text-4xl text-sage">
+            <p className="font-monsieur text-5xl md:text-6xl text-sage">
               The
             </p>
-            <h2 className="font-libre text-6xl md:text-7xl text-brown font-light -mt-2">
-              Families
+            <h2 className="font-bodoni text-4xl md:text-5xl text-brown uppercase -mt-2">
+              Bride & Groom
             </h2>
           </div>
           

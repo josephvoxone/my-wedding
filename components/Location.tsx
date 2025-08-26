@@ -34,13 +34,15 @@ export default function Location() {
         >
           <div className="bg-white-soft/80 backdrop-blur-sm rounded-3xl shadow-xl overflow-hidden">
             {/* Map Preview */}
-            <div className="relative h-64 md:h-80 bg-sage/10">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <svg className="w-20 h-20 text-sage/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
-              </div>
+            <div className="relative h-64 md:h-80">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.025568507245!2d117.4953044749676!3d2.1438903978370383!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x320df5b0abbf9a4d%3A0x119dd8045f8ce7ee!2sSM%20Tower%20Hotel%20%26%20Convention%20Center!5e0!3m2!1sen!2sid!4v1756224091063!5m2!1sen!2sid" 
+                className="w-full h-full"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy" 
+                referrerPolicy="no-referrer-when-downgrade"
+              />
             </div>
             
             {/* Venue Details */}

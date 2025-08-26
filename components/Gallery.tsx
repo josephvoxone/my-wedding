@@ -1,31 +1,48 @@
 'use client'
 
-import { motion, useScroll, useTransform } from 'framer-motion'
-import { useState, useRef } from 'react'
+import { motion } from 'framer-motion'
+import Image from 'next/image'
+import { useState } from 'react'
 
 const photos = [
-  { id: 1, src: "https://images.unsplash.com/photo-1519741497674-611481863552", caption: "Perjalanan pertama kita berdua" },
-  { id: 2, src: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486", caption: "Ngopi bareng jadi favorit" },
-  { id: 3, src: "https://images.unsplash.com/photo-1529636798458-92182e662485", caption: "Sunset di pantai Bali" },
-  { id: 4, src: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23", caption: "Petualangan bareng" },
-  { id: 5, src: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2", caption: "Malam di kota" },
-  { id: 6, src: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc", caption: "Momen spesial kita" },
+  { 
+    id: 1, 
+    src: "/assets/wedding/alone.jpg", 
+    caption: "A moment of serenity"
+  },
+  { 
+    id: 2, 
+    src: "/assets/wedding/dance.jpg", 
+    caption: "Dancing through life together"
+  },
+  { 
+    id: 3, 
+    src: "/assets/wedding/mirror.jpg", 
+    caption: "Reflections of love"
+  },
+  { 
+    id: 4, 
+    src: "/assets/wedding/stare.jpg", 
+    caption: "Lost in each other"
+  },
+  { 
+    id: 5, 
+    src: "/assets/wedding/window.jpg", 
+    caption: "Looking towards our future"
+  },
+  { 
+    id: 6, 
+    src: "/assets/wedding/with-us.jpg", 
+    caption: "Together forever"
+  },
 ]
 
 export default function Gallery() {
   const [selectedImage, setSelectedImage] = useState<typeof photos[0] | null>(null)
-  const containerRef = useRef(null)
-  
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"]
-  })
-  
-  const scale = useTransform(scrollYProgress, [0, 0.5], [0.8, 1])
 
   return (
-    <section ref={containerRef} id="gallery" className="min-h-screen flex items-center py-20 px-4 overflow-hidden">
-      <div className="max-w-6xl mx-auto">
+    <section id="gallery" className="min-h-screen flex items-center py-20 px-4 bg-gradient-to-b from-cream to-white">
+      <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -33,55 +50,58 @@ export default function Gallery() {
           transition={{ duration: 1 }}
           className="text-center mb-16"
         >
-          <h2 className="font-dancing text-5xl md:text-6xl text-gray-800 mb-4 text-shadow-soft">
-            Galeri Kenangan
-          </h2>
-          <p className="font-libre text-2xl text-gray-600">
-            Setiap foto punya cerita, setiap cerita penuh makna
+          <div className="mb-4">
+            <p className="font-monsieur text-4xl md:text-5xl text-sage">
+              Our
+            </p>
+            <h2 className="font-bodoni text-5xl md:text-6xl text-brown uppercase -mt-2">
+              Gallery
+            </h2>
+          </div>
+          <p className="font-libre text-base text-brown-soft">
+            Every photo tells a story, every story is filled with meaning
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
           {photos.map((photo, index) => (
-            <motion.div
+            <div
               key={photo.id}
-              initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
-              whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
-              viewport={{ once: false, margin: "-50px" }}
-              transition={{ 
-                duration: 0.6,
-                delay: index * 0.15,
-                type: "spring",
-                stiffness: 100
-              }}
-              whileHover={{ 
-                scale: 1.05,
-                rotate: 2,
-                zIndex: 10,
-                transition: { duration: 0.3 }
-              }}
-              className="relative group cursor-pointer overflow-hidden rounded-2xl transform-gpu"
+              className="group cursor-pointer"
               onClick={() => setSelectedImage(photo)}
-              style={{ transformStyle: 'preserve-3d' }}
+              style={{
+                transform: `rotate(${index % 2 === 0 ? -2 : 2}deg)`,
+              }}
             >
-              <motion.img
-                src={photo.src}
-                alt={photo.caption}
-                className="w-full h-64 object-cover"
-                whileHover={{ scale: 1.2 }}
-                transition={{ duration: 0.6 }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                <p className="font-libre text-white text-xl">{photo.caption}</p>
+              {/* Polaroid Container */}
+              <div className="bg-white p-3 pb-16 shadow-xl hover:shadow-2xl transition-shadow duration-300">
+                {/* Photo */}
+                <div className="relative w-full aspect-square overflow-hidden">
+                  <Image
+                    src={photo.src}
+                    alt={photo.caption}
+                    fill
+                    className="object-cover filter grayscale hover:grayscale-0 transition-all duration-500"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                </div>
+                
+                {/* Caption */}
+                <div className="pt-4 flex items-center justify-center h-12">
+                  <p className="font-homemade text-brown text-base md:text-lg text-center">
+                    {photo.caption}
+                  </p>
+                </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
 
+      {/* Lightbox */}
       {selectedImage && (
         <div
-          className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4"
+          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
           onClick={() => setSelectedImage(null)}
         >
           <motion.div
@@ -89,14 +109,22 @@ export default function Gallery() {
             animate={{ opacity: 1, scale: 1 }}
             className="max-w-4xl w-full"
           >
-            <img
-              src={selectedImage.src}
-              alt={selectedImage.caption}
-              className="w-full h-auto rounded-2xl"
-            />
-            <p className="font-libre text-white text-2xl text-center mt-4">
-              {selectedImage.caption}
-            </p>
+            <div className="bg-white p-4 pb-20 shadow-2xl">
+              <div className="relative w-full aspect-video md:aspect-square">
+                <Image
+                  src={selectedImage.src}
+                  alt={selectedImage.caption}
+                  fill
+                  className="object-contain filter grayscale"
+                  sizes="(max-width: 1200px) 100vw, 1200px"
+                />
+              </div>
+              <div className="pt-6 flex items-center justify-center">
+                <p className="font-homemade text-brown text-2xl md:text-3xl text-center">
+                  {selectedImage.caption}
+                </p>
+              </div>
+            </div>
           </motion.div>
         </div>
       )}

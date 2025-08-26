@@ -3,35 +3,64 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
+import { useLanguage } from '@/contexts/LanguageContext'
 
-const storyChapters = [
-  {
-    title: "Awal Pertemuan",
-    date: "2018",
-    content: "Takdir mempertemukan kami di sebuah acara kampus. Joseph dengan canggungnya mencoba memulai percakapan, sementara Ayu hanya tersenyum malu. Siapa sangka, pertemuan sederhana itu menjadi awal dari kisah yang akan kami kenang selamanya. Kami mulai sering bertemu, berbagi cerita, dan tanpa sadar, hati kami mulai saling terikat.",
-    image: "💝"
-  },
-  {
-    title: "Mengenal Lebih Dalam",
-    date: "2019 - 2020",
-    content: "Dari sekadar teman menjadi sahabat, kami belajar memahami satu sama lain. Joseph yang penuh semangat dan Ayu yang lembut hati ternyata saling melengkapi dengan sempurna. Setiap percakapan panjang di malam hari, setiap tawa yang kami bagi, menguatkan keyakinan bahwa kami ditakdirkan bersama.",
-    image: "🌙"
-  },
-  {
-    title: "Membangun Mimpi Bersama",
-    date: "2021 - 2023",
-    content: "Kami mulai merajut mimpi bersama. Melalui suka dan duka, kami belajar arti sesungguhnya dari cinta - bukan hanya kebahagiaan, tapi juga kesabaran, pengertian, dan komitmen. Setiap tantangan yang kami hadapi bersama semakin memperkuat ikatan kami. Keluarga kami pun mulai saling mengenal dan memberikan restu.",
-    image: "🏡"
-  },
-  {
-    title: "Janji Suci",
-    date: "2024",
-    content: "Di bawah langit Bali yang cerah, Joseph melamar Ayu dengan penuh keyakinan. Dengan air mata bahagia, Ayu menerima lamaran itu. Kini, kami siap melangkah ke babak baru kehidupan. Dengan restu orang tua dan doa dari sahabat, kami akan mengikat janji suci di hadapan Tuhan untuk saling mencintai dan setia selamanya.",
-    image: "💍"
-  }
-]
+const storyChaptersData = {
+  id: [
+    {
+      title: "Awal Pertemuan",
+      date: "2018",
+      content: "Takdir mempertemukan kami di sebuah acara kampus. Joseph dengan canggungnya mencoba memulai percakapan, sementara Ayu hanya tersenyum malu. Siapa sangka, pertemuan sederhana itu menjadi awal dari kisah yang akan kami kenang selamanya. Kami mulai sering bertemu, berbagi cerita, dan tanpa sadar, hati kami mulai saling terikat.",
+      image: "💝"
+    },
+    {
+      title: "Mengenal Lebih Dalam",
+      date: "2019 - 2020",
+      content: "Dari sekadar teman menjadi sahabat, kami belajar memahami satu sama lain. Joseph yang penuh semangat dan Ayu yang lembut hati ternyata saling melengkapi dengan sempurna. Setiap percakapan panjang di malam hari, setiap tawa yang kami bagi, menguatkan keyakinan bahwa kami ditakdirkan bersama.",
+      image: "🌙"
+    },
+    {
+      title: "Membangun Mimpi Bersama",
+      date: "2021 - 2023",
+      content: "Kami mulai merajut mimpi bersama. Melalui suka dan duka, kami belajar arti sesungguhnya dari cinta - bukan hanya kebahagiaan, tapi juga kesabaran, pengertian, dan komitmen. Setiap tantangan yang kami hadapi bersama semakin memperkuat ikatan kami. Keluarga kami pun mulai saling mengenal dan memberikan restu.",
+      image: "🏡"
+    },
+    {
+      title: "Janji Suci",
+      date: "2024",
+      content: "Di bawah langit Bali yang cerah, Joseph melamar Ayu dengan penuh keyakinan. Dengan air mata bahagia, Ayu menerima lamaran itu. Kini, kami siap melangkah ke babak baru kehidupan. Dengan restu orang tua dan doa dari sahabat, kami akan mengikat janji suci di hadapan Tuhan untuk saling mencintai dan setia selamanya.",
+      image: "💍"
+    }
+  ],
+  en: [
+    {
+      title: "First Meeting",
+      date: "2018",
+      content: "Fate brought us together at a campus event. Joseph awkwardly tried to start a conversation, while Ayu just smiled shyly. Who would have thought that simple meeting would become the beginning of a story we would cherish forever. We started meeting often, sharing stories, and unknowingly, our hearts began to connect.",
+      image: "💝"
+    },
+    {
+      title: "Getting to Know Each Other",
+      date: "2019 - 2020",
+      content: "From just friends to close companions, we learned to understand each other. Joseph's enthusiasm and Ayu's gentle heart turned out to complement each other perfectly. Every long conversation at night, every laugh we shared, strengthened our belief that we were destined to be together.",
+      image: "🌙"
+    },
+    {
+      title: "Building Dreams Together",
+      date: "2021 - 2023",
+      content: "We began weaving dreams together. Through joy and sorrow, we learned the true meaning of love - not just happiness, but also patience, understanding, and commitment. Every challenge we faced together strengthened our bond. Our families also got to know each other and gave their blessings.",
+      image: "🏡"
+    },
+    {
+      title: "Sacred Promise",
+      date: "2024",
+      content: "Under Bali's bright sky, Joseph proposed to Ayu with full confidence. With tears of joy, Ayu accepted the proposal. Now, we are ready to step into a new chapter of life. With our parents' blessings and friends' prayers, we will make a sacred promise before God to love and be faithful to each other forever.",
+      image: "💍"
+    }
+  ]
+}
 
-function StoryChapter({ chapter, index }: { chapter: typeof storyChapters[0], index: number }) {
+function StoryChapter({ chapter, index }: { chapter: typeof storyChaptersData.id[0], index: number }) {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: false, margin: "-100px" })
   
@@ -90,6 +119,9 @@ function StoryChapter({ chapter, index }: { chapter: typeof storyChapters[0], in
 }
 
 export default function OurStory() {
+  const { language, t } = useLanguage()
+  const storyChapters = storyChaptersData[language]
+  
   return (
     <section id="our-story" className="min-h-screen flex items-center py-20 px-4">
       <div className="max-w-6xl mx-auto">
@@ -100,11 +132,16 @@ export default function OurStory() {
           transition={{ duration: 1 }}
           className="text-center mb-16"
         >
-          <h2 className="font-dancing text-5xl md:text-6xl text-gray-800 mb-4 text-shadow-soft">
-            Kisah Cinta Kami
-          </h2>
-          <p className="font-libre text-2xl text-gray-600">
-            "Cinta sejati bukanlah menemukan seseorang yang sempurna, tapi belajar melihat seseorang yang tidak sempurna dengan sempurna"
+          <div className="mb-4">
+            <p className="font-monsieur text-4xl md:text-5xl text-sage">
+              {language === 'id' ? 'Kisah' : 'Our'}
+            </p>
+            <h2 className="font-bodoni text-5xl md:text-6xl text-brown uppercase -mt-2">
+              {language === 'id' ? 'Cinta Kami' : 'Love Story'}
+            </h2>
+          </div>
+          <p className="font-libre text-base text-brown-soft">
+            {t.ourStory.quote}
           </p>
         </motion.div>
 

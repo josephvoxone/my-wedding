@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Music Preview - Joseph & Ayu</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(to bottom, #FAF7F2, #F5EFE6);
+            min-height: 100vh;
+        }
+        h1 {
+            color: #6B5D54;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+        .music-grid {
+            display: grid;
+            gap: 20px;
+        }
+        .music-item {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .music-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        .music-title {
+            font-size: 1.3em;
+            color: #6B5D54;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .music-type {
+            color: #9FA88E;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+        audio {
+            width: 100%;
+            margin-top: 10px;
+        }
+        .recommendation {
+            background: #9FA88E20;
+            padding: 10px;
+            border-radius: 8px;
+            margin-top: 10px;
+            color: #6B5D54;
+            font-size: 0.9em;
+        }
+        .best-pick {
+            border: 2px solid #C4A572;
+            background: #C4A57210;
+        }
+        .christian {
+            background: #E4C5C310;
+        }
+        .notes {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .notes h2 {
+            color: #6B5D54;
+            margin-top: 0;
+        }
+        .notes p {
+            color: #8B7355;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎵 Wedding Music Selection 🎵</h1>
+    
+    <div class="notes">
+        <h2>How to Use</h2>
+        <p>
+            1. Click play on each track to preview<br>
+            2. Choose your favorite for the wedding website<br>
+            3. The selected track will autoplay when guests open the invitation<br>
+            4. All music is royalty-free and safe to use
+        </p>
+    </div>
+
+    <div class="music-grid">
+        <div class="music-item best-pick">
+            <div class="music-title">1. Romantic Piano</div>
+            <div class="music-type">Classical Romance • Piano</div>
+            <audio controls>
+                <source src="options/1-romantic-piano.mp3" type="audio/mpeg">
+            </audio>
+            <div class="recommendation">⭐ RECOMMENDED: Classic wedding atmosphere, very romantic</div>
+        </div>
+
+        <div class="music-item">
+            <div class="music-title">2. Tenderness</div>
+            <div class="music-type">Soft Instrumental • Gentle</div>
+            <audio controls>
+                <source src="options/2-tenderness.mp3" type="audio/mpeg">
+            </audio>
+            <div class="recommendation">Perfect for intimate moments, very soft and sweet</div>
+        </div>
+
+        <div class="music-item">
+            <div class="music-title">3. Sweet</div>
+            <div class="music-type">Romantic • Uplifting</div>
+            <audio controls>
+                <source src="options/3-sweet.mp3" type="audio/mpeg">
+            </audio>
+            <div class="recommendation">Light and cheerful, creates happy atmosphere</div>
+        </div>
+
+        <div class="music-item christian">
+            <div class="music-title">4. Better Days</div>
+            <div class="music-type">Inspirational • Hopeful</div>
+            <audio controls>
+                <source src="options/4-better-days.mp3" type="audio/mpeg">
+            </audio>
+            <div class="recommendation">🙏 Christian feel - Uplifting and spiritual</div>
+        </div>
+
+        <div class="music-item best-pick">
+            <div class="music-title">5. Romantic</div>
+            <div class="music-type">Classical Romance • Orchestral</div>
+            <audio controls>
+                <source src="options/5-romantic.mp3" type="audio/mpeg">
+            </audio>
+            <div class="recommendation">⭐ RECOMMENDED: Beautiful orchestral, very wedding appropriate</div>
+        </div>
+
+        <div class="music-item">
+            <div class="music-title">6. Piano Moment</div>
+            <div class="music-type">Solo Piano • Emotional</div>
+            <audio controls>
+                <source src="options/6-piano-moment.mp3" type="audio/mpeg">
+            </audio>
+            <div class="recommendation">Simple and elegant piano, touching</div>
+        </div>
+
+        <div class="music-item christian">
+            <div class="music-title">7. Tomorrow</div>
+            <div class="music-type">Hopeful • Inspirational</div>
+            <audio controls>
+                <source src="options/7-tomorrow.mp3" type="audio/mpeg">
+            </audio>
+            <div class="recommendation">🙏 Christian feel - About new beginnings and hope</div>
+        </div>
+
+        <div class="music-item">
+            <div class="music-title">8. Once Again</div>
+            <div class="music-type">Nostalgic • Piano & Strings</div>
+            <audio controls>
+                <source src="options/8-once-again.mp3" type="audio/mpeg">
+            </audio>
+            <div class="recommendation">Beautiful blend of piano and strings, emotional</div>
+        </div>
+
+        <div class="music-item">
+            <div class="music-title">9. Memories</div>
+            <div class="music-type">Sentimental • Acoustic</div>
+            <audio controls>
+                <source src="options/9-memories.mp3" type="audio/mpeg">
+            </audio>
+            <div class="recommendation">Acoustic guitar, perfect for slideshow moments</div>
+        </div>
+
+        <div class="music-item">
+            <div class="music-title">10. Sunny</div>
+            <div class="music-type">Cheerful • Upbeat</div>
+            <audio controls>
+                <source src="options/10-sunny.mp3" type="audio/mpeg">
+            </audio>
+            <div class="recommendation">Happy and bright, good for celebration mood</div>
+        </div>
+    </div>
+
+    <div class="notes" style="margin-top: 30px;">
+        <h2>My Recommendations</h2>
+        <p>
+            <strong>For Classic Wedding Feel:</strong> Track 1 (Romantic Piano) or Track 5 (Romantic)<br>
+            <strong>For Christian/Spiritual:</strong> Track 4 (Better Days) or Track 7 (Tomorrow)<br>
+            <strong>For Intimate/Gentle:</strong> Track 2 (Tenderness) or Track 6 (Piano Moment)<br>
+            <strong>For Happy/Celebration:</strong> Track 3 (Sweet) or Track 10 (Sunny)
+        </p>
+    </div>
+</body>
+</html>

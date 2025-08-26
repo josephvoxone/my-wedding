@@ -1,26 +1,53 @@
 'use client'
 
-import { useEffect, useState, useRef } from 'react'
+import { useEffect, useState, useRef, forwardRef, useImperativeHandle } from 'react'
 import { Howl } from 'howler'
 
-export default function MusicPlayer() {
+export interface MusicPlayerRef {
+  startMusic: () => void
+}
+
+const MusicPlayer = forwardRef<MusicPlayerRef>((props, ref) => {
   const [isPlaying, setIsPlaying] = useState(false)
   const soundRef = useRef<Howl | null>(null)
+  const isInitialized = useRef(false)
 
   useEffect(() => {
+    // Prevent double initialization in React StrictMode
+    if (isInitialized.current) return
+    isInitialized.current = true
+
+    // Initialize audio
     soundRef.current = new Howl({
-      src: ['/music/wedding-song.mp3'],
-      loop: true,
+      src: ['/music/before-spring.mp3'],
+      loop: true, // Ensure looping is enabled
       volume: 0.3,
       autoplay: false,
+      html5: true,
+      preload: true,
+      onplay: () => setIsPlaying(true),
+      onpause: () => setIsPlaying(false),
+      onstop: () => setIsPlaying(false)
     })
 
     return () => {
+      // Clean up audio
       if (soundRef.current) {
         soundRef.current.unload()
+        soundRef.current = null
       }
+      isInitialized.current = false
     }
   }, [])
+
+  // Expose startMusic method to parent
+  useImperativeHandle(ref, () => ({
+    startMusic: () => {
+      if (soundRef.current && !soundRef.current.playing()) {
+        soundRef.current.play()
+      }
+    }
+  }))
 
   const toggleMusic = () => {
     if (soundRef.current) {
@@ -51,4 +78,8 @@ export default function MusicPlayer() {
       )}
     </button>
   )
-}
+})
+
+MusicPlayer.displayName = 'MusicPlayer'
+
+export default MusicPlayer

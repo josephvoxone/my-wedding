@@ -5,6 +5,8 @@ import { useSearchParams } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import { MorphingText } from '@/components/magicui/morphing-text'
 import { TextAnimate } from '@/components/magicui/text-animate'
+import { findGuest, getPersonalizedGreeting, getTableMessage } from '@/lib/guests'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 const greetings = [
   'Hai',           // Indonesia
@@ -20,12 +22,19 @@ const greetings = [
 export default function HelloSection() {
   const searchParams = useSearchParams()
   const [guestName, setGuestName] = useState('')
+  const [guest, setGuest] = useState<ReturnType<typeof findGuest>>()
   const [showMessage, setShowMessage] = useState(false)
+  const { language } = useLanguage()
   
   useEffect(() => {
     const name = searchParams.get('to') || searchParams.get('nama')
+    const guestId = searchParams.get('id')
+    
     if (name) {
       setGuestName(decodeURIComponent(name))
+      // Try to find guest by name or ID
+      const foundGuest = guestId ? findGuest(guestId) : findGuest(decodeURIComponent(name))
+      setGuest(foundGuest)
     }
   }, [searchParams])
 
@@ -67,7 +76,7 @@ export default function HelloSection() {
                   className="font-homemade text-2xl md:text-3xl lg:text-4xl text-sage-dark text-center"
                   as="p"
                 >
-                  Untuk yang terkasih,
+                  {language === 'id' ? 'Untuk yang terkasih,' : 'Dear beloved,'}
                 </TextAnimate>
                 <TextAnimate
                   animation="blurInUp"
@@ -77,8 +86,20 @@ export default function HelloSection() {
                   className="font-homemade text-5xl md:text-7xl lg:text-8xl text-brown text-center text-shadow-soft"
                   as="h2"
                 >
-                  {guestName}
+                  {guest?.nickname || guestName}
                 </TextAnimate>
+                {/* Show table assignment if available */}
+                {guest?.tableNumber && (
+                  <TextAnimate
+                    animation="fadeIn"
+                    duration={1}
+                    delay={3.5}
+                    className="font-libre text-sm md:text-base text-brown-soft text-center mt-2"
+                    as="p"
+                  >
+                    {getTableMessage(guest, language === 'id' ? 'id' : 'en') || ''}
+                  </TextAnimate>
+                )}
               </div>
             )}
             
@@ -99,35 +120,62 @@ export default function HelloSection() {
               transition={{ delay: 0.3, duration: 0.8 }}
             >
               <p className="font-homemade text-2xl md:text-3xl lg:text-4xl text-sage-dark mb-4">
-                Untuk yang terkasih,
+                {language === 'id' ? 'Untuk yang terkasih,' : 'Dear beloved,'}
               </p>
               <h2 className="font-homemade text-5xl md:text-7xl lg:text-8xl text-brown text-shadow-soft">
-                {guestName}
+                {guest?.nickname || guestName}
               </h2>
+              {/* Show table assignment if available */}
+              {guest?.tableNumber && (
+                <p className="font-libre text-sm md:text-base text-brown-soft mt-4">
+                  {getTableMessage(guest, language === 'id' ? 'id' : 'en')}
+                </p>
+              )}
             </motion.div>
             
-            {/* Thank You Message */}
+            {/* Custom Message or Default Thank You Message */}
             <div className="space-y-6">
-              <TextAnimate
-                animation="fadeIn"
-                by="word"
-                duration={3}
-                delay={0.8}
-                className="font-libre text-lg md:text-xl text-brown-soft text-justify leading-relaxed"
-                as="p"
-              >
-                Senang sekali bisa berbagi kabar bahagia ini denganmu. Kehadiranmu dalam hidup kami sangat berarti, dan kami percaya, doa serta dukunganmu ikut membentuk perjalanan kami sampai di titik ini.
-              </TextAnimate>
-              <TextAnimate
-                animation="fadeIn"
-                by="word"
-                duration={3}
-                delay={2.5}
-                className="font-libre text-lg md:text-xl text-brown-soft text-justify leading-relaxed"
-                as="p"
-              >
-                Terima kasih telah menjadi keluarga, sahabat, dan semua yang dekat di hati, yang selalu menjadi bagian dari cerita kami.
-              </TextAnimate>
+              {guest?.specialMessage ? (
+                // Show custom message if available
+                <TextAnimate
+                  animation="fadeIn"
+                  by="word"
+                  duration={3}
+                  delay={0.8}
+                  className="font-libre text-lg md:text-xl text-brown-soft text-justify leading-relaxed"
+                  as="p"
+                >
+                  {guest.specialMessage}
+                </TextAnimate>
+              ) : (
+                // Show default messages
+                <>
+                  <TextAnimate
+                    animation="fadeIn"
+                    by="word"
+                    duration={3}
+                    delay={0.8}
+                    className="font-libre text-lg md:text-xl text-brown-soft text-justify leading-relaxed"
+                    as="p"
+                  >
+                    {language === 'id' 
+                      ? 'Senang sekali bisa berbagi kabar bahagia ini denganmu. Kehadiranmu dalam hidup kami sangat berarti, dan kami percaya, doa serta dukunganmu ikut membentuk perjalanan kami sampai di titik ini.'
+                      : 'We are thrilled to share this joyful news with you. Your presence in our lives means so much, and we believe your prayers and support have helped shape our journey to this point.'}
+                  </TextAnimate>
+                  <TextAnimate
+                    animation="fadeIn"
+                    by="word"
+                    duration={3}
+                    delay={2.5}
+                    className="font-libre text-lg md:text-xl text-brown-soft text-justify leading-relaxed"
+                    as="p"
+                  >
+                    {language === 'id'
+                      ? 'Terima kasih telah menjadi keluarga, sahabat, dan semua yang dekat di hati, yang selalu menjadi bagian dari cerita kami.'
+                      : 'Thank you for being family, friends, and all those dear to our hearts, who have always been part of our story.'}
+                  </TextAnimate>
+                </>
+              )}
             </div>
           </motion.div>
         )}
@@ -143,7 +191,7 @@ export default function HelloSection() {
             onClick={() => setShowMessage(true)}
             className="px-8 py-3 bg-white-soft/80 backdrop-blur-sm border-2 border-sage/30 rounded-full font-libre text-sage-dark hover:bg-sage/10 hover:border-sage/50 transition-all duration-300 shadow-md hover:shadow-lg"
           >
-            Buka Pesan
+            {language === 'id' ? 'Buka Pesan' : 'Open Message'}
           </motion.button>
         </div>
       )}
@@ -164,7 +212,7 @@ export default function HelloSection() {
             document.getElementById('hero')?.scrollIntoView({ behavior: 'smooth' })
           }}
         >
-          <p className="font-libre text-brown-soft mb-2 text-sm md:text-base">Geser ke bawah</p>
+          <p className="font-libre text-brown-soft mb-2 text-sm md:text-base">{language === 'id' ? 'Geser ke bawah' : 'Scroll down'}</p>
           <motion.svg 
             className="w-5 h-5 md:w-6 md:h-6 text-brown-soft" 
             fill="none" 

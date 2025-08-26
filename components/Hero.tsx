@@ -3,6 +3,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useSearchParams } from 'next/navigation'
 import { useEffect, useState, useRef } from 'react'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 interface TimeLeft {
   days: number
@@ -17,6 +18,7 @@ export default function Hero() {
   const [personalMessage, setPersonalMessage] = useState('')
   const [timeLeft, setTimeLeft] = useState<TimeLeft>({ days: 0, hours: 0, minutes: 0, seconds: 0 })
   const containerRef = useRef(null)
+  const { language, t } = useLanguage()
   
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -80,7 +82,7 @@ export default function Hero() {
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.2 }}
         >
-          The Wedding of
+          {t.hero.weddingOf}
         </motion.p>
         
         <motion.h1 
@@ -106,7 +108,7 @@ export default function Hero() {
         >
           <div className="flex items-center justify-center gap-3 md:gap-4 mb-4">
             <p className="font-libre text-lg md:text-xl text-gold-elegant font-bold">
-              Selasa, 09 Sept 2025
+              {language === 'id' ? 'Selasa, 09 Sept 2025' : 'Tuesday, Sept 09, 2025'}
             </p>
             <span className="text-gold-elegant/40 text-xl">|</span>
             <p className="font-libre text-lg md:text-xl text-gold-elegant font-bold">
@@ -130,7 +132,7 @@ export default function Hero() {
           transition={{ duration: 1, delay: 1 }}
           className="mt-8"
         >
-          <p className="font-libre text-sm md:text-base text-sage-dark mb-4">Menghitung hari menuju momen bahagia</p>
+          <p className="font-libre text-sm md:text-base text-sage-dark mb-4">{t.hero.countingDown}</p>
           <div className="flex gap-4 md:gap-6 justify-center">
             <motion.div 
               className="bg-white-soft/60 backdrop-blur-sm border border-sage/20 rounded-xl p-4 md:p-6 shadow-md"
@@ -138,7 +140,7 @@ export default function Hero() {
               transition={{ type: "spring", stiffness: 300 }}
             >
               <p className="font-monsieur text-3xl md:text-5xl text-brown font-bold">{timeLeft.days}</p>
-              <p className="font-libre text-sm md:text-base text-brown-soft mt-1">Hari</p>
+              <p className="font-libre text-sm md:text-base text-brown-soft mt-1">{t.hero.days}</p>
             </motion.div>
             <motion.div 
               className="bg-white-soft/60 backdrop-blur-sm border border-sage/20 rounded-xl p-4 md:p-6 shadow-md"
@@ -146,7 +148,7 @@ export default function Hero() {
               transition={{ type: "spring", stiffness: 300 }}
             >
               <p className="font-monsieur text-3xl md:text-5xl text-brown font-bold">{timeLeft.hours}</p>
-              <p className="font-libre text-sm md:text-base text-brown-soft mt-1">Jam</p>
+              <p className="font-libre text-sm md:text-base text-brown-soft mt-1">{t.hero.hours}</p>
             </motion.div>
             <motion.div 
               className="bg-white-soft/60 backdrop-blur-sm border border-sage/20 rounded-xl p-4 md:p-6 shadow-md"
@@ -154,7 +156,7 @@ export default function Hero() {
               transition={{ type: "spring", stiffness: 300 }}
             >
               <p className="font-monsieur text-3xl md:text-5xl text-brown font-bold">{timeLeft.minutes}</p>
-              <p className="font-libre text-sm md:text-base text-brown-soft mt-1">Menit</p>
+              <p className="font-libre text-sm md:text-base text-brown-soft mt-1">{t.hero.minutes}</p>
             </motion.div>
             <motion.div 
               className="bg-white-soft/60 backdrop-blur-sm border border-sage/20 rounded-xl p-4 md:p-6 shadow-md"
@@ -162,7 +164,7 @@ export default function Hero() {
               transition={{ type: "spring", stiffness: 300 }}
             >
               <p className="font-monsieur text-3xl md:text-5xl text-brown font-bold">{timeLeft.seconds}</p>
-              <p className="font-libre text-sm md:text-base text-brown-soft mt-1">Detik</p>
+              <p className="font-libre text-sm md:text-base text-brown-soft mt-1">{t.hero.seconds}</p>
             </motion.div>
           </div>
         </motion.div>

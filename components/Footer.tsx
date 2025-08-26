@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 
 export default function Footer() {
   return (
-    <footer className="py-12 px-4 bg-gradient-to-b from-white to-sky-50">
+    <footer className="py-16 px-4 bg-gradient-to-b from-cream to-cream-dark">
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -12,28 +12,22 @@ export default function Footer() {
         transition={{ duration: 1 }}
         className="max-w-4xl mx-auto text-center"
       >
-        <div className="glass-effect rounded-2xl p-8 mb-8">
-          <h3 className="font-dancing text-3xl text-gray-800 mb-4">Terima Kasih</h3>
-          <p className="font-libre text-xl text-gray-600 mb-6">
-            Kehadiran dan doa restu kamu adalah kado terindah buat kami. <br/>
-            Sampai jumpa di hari bahagia kami!
+        <div className="mb-12">
+          <p className="font-monsieur text-5xl text-brown mb-2">Joseph & Ayu</p>
+          <p className="font-libre text-lg text-brown-soft mb-4">
+            Tuesday, 9 September 2025
           </p>
-          <div className="flex justify-center gap-2 text-2xl">
-            <span>💕</span>
-            <span>🌸</span>
-            <span>✨</span>
-            <span>🌸</span>
-            <span>💕</span>
-          </div>
+          <p className="font-libre text-sage text-base">
+            #JosephAyuForever
+          </p>
         </div>
 
-        <div className="text-center">
-          <p className="font-dancing text-4xl text-gray-800 mb-2">Joseph & Ayu</p>
-          <p className="font-libre text-lg text-gray-600">
-            #JosephAyuWedding
+        <div className="border-t border-sage/20 pt-8">
+          <p className="font-libre text-sm text-brown-soft mb-2">
+            Made with ❤️ by Joseph
           </p>
-          <p className="font-libre text-sm text-gray-500 mt-4">
-            © 2025 Dibuat dengan penuh cinta untuk hari spesial kami
+          <p className="font-libre text-xs text-brown-soft/60">
+            © 2025 All rights reserved
           </p>
         </div>
       </motion.div>
