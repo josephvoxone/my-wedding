@@ -39,7 +39,7 @@ export default function HelloSection() {
   }, [searchParams])
 
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center p-4 bg-gradient-to-b from-cream to-cream-dark relative">
+    <section className="min-h-screen flex flex-col items-center justify-center p-8 bg-gradient-to-b from-cream to-cream-dark relative">
       <AnimatePresence mode="wait">
         {!showMessage ? (
           <motion.div

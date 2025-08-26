@@ -67,7 +67,7 @@ export default function Hero() {
   }, [])
   
   return (
-    <section id="hero" ref={containerRef} className="min-h-screen flex flex-col items-center justify-center relative px-4 overflow-hidden">
+    <section id="hero" ref={containerRef} className="min-h-screen flex flex-col items-center justify-center relative px-8 overflow-hidden">
       
       <motion.div
         style={{ y, opacity, scale }}

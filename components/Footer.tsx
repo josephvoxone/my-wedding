@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 
 export default function Footer() {
   return (
-    <footer className="py-16 px-4 bg-gradient-to-b from-cream to-cream-dark">
+    <footer className="py-16 px-8 bg-gradient-to-b from-cream to-cream-dark">
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}

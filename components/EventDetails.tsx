@@ -33,7 +33,7 @@ export default function EventDetails() {
   const backgroundY = useTransform(scrollYProgress, [0, 1], [-100, 100])
   
   return (
-    <section ref={containerRef} id="event-details" className="py-20 px-4 bg-gradient-to-b from-white to-sky-50 overflow-hidden relative">
+    <section ref={containerRef} id="event-details" className="py-20 px-8 bg-gradient-to-b from-white to-sky-50 overflow-hidden relative">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

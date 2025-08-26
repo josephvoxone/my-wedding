@@ -41,7 +41,7 @@ export default function Gallery() {
   const [selectedImage, setSelectedImage] = useState<typeof photos[0] | null>(null)
 
   return (
-    <section id="gallery" className="min-h-screen flex items-center py-20 px-4 bg-gradient-to-b from-cream to-white">
+    <section id="gallery" className="min-h-screen flex items-center py-20 px-8 bg-gradient-to-b from-cream to-white">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

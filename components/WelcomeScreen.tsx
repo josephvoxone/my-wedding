@@ -14,26 +14,30 @@ export default function WelcomeScreen({ onOpen }: WelcomeScreenProps) {
     setIsClosing(true)
     setTimeout(() => {
       onOpen()
-    }, 800)
+    }, 1000)
   }
 
   return (
     <AnimatePresence>
       {!isClosing ? (
         <motion.div
-          initial={{ y: 0 }}
-          animate={{ y: 0 }}
-          exit={{ y: '-100%' }}
-          transition={{ duration: 0.8, ease: 'easeInOut' }}
+          initial={{ y: 0, opacity: 1 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: '-100%', opacity: 0 }}
+          transition={{ duration: 1, ease: 'easeInOut' }}
           className="fixed inset-0 z-[100] bg-gradient-to-b from-cream to-cream-dark flex flex-col items-center justify-center"
         >
           {/* Content centered */}
-          <div className="flex-1 flex flex-col items-center justify-center text-center px-4">
+          <motion.div 
+            className="flex-1 flex flex-col items-center justify-center text-center px-4"
+            animate={{ opacity: isClosing ? 0 : 1 }}
+            transition={{ duration: 0.5 }}
+          >
             {/* Names */}
             <motion.div
               initial={{ y: -20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              animate={{ y: isClosing ? -30 : 0, opacity: isClosing ? 0 : 1 }}
+              transition={{ duration: 0.8, delay: isClosing ? 0 : 0.2 }}
             >
               <p className="font-libre text-sage text-lg mb-4">The Wedding of</p>
               <h1 className="font-monsieur text-6xl md:text-8xl text-brown mb-6 text-shadow-soft">
@@ -44,20 +48,20 @@ export default function WelcomeScreen({ onOpen }: WelcomeScreenProps) {
             {/* Date */}
             <motion.div
               initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
+              animate={{ y: isClosing ? -30 : 0, opacity: isClosing ? 0 : 1 }}
+              transition={{ duration: 0.8, delay: isClosing ? 0 : 0.4 }}
             >
               <p className="font-libre text-sage-dark text-lg">
                 09 . 09 . 2025
               </p>
             </motion.div>
-          </div>
+          </motion.div>
 
           {/* Open Button at bottom */}
           <motion.div
             initial={{ y: 50, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
+            animate={{ y: isClosing ? 100 : 0, opacity: isClosing ? 0 : 1 }}
+            transition={{ duration: 0.8, delay: isClosing ? 0 : 0.6 }}
             className="pb-20"
           >
             <button
@@ -68,14 +72,7 @@ export default function WelcomeScreen({ onOpen }: WelcomeScreenProps) {
             </button>
           </motion.div>
         </motion.div>
-      ) : (
-        <motion.div
-          initial={{ y: 0 }}
-          animate={{ y: '-100%' }}
-          transition={{ duration: 0.8, ease: 'easeInOut' }}
-          className="fixed inset-0 z-[100] bg-gradient-to-b from-cream to-cream-dark"
-        />
-      )}
+      ) : null}
     </AnimatePresence>
   )
 }

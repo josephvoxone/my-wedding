@@ -25,7 +25,7 @@ export default function LiveStreaming() {
   }
 
   return (
-    <section id="livestream" className="min-h-screen flex items-center py-20 px-4 bg-gradient-to-b from-white to-cream">
+    <section id="livestream" className="min-h-screen flex items-center py-20 px-8 bg-gradient-to-b from-white to-cream">
       <div className="max-w-5xl mx-auto w-full">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -139,7 +139,7 @@ export default function LiveStreaming() {
             <motion.div
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="mt-6 bg-green-500/10 text-green-700 px-4 py-2 rounded-lg inline-block"
+              className="mt-6 bg-green-500/10 text-green-700 px-8 py-2 rounded-lg inline-block"
             >
               <p className="font-libre text-sm">✅ Calendar event added successfully!</p>
             </motion.div>
