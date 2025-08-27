@@ -17,6 +17,8 @@ import WelcomeScreen from '@/components/WelcomeScreen'
 
 export default function Home() {
   const [showWelcome, setShowWelcome] = useState(true)
+  const [showContent, setShowContent] = useState(false)
+  const [messageOpened, setMessageOpened] = useState(false)
   const musicPlayerRef = useRef<MusicPlayerRef>(null)
 
   const handleOpenInvitation = () => {
@@ -25,6 +27,10 @@ export default function Home() {
       musicPlayerRef.current.startMusic()
     }
     setShowWelcome(false)
+    // Delay showing content to allow welcome screen to fully animate out
+    setTimeout(() => {
+      setShowContent(true)
+    }, 800)
   }
 
   return (
@@ -32,20 +38,28 @@ export default function Home() {
       {showWelcome && <WelcomeScreen onOpen={handleOpenInvitation} />}
       <MusicPlayer ref={musicPlayerRef} />
       <LanguageSwitcher />
-      <Suspense fallback={<div className="min-h-screen" />}>
-        <HelloSection />
-      </Suspense>
-      <Suspense fallback={<div className="min-h-screen" />}>
-        <Hero />
-      </Suspense>
-      <Parents />
-      <OurStory />
-      <Location />
-      <RSVP />
-      <LiveStreaming />
-      <Gallery />
-      <Gift />
-      <Footer />
+      {showContent && (
+        <>
+          <Suspense fallback={<div className="min-h-screen" />}>
+            <HelloSection 
+              key="hello-section" 
+              onMessageOpen={() => setMessageOpened(true)}
+              scrollLocked={!messageOpened}
+            />
+          </Suspense>
+          <Suspense fallback={<div className="min-h-screen" />}>
+            <Hero />
+          </Suspense>
+          <Parents />
+          <OurStory />
+          <Location />
+          <RSVP />
+          <LiveStreaming />
+          <Gallery />
+          <Gift />
+          <Footer />
+        </>
+      )}
     </main>
   )
 }

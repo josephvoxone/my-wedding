@@ -36,10 +36,10 @@ export default function Parents() {
                 <div className="mb-6 flex justify-center">
                   <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-sage/20">
                     <Image
-                      src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop"
+                      src="/assets/couple/joseph.jpg"
                       alt="Joseph Shandy Harvian"
                       fill
-                      className="object-cover"
+                      className="object-cover grayscale"
                     />
                   </div>
                 </div>
@@ -70,10 +70,10 @@ export default function Parents() {
                 <div className="mb-6 flex justify-center">
                   <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-sage/20">
                     <Image
-                      src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop"
+                      src="/assets/couple/ayu.jpg"
                       alt="Ayu Lestari"
                       fill
-                      className="object-cover"
+                      className="object-cover grayscale"
                     />
                   </div>
                 </div>

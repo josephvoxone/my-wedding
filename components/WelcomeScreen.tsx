@@ -1,7 +1,9 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useLanguage } from '@/contexts/LanguageContext'
+import { translations } from '@/lib/translations'
 
 interface WelcomeScreenProps {
   onOpen: () => void
@@ -9,6 +11,8 @@ interface WelcomeScreenProps {
 
 export default function WelcomeScreen({ onOpen }: WelcomeScreenProps) {
   const [isClosing, setIsClosing] = useState(false)
+  const { language } = useLanguage()
+  const t = translations[language]
 
   const handleOpen = () => {
     setIsClosing(true)
@@ -39,7 +43,7 @@ export default function WelcomeScreen({ onOpen }: WelcomeScreenProps) {
               animate={{ y: isClosing ? -30 : 0, opacity: isClosing ? 0 : 1 }}
               transition={{ duration: 0.8, delay: isClosing ? 0 : 0.2 }}
             >
-              <p className="font-libre text-sage text-lg mb-4">The Wedding of</p>
+              <p className="font-libre text-sage text-lg mb-4">{t.welcome.weddingOf}</p>
               <h1 className="font-monsieur text-6xl md:text-8xl text-brown mb-6 text-shadow-soft">
                 Joseph & Ayu
               </h1>
@@ -62,14 +66,17 @@ export default function WelcomeScreen({ onOpen }: WelcomeScreenProps) {
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: isClosing ? 100 : 0, opacity: isClosing ? 0 : 1 }}
             transition={{ duration: 0.8, delay: isClosing ? 0 : 0.6 }}
-            className="pb-20"
+            className="pb-20 text-center"
           >
             <button
               onClick={handleOpen}
-              className="px-8 py-4 bg-white/80 backdrop-blur-sm border-2 border-sage/30 rounded-full font-libre text-sage-dark hover:bg-sage/10 hover:border-sage/50 transition-all duration-300 shadow-lg hover:shadow-xl"
+              className="px-8 py-4 bg-white/80 backdrop-blur-sm border-2 border-sage/30 rounded-full font-libre text-sage-dark hover:bg-sage/10 hover:border-sage/50 transition-all duration-300 shadow-lg hover:shadow-xl mb-4"
             >
-              Buka Undangan
+              {t.welcome.openInvitation}
             </button>
+            <p className="font-libre text-xs text-sage/70 max-w-xs mx-auto px-4">
+              {t.welcome.customMessage}
+            </p>
           </motion.div>
         </motion.div>
       ) : null}

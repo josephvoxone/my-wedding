@@ -1,26 +1,21 @@
 # Guest Management Guide for Joseph & Ayu's Wedding Website
 
 ## Overview
-This system allows you to manage personalized invitations for each guest with custom messages, table assignments, and more.
+This system allows you to manage personalized invitations for each guest with custom messages, photos, and more. All fields are optional - you can have as much or as little information as needed for each guest.
 
 ## Option 1: Using CSV File (Simple)
 
 ### Steps:
-1. Edit the file `/public/data/guests-template.csv` 
-2. Add your guests following the format
-3. Import the data in `/lib/guests.ts`
+1. Edit the file `/data/guests.csv` 
+2. Add your guests following the CSV format
+3. Import the data in `/lib/guests.ts` (we'll handle this for you)
 
 ### CSV Columns:
-- **name**: Full name of the guest
+- **slug**: URL-friendly identifier (REQUIRED - Primary Key, e.g., "budi-santoso")
+- **name**: Full name of the guest (optional)
 - **nickname**: Short name for greeting (optional)
-- **side**: Either "groom" or "bride"
-- **tableNumber**: Table assignment (optional)
-- **specialMessage**: Personal message for this guest (optional)
-- **phoneNumber**: Contact number (optional)
-- **expectedGuests**: How many people they might bring
-- **group**: Category like Family, Friends, Colleague
-- **vip**: true/false for special guests
-- **customGreeting**: Completely custom greeting message (optional)
+- **specialMessage**: Personal message to show in the invitation (optional)
+- **imagePath**: Path to guest's photo, e.g., "/assets/guests/budi.jpg" (optional)
 
 ## Option 2: Using Google Sheets (Recommended) 
 
@@ -33,16 +28,11 @@ This system allows you to manage personalized invitations for each guest with cu
 
 2. **Set up columns** (Row 1):
    ```
-   A: name
-   B: nickname
-   C: side
-   D: tableNumber
-   E: specialMessage
-   F: phoneNumber
-   G: expectedGuests
-   H: group
-   I: vip
-   J: customGreeting
+   A: slug (REQUIRED - Primary Key)
+   B: name
+   C: nickname
+   D: specialMessage
+   E: imagePath
    ```
 
 3. **Add your guest data** starting from Row 2
@@ -60,24 +50,30 @@ This system allows you to manage personalized invitations for each guest with cu
 
 ### Example Google Sheet Structure:
 
-| name | nickname | side | tableNumber | specialMessage | phoneNumber | expectedGuests | group | vip | customGreeting |
-|------|----------|------|-------------|----------------|-------------|----------------|-------|-----|----------------|
-| Budi Santoso | Budi | groom | 1 | Terima kasih sudah menjadi sahabat terbaik! | 08123456789 | 2 | Friends | true | Hai Budi! Kamu adalah sahabat terbaik yang pernah kumiliki. |
-| Siti Nurhaliza | Siti | bride | 2 | Senang sekali kamu bisa datang! | 08234567890 | 3 | Family | true | Hai Tante Siti! Terima kasih sudah menjadi bagian dari keluarga kami. |
+| slug | name | nickname | specialMessage | imagePath |
+|------|------|----------|----------------|-----------|
+| budi-santoso | Budi Santoso | Budi | Terima kasih sudah menjadi sahabat terbaik! | /assets/guests/budi.jpg |
+| siti-nurhaliza | Siti Nurhaliza | Tante Siti | Terima kasih sudah menjadi bagian dari keluarga kami. |  |
+| general | Tamu Undangan |  |  |  |
 
 ## Generating Invitation Links
 
 Each guest will get a personalized link like:
 ```
-https://your-website.com?to=Budi&message=Terima%20kasih%20sudah%20menjadi%20sahabat%20terbaik&table=1&id=001
+https://your-website.com?to=budi-santoso
+https://your-website.com?to=siti-nurhaliza
+https://your-website.com?to=general
 ```
+
+The `to` parameter uses the guest's slug (primary key) to identify them.
 
 ### Features of Personalized Links:
 - Custom greeting with guest's name
-- Special message display
-- Table number information
+- Special message display (if provided)
+- Guest photo display (if provided)
 - Track who opened the invitation
 - Pre-filled RSVP form
+- If no guest name is provided, shows general invitation
 
 ## How to Send Invitations
 

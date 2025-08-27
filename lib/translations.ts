@@ -1,5 +1,12 @@
 export const translations = {
   id: {
+    // WelcomeScreen
+    welcome: {
+      weddingOf: 'Pernikahan',
+      openInvitation: 'Buka Undangan',
+      customMessage: 'Handcrafted code, no templates, just love untuk teman dan tamu tercinta.',
+    },
+    
     // HelloSection
     hello: {
       greeting: 'Halo',
@@ -160,6 +167,13 @@ export const translations = {
   },
   
   en: {
+    // WelcomeScreen
+    welcome: {
+      weddingOf: 'The Wedding of',
+      openInvitation: 'Open Invitation',
+      customMessage: 'Built from scratch, no vendors, pure love for our beloved friends and guests.',
+    },
+    
     // HelloSection
     hello: {
       greeting: 'Hello',
