@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { useState } from 'react'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 const photos = [
   { 
@@ -39,6 +40,7 @@ const photos = [
 
 export default function Gallery() {
   const [selectedImage, setSelectedImage] = useState<typeof photos[0] | null>(null)
+  const { language, t } = useLanguage()
 
   return (
     <section id="gallery" className="min-h-screen flex items-center py-20 px-8 bg-gradient-to-b from-cream to-white">
@@ -52,14 +54,14 @@ export default function Gallery() {
         >
           <div className="mb-4">
             <p className="font-monsieur text-4xl md:text-5xl text-sage">
-              Our
+              {t.gallery.our}
             </p>
             <h2 className="font-bodoni text-5xl md:text-6xl text-brown uppercase -mt-2">
-              Gallery
+              {t.gallery.gallery}
             </h2>
           </div>
           <p className="font-libre text-base text-brown-soft">
-            Every photo tells a story, every story is filled with meaning
+            {t.gallery.subtitle}
           </p>
         </motion.div>
 

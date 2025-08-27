@@ -30,12 +30,14 @@ export const translations = {
     
     // Parents
     parents: {
-      the: 'The',
-      brideAndGroom: 'Bride & Groom',
+      the: 'Mempelai',
+      brideAndGroom: 'Pria & Wanita',
       sonOf: 'Putra dari',
       daughterOf: 'Putri dari',
       late: 'Alm.',
       quote: 'Dua keluarga menjadi satu',
+      mrJuli: 'Bpk. Juli Puguh Hariyanto & Ibu Novi Yuanita',
+      mrTeddy: 'Bpk. Teddy Gunawan (Alm.) & Ibu Filanda Teddy',
     },
     
     // OurStory
@@ -130,8 +132,8 @@ export const translations = {
     
     // Gallery
     gallery: {
-      our: 'Our',
-      gallery: 'Gallery',
+      our: 'Galeri',
+      gallery: 'Foto',
       subtitle: 'Setiap foto menceritakan kisah, setiap kisah penuh makna',
       captions: {
         alone: 'Momen ketenangan',
@@ -203,6 +205,8 @@ export const translations = {
       daughterOf: 'Daughter of',
       late: 'Late',
       quote: 'Two families become one',
+      mrJuli: 'Mr. Juli Puguh Hariyanto & Mrs. Novi Yuanita',
+      mrTeddy: 'Mr. Teddy Gunawan (Late) & Mrs. Filanda Teddy',
     },
     
     // OurStory

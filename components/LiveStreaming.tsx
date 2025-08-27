@@ -2,8 +2,10 @@
 
 import { motion } from 'framer-motion'
 import { useState } from 'react'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 export default function LiveStreaming() {
+  const { language, t } = useLanguage()
   const [showReminder, setShowReminder] = useState(false)
 
   const handleSetReminder = () => {
@@ -43,7 +45,7 @@ export default function LiveStreaming() {
             </h2>
           </div>
           <p className="font-libre text-base text-brown-soft max-w-3xl mx-auto">
-            Can't join us in person? Don't worry! We've arranged a live stream so you can still be part of our special day from wherever you are.
+            {t.liveStreaming.subtitle}
           </p>
         </motion.div>
 
@@ -62,16 +64,16 @@ export default function LiveStreaming() {
                   <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
                 </svg>
               </div>
-              <h3 className="font-bodoni text-2xl text-brown uppercase mb-2">YouTube Live</h3>
+              <h3 className="font-bodoni text-2xl text-brown uppercase mb-2">{t.liveStreaming.youtubeLive}</h3>
               <p className="font-libre text-sm text-brown-soft mb-4">
-                Watch the ceremony and reception live
+                {t.liveStreaming.watchLive}
               </p>
             </div>
 
             <div className="space-y-4">
               <div className="bg-cream/50 rounded-xl p-4 text-center">
                 <p className="font-libre text-brown-soft text-sm mb-2">
-                  Stream starts at:
+                  {t.liveStreaming.streamStarts}
                 </p>
                 <p className="font-bodoni text-xl text-brown">
                   08:45 AM WITA
@@ -90,7 +92,7 @@ export default function LiveStreaming() {
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
                 </svg>
-                Watch on YouTube
+                {t.liveStreaming.watchOnYoutube}
               </a>
             </div>
           </motion.div>
@@ -104,32 +106,32 @@ export default function LiveStreaming() {
           transition={{ duration: 1 }}
           className="bg-white-soft/60 backdrop-blur-sm rounded-2xl p-8 text-center"
         >
-          <h3 className="font-bodoni text-2xl text-brown mb-4 uppercase">Important Notes</h3>
+          <h3 className="font-bodoni text-2xl text-brown mb-4 uppercase">{t.liveStreaming.importantNotes}</h3>
           <div className="grid md:grid-cols-3 gap-6 text-left max-w-3xl mx-auto">
             <div className="flex items-start gap-3">
               <span className="text-sage text-xl">📱</span>
               <div>
-                <p className="font-libre text-sm text-brown font-bold mb-1">Test Connection</p>
+                <p className="font-libre text-sm text-brown font-bold mb-1">{t.liveStreaming.testConnection}</p>
                 <p className="font-libre text-xs text-brown-soft">
-                  Please test your internet connection before the event
+                  {t.liveStreaming.testConnectionDesc}
                 </p>
               </div>
             </div>
             <div className="flex items-start gap-3">
               <span className="text-sage text-xl">🔇</span>
               <div>
-                <p className="font-libre text-sm text-brown font-bold mb-1">Mute Microphone</p>
+                <p className="font-libre text-sm text-brown font-bold mb-1">{t.liveStreaming.muteMicrophone}</p>
                 <p className="font-libre text-xs text-brown-soft">
-                  Keep your mic muted during the ceremony
+                  {t.liveStreaming.muteMicrophoneDesc}
                 </p>
               </div>
             </div>
             <div className="flex items-start gap-3">
               <span className="text-sage text-xl">💬</span>
               <div>
-                <p className="font-libre text-sm text-brown font-bold mb-1">Share Wishes</p>
+                <p className="font-libre text-sm text-brown font-bold mb-1">{t.liveStreaming.shareWishes}</p>
                 <p className="font-libre text-xs text-brown-soft">
-                  Use chat to share your wishes and blessings
+                  {t.liveStreaming.shareWishesDesc}
                 </p>
               </div>
             </div>
@@ -141,7 +143,7 @@ export default function LiveStreaming() {
               animate={{ opacity: 1, y: 0 }}
               className="mt-6 bg-green-500/10 text-green-700 px-8 py-2 rounded-lg inline-block"
             >
-              <p className="font-libre text-sm">✅ Calendar event added successfully!</p>
+              <p className="font-libre text-sm">{t.liveStreaming.calendarAdded}</p>
             </motion.div>
           )}
           
@@ -153,7 +155,7 @@ export default function LiveStreaming() {
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
               </svg>
-              Add to Calendar
+              {t.liveStreaming.addToCalendar}
             </button>
           )}
         </motion.div>

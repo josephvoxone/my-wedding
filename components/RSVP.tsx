@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -29,6 +30,7 @@ const itemVariants = {
 }
 
 export default function RSVP() {
+  const { language, t } = useLanguage()
   const [formData, setFormData] = useState({
     name: '',
     relationship: 'groom',
@@ -95,9 +97,9 @@ export default function RSVP() {
             >
               💌
             </motion.div>
-            <h3 className="font-dancing text-4xl text-gray-800 mb-4">Thank You!</h3>
+            <h3 className="font-dancing text-4xl text-gray-800 mb-4">{t.rsvp.thankYou}</h3>
             <p className="font-libre text-xl text-gray-600">
-              Your presence is the best gift for us. See you on our special day!
+              {t.rsvp.thankYouMessage}
             </p>
           </motion.div>
         </div>
@@ -126,10 +128,10 @@ export default function RSVP() {
               damping: 10
             }}
           >
-            RSVP
+            {t.rsvp.title}
           </motion.h2>
           <p className="font-libre text-base text-brown-soft">
-            Please confirm your attendance by filling out the form below
+            {t.rsvp.subtitle}
           </p>
         </motion.div>
 
@@ -144,7 +146,7 @@ export default function RSVP() {
           <motion.div className="space-y-6">
             <motion.div variants={itemVariants}>
               <label className="block font-libre text-xl text-brown mb-2">
-                Your Name
+                {t.rsvp.yourName}
               </label>
               <input
                 type="text"
@@ -153,13 +155,13 @@ export default function RSVP() {
                 value={formData.name}
                 onChange={handleChange}
                 className="w-full px-4 py-3 rounded-xl border border-sage/30 focus:border-sage focus:outline-none transition-colors font-libre bg-white/50"
-                placeholder="Full name"
+                placeholder={t.rsvp.yourName}
               />
             </motion.div>
 
             <motion.div variants={itemVariants}>
               <label className="block font-libre text-xl text-brown mb-2">
-                You are guest of
+                {t.rsvp.guestOf}
               </label>
               <select
                 name="relationship"
@@ -167,14 +169,14 @@ export default function RSVP() {
                 onChange={handleChange}
                 className="w-full px-4 py-3 rounded-xl border border-sage/30 focus:border-sage focus:outline-none transition-colors font-libre bg-white/50"
               >
-                <option value="groom">Groom's side (Joseph)</option>
-                <option value="bride">Bride's side (Ayu)</option>
+                <option value="groom">{t.rsvp.groomSide}</option>
+                <option value="bride">{t.rsvp.brideSide}</option>
               </select>
             </motion.div>
 
             <motion.div variants={itemVariants}>
               <label className="block font-libre text-xl text-brown mb-2">
-                Will you attend?
+                {t.rsvp.willAttend}
               </label>
               <select
                 name="attendance"
@@ -182,8 +184,8 @@ export default function RSVP() {
                 onChange={handleChange}
                 className="w-full px-4 py-3 rounded-xl border border-sage/30 focus:border-sage focus:outline-none transition-colors font-libre bg-white/50"
               >
-                <option value="yes">Yes, I'll be there!</option>
-                <option value="no">Sorry, can't make it</option>
+                <option value="yes">{t.rsvp.yesAttend}</option>
+                <option value="no">{t.rsvp.noAttend}</option>
               </select>
             </motion.div>
 
@@ -196,7 +198,7 @@ export default function RSVP() {
                   exit="hidden"
                 >
                   <label className="block font-libre text-xl text-brown mb-2">
-                    Number of Guests
+                    {t.rsvp.numberOfGuests}
                   </label>
                   <select
                     name="guests"
@@ -204,10 +206,10 @@ export default function RSVP() {
                     onChange={handleChange}
                     className="w-full px-4 py-3 rounded-xl border border-sage/30 focus:border-sage focus:outline-none transition-colors font-libre bg-white/50"
                   >
-                    <option value="1">1 person</option>
-                    <option value="2">2 people</option>
-                    <option value="3">3 people</option>
-                    <option value="4">4 people</option>
+                    <option value="1">1 {t.rsvp.person}</option>
+                    <option value="2">2 {t.rsvp.people}</option>
+                    <option value="3">3 {t.rsvp.people}</option>
+                    <option value="4">4 {t.rsvp.people}</option>
                   </select>
                 </motion.div>
               )}
@@ -220,7 +222,7 @@ export default function RSVP() {
                   exit="hidden"
                 >
                   <label className="block font-libre text-xl text-brown mb-2">
-                    Message for the Couple
+                    {t.rsvp.messageForCouple}
                   </label>
                   <textarea
                     name="message"
@@ -228,7 +230,7 @@ export default function RSVP() {
                     onChange={handleChange}
                     rows={4}
                     className="w-full px-4 py-3 rounded-xl border border-sage/30 focus:border-sage focus:outline-none transition-colors resize-none font-libre bg-white/50"
-                    placeholder="Write your wishes and prayers..."
+                    placeholder={t.rsvp.messagePlaceholder}
                   />
                 </motion.div>
               )}
@@ -244,7 +246,7 @@ export default function RSVP() {
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.149-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
               </svg>
-              Send via WhatsApp
+              {t.rsvp.sendViaWhatsApp}
             </motion.button>
           </motion.div>
         </motion.form>

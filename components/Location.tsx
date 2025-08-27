@@ -1,8 +1,10 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 export default function Location() {
+  const { language, t } = useLanguage()
   return (
     <section id="location" className="min-h-screen flex items-center py-20 px-4 bg-gradient-to-b from-cream-dark to-cream">
       <div className="max-w-6xl mx-auto w-full">
@@ -14,7 +16,7 @@ export default function Location() {
           className="text-center mb-16"
         >
           <p className="font-libre text-xl md:text-2xl text-sage mb-4">
-            Wedding Venue
+            {t.location.weddingVenue}
           </p>
           <h2 className="font-libre text-4xl md:text-5xl text-brown mb-6 font-bold text-shadow-soft">
             SM Tower Hotel Convention Centre
@@ -50,13 +52,13 @@ export default function Location() {
               <div className="space-y-6">
                 {/* Ceremony */}
                 <div>
-                  <h3 className="font-monsieur text-3xl md:text-4xl text-brown mb-4">Holy Matrimony</h3>
+                  <h3 className="font-monsieur text-3xl md:text-4xl text-brown mb-4">{t.location.holyMatrimony}</h3>
                   <div className="space-y-3 text-brown-soft">
                     <div className="flex items-start gap-3">
                       <svg className="w-5 h-5 mt-0.5 text-sage" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                       </svg>
-                      <p className="font-libre">Tuesday, September 9th, 2025</p>
+                      <p className="font-libre">{language === 'id' ? 'Selasa, 9 September 2025' : 'Tuesday, September 9th, 2025'}</p>
                     </div>
                     <div className="flex items-start gap-3">
                       <svg className="w-5 h-5 mt-0.5 text-sage" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -69,7 +71,7 @@ export default function Location() {
 
                 {/* Reception */}
                 <div className="border-t border-sage/20 pt-6">
-                  <h3 className="font-monsieur text-3xl md:text-4xl text-brown mb-4">Wedding Reception</h3>
+                  <h3 className="font-monsieur text-3xl md:text-4xl text-brown mb-4">{t.location.weddingReception}</h3>
                   <div className="space-y-3 text-brown-soft">
                     <div className="flex items-start gap-3">
                       <svg className="w-5 h-5 mt-0.5 text-sage" fill="none" viewBox="0 0 24 24" stroke="currentColor">

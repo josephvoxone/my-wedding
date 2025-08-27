@@ -18,7 +18,7 @@ export default function Footer() {
             Tuesday, 9 September 2025
           </p>
           <p className="font-libre text-sage text-base">
-            #<span className="font-bold">JOS</span>thew<span className="font-bold">AY</span>
+            #<span className="font-bold">JOS</span>thew<span className="font-bold">AYU</span>are
           </p>
         </div>
 

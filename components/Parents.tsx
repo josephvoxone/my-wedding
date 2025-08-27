@@ -3,9 +3,11 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 export default function Parents() {
   const [isInView, setIsInView] = useState(false)
+  const { language, t } = useLanguage()
   return (
     <section className="min-h-screen flex items-center py-20 px-8 bg-gradient-to-b from-cream to-cream-dark">
       <div className="max-w-4xl mx-auto">
@@ -19,10 +21,10 @@ export default function Parents() {
         >
           <div className="mb-16 md:mb-20">
             <p className="font-monsieur text-5xl md:text-6xl text-sage">
-              The
+              {t.parents.the}
             </p>
             <h2 className="font-bodoni text-4xl md:text-5xl text-brown uppercase -mt-2">
-              Bride & Groom
+              {t.parents.brideAndGroom}
             </h2>
           </div>
           
@@ -50,13 +52,13 @@ export default function Parents() {
                   Joseph Shandy Harvian
                 </h3>
                 <p className="font-libre text-lg text-sage-dark">
-                  Son of
+                  {t.parents.sonOf}
                 </p>
               </div>
               
               <div className="space-y-1">
                 <p className="font-libre text-sm md:text-base text-brown-soft">
-                  Mr. Juli Puguh Hariyanto & Mrs. Novi Yuanita
+                  {t.parents.mrJuli}
                 </p>
               </div>
             </motion.div>
@@ -84,13 +86,13 @@ export default function Parents() {
                   Ayu Lestari
                 </h3>
                 <p className="font-libre text-lg text-sage-dark">
-                  Daughter of
+                  {t.parents.daughterOf}
                 </p>
               </div>
               
               <div className="space-y-1">
                 <p className="font-libre text-sm md:text-base text-brown-soft">
-                  Mr. Teddy Gunawan (Late) & Mrs. Filanda Teddy
+                  {t.parents.mrTeddy}
                 </p>
               </div>
             </motion.div>
@@ -105,7 +107,7 @@ export default function Parents() {
             className="mt-20 md:mt-24"
           >
             <p className="font-libre text-lg md:text-xl text-sage">
-              "Two families become one"
+              "{t.parents.quote}"
             </p>
           </motion.div>
         </motion.div>

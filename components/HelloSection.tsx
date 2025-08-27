@@ -9,9 +9,9 @@ import { findGuest, getPersonalizedGreeting, getSpecialMessage, getGuestImage } 
 import { useLanguage } from '@/contexts/LanguageContext'
 
 const greetings = [
-  'Hai',           // Indonesia
+  'Hai',           // Indo
   'Hello',         // English
-  'Shalom',          // Indonesia (alternative)
+  'Shalom',        // Indo (alternative)
   'ආයුබෝවන්',      // Sri Lanka (Sinhala)
   '你好',          // China
   'مرحبا',        // Arabic (UAE/Dubai)

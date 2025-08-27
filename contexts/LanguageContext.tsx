@@ -40,7 +40,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
       const response = await fetch('https://ipapi.co/json/')
       const data = await response.json()
       
-      // If user is in Indonesia, use Indonesian
+      // If user is in Indonesia, use Indo
       if (data.country_code === 'ID') {
         setLanguage('id')
         localStorage.setItem('preferredLanguage', 'id')
