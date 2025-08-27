@@ -110,10 +110,6 @@ export default function Hero() {
             <p className="font-libre text-lg md:text-xl text-gold-elegant font-bold">
               {language === 'id' ? 'Selasa, 09 Sept 2025' : 'Tuesday, Sept 09, 2025'}
             </p>
-            <span className="text-gold-elegant/40 text-xl">|</span>
-            <p className="font-libre text-lg md:text-xl text-gold-elegant font-bold">
-              09:00 WITA
-            </p>
           </div>
           <div className="text-center">
             <p className="font-libre text-base md:text-lg text-sage-dark">

@@ -45,14 +45,20 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://wedding-joseph-ayu.com'),
+  metadataBase: new URL('https://www.josephayu.com'),
+  alternates: {
+    canonical: 'https://www.josephayu.com',
+  },
+  icons: {
+    icon: '/icon.svg',
+  },
   openGraph: {
     title: 'Joseph & Ayu - The Wedding',
     description: 'Dengan penuh sukacita, kami mengundang Anda untuk merayakan pernikahan kami pada tanggal 9 September 2025 di SM Tower Hotel Convention Centre, Berau.',
     type: 'website',
     locale: 'id_ID',
     alternateLocale: 'en_US',
-    url: 'https://wedding-joseph-ayu.com',
+    url: 'https://www.josephayu.com',
     siteName: 'Joseph & Ayu Wedding',
     images: [
       {

@@ -2,8 +2,10 @@
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import { useState, useEffect } from 'react'
 
 export default function Parents() {
+  const [isInView, setIsInView] = useState(false)
   return (
     <section className="min-h-screen flex items-center py-20 px-8 bg-gradient-to-b from-cream to-cream-dark">
       <div className="max-w-4xl mx-auto">
@@ -12,6 +14,7 @@ export default function Parents() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1 }}
+          onViewportEnter={() => setIsInView(true)}
           className="text-center"
         >
           <div className="mb-16 md:mb-20">
@@ -39,7 +42,7 @@ export default function Parents() {
                       src="/assets/couple/joseph.jpg"
                       alt="Joseph Shandy Harvian"
                       fill
-                      className="object-cover grayscale"
+                      className={`object-cover transition-all duration-[2000ms] ${isInView ? 'grayscale-0' : 'grayscale'}`}
                     />
                   </div>
                 </div>
@@ -73,7 +76,7 @@ export default function Parents() {
                       src="/assets/couple/ayu.jpg"
                       alt="Ayu Lestari"
                       fill
-                      className="object-cover grayscale"
+                      className={`object-cover transition-all duration-[2000ms] delay-500 ${isInView ? 'grayscale-0' : 'grayscale'}`}
                     />
                   </div>
                 </div>

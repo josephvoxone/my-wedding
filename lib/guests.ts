@@ -1,5 +1,6 @@
 // Guest data management
-// You can use either local CSV or Google Sheets
+// Data source: Update the guestList array below or use Google Sheets
+// For Google Sheets: Set NEXT_PUBLIC_GOOGLE_SHEET_URL in .env.local
 
 export interface Guest {
   slug: string // Primary key - URL-friendly identifier (required)
@@ -9,8 +10,8 @@ export interface Guest {
   imagePath?: string // Path to guest's photo (optional)
 }
 
-// Hardcoded guest list for now (will be replaced with CSV import when webpack is configured)
-// To update guest list, edit /data/guests.csv
+// Guest list - Update this array with your guest data
+// Copy from /data/guests.csv
 export const guestList: Guest[] = [
   {
     slug: 'budi-santoso',
@@ -39,7 +40,7 @@ export const guestList: Guest[] = [
     slug: 'sarah',
     name: 'Sarah Johnson',
     nickname: 'Sarah',
-    specialMessage: 'Can\'t wait to celebrate with you!',
+    specialMessage: "Can't wait to celebrate with you!",
     imagePath: '/assets/guests/sarah.jpg'
   },
   {
@@ -50,6 +51,7 @@ export const guestList: Guest[] = [
   },
   {
     slug: 'general'
+    // Empty guest for general invitations
   }
 ]
 
@@ -97,17 +99,16 @@ export function getGuestImage(guest: Guest | undefined): string | null {
 
 // Option 2: Using Google Sheets
 // To use Google Sheets:
-// 1. Create a public Google Sheet with your guest data
+// 1. Create a public Google Sheet with columns: slug, name, nickname, specialMessage, imagePath
 // 2. Publish it as CSV (File > Share > Publish to web > CSV)
 // 3. Add the URL to .env.local as NEXT_PUBLIC_GOOGLE_SHEET_URL
-// 4. The system will automatically fetch from Google Sheets
 
 export async function fetchGuestsFromGoogleSheets(): Promise<Guest[]> {
   try {
     const SHEET_URL = process.env.NEXT_PUBLIC_GOOGLE_SHEET_URL || ''
     
     if (!SHEET_URL) {
-      console.log('Using static guest list - no Google Sheet URL provided')
+      console.log('Using local guest list - no Google Sheet URL provided')
       return guestList
     }
     
@@ -135,6 +136,6 @@ export async function fetchGuestsFromGoogleSheets(): Promise<Guest[]> {
     return guests
   } catch (error) {
     console.error('Error fetching guest data from Google Sheets:', error)
-    return guestList // Fallback to static list
+    return guestList // Fallback to local list
   }
 }

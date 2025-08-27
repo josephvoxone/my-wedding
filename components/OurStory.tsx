@@ -1,9 +1,10 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import Image from 'next/image'
 import { useLanguage } from '@/contexts/LanguageContext'
 import { TextReveal } from '@/components/magicui/text-reveal'
+import { useRef } from 'react'
 
 const storyData = {
   id: [
@@ -58,6 +59,137 @@ const storyData = {
       image: "/assets/wedding/with-us.jpg"
     }
   ]
+}
+
+function RingAnimation({ language }: { language: 'id' | 'en' }) {
+  const containerRef = useRef<HTMLDivElement>(null)
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  })
+  
+  // Transform values for the rings
+  const leftRingX = useTransform(scrollYProgress, [0, 0.5], ['-300px', '30px'])
+  const rightRingX = useTransform(scrollYProgress, [0, 0.5], ['300px', '-30px'])
+  const leftRingRotateY = useTransform(scrollYProgress, [0, 0.5], [-180, 0])
+  const rightRingRotateY = useTransform(scrollYProgress, [0, 0.5], [180, 0])
+  const leftRingRotateZ = useTransform(scrollYProgress, [0, 0.5], [-360, 0])
+  const rightRingRotateZ = useTransform(scrollYProgress, [0, 0.5], [360, 0])
+  const opacity = useTransform(scrollYProgress, [0, 0.3, 0.5], [0, 1, 1])
+  const scale = useTransform(scrollYProgress, [0, 0.5], [0.5, 1])
+  
+  // Transform for the heart that appears when rings merge
+  const heartOpacity = useTransform(scrollYProgress, [0.45, 0.5, 0.55], [0, 0, 1])
+  const heartScale = useTransform(scrollYProgress, [0.45, 0.55], [0, 1])
+  
+  return (
+    <div ref={containerRef} className="min-h-screen flex flex-col items-center justify-center px-8 relative">
+      {/* Ring Animation Container - positioned above text */}
+      <div className="mb-16 md:mb-20 relative h-32 md:h-40 w-full max-w-lg">
+        <div className="absolute inset-0 flex items-center justify-center" style={{ perspective: '1000px' }}>
+          {/* Left Ring */}
+          <motion.div
+            style={{ 
+              x: leftRingX,
+              rotateY: leftRingRotateY,
+              rotateZ: leftRingRotateZ,
+              opacity,
+              scale,
+              transformStyle: 'preserve-3d'
+            }}
+            className="absolute"
+          >
+            <svg width="100" height="100" viewBox="0 0 100 100" className="w-20 h-20 md:w-28 md:h-28">
+              <defs>
+                <linearGradient id="silver1" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style={{ stopColor: '#E5E5E5', stopOpacity: 1 }} />
+                  <stop offset="50%" style={{ stopColor: '#C0C0C0', stopOpacity: 1 }} />
+                  <stop offset="100%" style={{ stopColor: '#E5E5E5', stopOpacity: 1 }} />
+                </linearGradient>
+                <radialGradient id="silver1-inner">
+                  <stop offset="0%" style={{ stopColor: '#F5F5F5', stopOpacity: 0.3 }} />
+                  <stop offset="100%" style={{ stopColor: '#C0C0C0', stopOpacity: 0.1 }} />
+                </radialGradient>
+              </defs>
+              <circle cx="50" cy="50" r="40" fill="url(#silver1-inner)" stroke="url(#silver1)" strokeWidth="6"/>
+              <circle cx="50" cy="50" r="34" fill="none" stroke="url(#silver1)" strokeWidth="1" opacity="0.5"/>
+              <circle cx="50" cy="50" r="46" fill="none" stroke="url(#silver1)" strokeWidth="1" opacity="0.3"/>
+            </svg>
+          </motion.div>
+          
+          {/* Right Ring */}
+          <motion.div
+            style={{ 
+              x: rightRingX,
+              rotateY: rightRingRotateY,
+              rotateZ: rightRingRotateZ,
+              opacity,
+              scale,
+              transformStyle: 'preserve-3d'
+            }}
+            className="absolute"
+          >
+            <svg width="100" height="100" viewBox="0 0 100 100" className="w-20 h-20 md:w-28 md:h-28">
+              <defs>
+                <linearGradient id="silver2" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style={{ stopColor: '#E5E5E5', stopOpacity: 1 }} />
+                  <stop offset="50%" style={{ stopColor: '#C0C0C0', stopOpacity: 1 }} />
+                  <stop offset="100%" style={{ stopColor: '#E5E5E5', stopOpacity: 1 }} />
+                </linearGradient>
+                <radialGradient id="silver2-inner">
+                  <stop offset="0%" style={{ stopColor: '#F5F5F5', stopOpacity: 0.3 }} />
+                  <stop offset="100%" style={{ stopColor: '#C0C0C0', stopOpacity: 0.1 }} />
+                </radialGradient>
+              </defs>
+              <circle cx="50" cy="50" r="40" fill="url(#silver2-inner)" stroke="url(#silver2)" strokeWidth="6"/>
+              <circle cx="50" cy="50" r="34" fill="none" stroke="url(#silver2)" strokeWidth="1" opacity="0.5"/>
+              <circle cx="50" cy="50" r="46" fill="none" stroke="url(#silver2)" strokeWidth="1" opacity="0.3"/>
+            </svg>
+          </motion.div>
+          
+          {/* Heart that appears when rings merge */}
+          <motion.div
+            style={{ 
+              opacity: heartOpacity,
+              scale: heartScale
+            }}
+            className="absolute"
+          >
+            <svg width="60" height="60" viewBox="0 0 60 60" className="w-12 h-12 md:w-16 md:h-16">
+              <defs>
+                <linearGradient id="heart-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style={{ stopColor: '#FF69B4', stopOpacity: 1 }} />
+                  <stop offset="100%" style={{ stopColor: '#FF1493', stopOpacity: 1 }} />
+                </linearGradient>
+              </defs>
+              <path 
+                d="M30 45 C30 45, 10 30, 10 18 C10 12, 14 8, 20 8 C24 8, 27 10, 30 13 C33 10, 36 8, 40 8 C46 8, 50 12, 50 18 C50 30, 30 45, 30 45 Z" 
+                fill="url(#heart-gradient)"
+              />
+            </svg>
+          </motion.div>
+        </div>
+      </div>
+      
+      {/* Text Content */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1, delay: 0.3 }}
+        className="text-center"
+      >
+        <h3 className="font-monsieur text-4xl md:text-5xl text-brown mb-6">
+          {language === 'id' ? 'Bersama Selamanya' : 'Together Forever'}
+        </h3>
+        <p className="font-libre text-lg text-brown-soft max-w-2xl mx-auto">
+          {language === 'id' 
+            ? 'Dan kini, dengan penuh sukacita, kami mengundang Anda untuk menjadi saksi saat kami mengikat janji suci di hadapan Tuhan.'
+            : 'And now, with great joy, we invite you to witness as we make our sacred vows before God.'}
+        </p>
+      </motion.div>
+    </div>
+  )
 }
 
 function PolaroidPhoto({ image, title, year, index }: { image: string; title: string; year: string; index: number }) {
@@ -164,25 +296,8 @@ export default function OurStory() {
         </div>
       ))}
 
-      {/* Closing Message */}
-      <div className="min-h-screen flex items-center justify-center px-8">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1 }}
-          className="text-center"
-        >
-          <h3 className="font-monsieur text-4xl md:text-5xl text-brown mb-6">
-            {language === 'id' ? 'Bersama Selamanya' : 'Together Forever'}
-          </h3>
-          <p className="font-libre text-lg text-brown-soft max-w-2xl mx-auto">
-            {language === 'id' 
-              ? 'Dan kini, dengan penuh sukacita, kami mengundang Anda untuk menjadi saksi saat kami mengikat janji suci di hadapan Tuhan.'
-              : 'And now, with great joy, we invite you to witness as we make our sacred vows before God.'}
-          </p>
-        </motion.div>
-      </div>
+      {/* Closing Message with Ring Animation */}
+      <RingAnimation language={language} />
     </section>
   )
 }
