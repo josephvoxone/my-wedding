@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Homemade_Apple, Libre_Baskerville, Monsieur_La_Doulaise, Bodoni_Moda } from 'next/font/google'
+import { Homemade_Apple, Libre_Baskerville, Monsieur_La_Doulaise, Bodoni_Moda, Reenie_Beanie } from 'next/font/google'
 import './globals.css'
 import LenisProvider from '@/components/LenisProvider'
 import { LanguageProvider } from '@/contexts/LanguageContext'
@@ -31,6 +31,13 @@ const bodoniModa = Bodoni_Moda({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-bodoni',
+})
+
+const reenieBeanie = Reenie_Beanie({
+  weight: '400',
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-reenie',
 })
 
 export const metadata: Metadata = {
@@ -109,7 +116,7 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <StructuredData />
       </head>
-      <body className={`${homemadeApple.variable} ${libreBaskerville.variable} ${monsieurLaDoulaise.variable} ${bodoniModa.variable} font-libre`}>
+      <body className={`${homemadeApple.variable} ${libreBaskerville.variable} ${monsieurLaDoulaise.variable} ${bodoniModa.variable} ${reenieBeanie.variable} font-libre`}>
         <LanguageProvider>
           <LenisProvider>
             {children}

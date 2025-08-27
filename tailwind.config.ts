@@ -19,6 +19,7 @@ const config: Config = {
         'homemade': ['var(--font-homemade-apple)', 'cursive'],
         'monsieur': ['var(--font-monsieur)', 'cursive'],
         'bodoni': ['var(--font-bodoni)', 'serif'],
+        'reenie': ['var(--font-reenie)', 'cursive'],
       },
       animation: {
         'float': 'float 20s ease-in-out infinite',

@@ -6,60 +6,69 @@ import { useLanguage } from '@/contexts/LanguageContext'
 import { TextReveal } from '@/components/magicui/text-reveal'
 import { useRef } from 'react'
 
-const storyData = {
-  id: [
+// Media configuration for story chapters - multiple media per chapter
+const storyMedia = [
+  // Chapter 1: First Cough (2021)
+  [
     {
-      year: "2018",
-      title: "Awal Pertemuan",
-      content: "Takdir mempertemukan kami di sebuah acara kampus. Joseph dengan canggungnya mencoba memulai percakapan, sementara Ayu hanya tersenyum malu. Siapa sangka, pertemuan sederhana itu menjadi awal dari kisah yang akan kami kenang selamanya.",
-      image: "/assets/wedding/mirror.jpg"
-    },
-    {
-      year: "2019 - 2020",
-      title: "Mengenal Lebih Dalam",
-      content: "Dari sekadar teman menjadi sahabat, kami belajar memahami satu sama lain. Joseph yang penuh semangat dan Ayu yang lembut hati ternyata saling melengkapi dengan sempurna. Setiap percakapan panjang di malam hari menguatkan keyakinan bahwa kami ditakdirkan bersama.",
-      image: "/assets/wedding/stare.jpg"
-    },
-    {
-      year: "2021 - 2023",
-      title: "Membangun Mimpi Bersama",
-      content: "Kami mulai merajut mimpi bersama. Melalui suka dan duka, kami belajar arti sesungguhnya dari cinta - bukan hanya kebahagiaan, tapi juga kesabaran, pengertian, dan komitmen. Setiap tantangan yang kami hadapi bersama semakin memperkuat ikatan kami.",
-      image: "/assets/wedding/window.jpg"
-    },
-    {
-      year: "2024",
-      title: "Janji Suci",
-      content: "Di bawah langit Bali yang cerah, Joseph melamar Ayu dengan penuh keyakinan. Dengan air mata bahagia, Ayu menerima lamaran itu. Kini, kami siap melangkah ke babak baru kehidupan dengan restu orang tua dan doa dari sahabat.",
-      image: "/assets/wedding/with-us.jpg"
+      type: 'image' as const,
+      src: '/assets/story/first-cough.jpeg',
+      alt: 'First Cough - Our COVID meeting',
+      caption: 'First Cough'
     }
   ],
-  en: [
+  // Chapter 2: Kalimantan - Surabaya (2022-2023)
+  [
     {
-      year: "2018",
-      title: "First Meeting",
-      content: "Fate brought us together at a campus event. Joseph awkwardly tried to start a conversation, while Ayu just smiled shyly. Who would have thought that simple meeting would become the beginning of a story we would cherish forever.",
-      image: "/assets/wedding/mirror.jpg"
+      type: 'image' as const,
+      src: '/assets/story/ngopi-sama-nenek.jpeg',
+      alt: 'Tea Time with Grandma',
+      caption: 'tea time',
+      year: '2022'
     },
     {
-      year: "2019 - 2020",
-      title: "Getting to Know Each Other",
-      content: "From just friends to close companions, we learned to understand each other. Joseph's enthusiasm and Ayu's gentle heart turned out to complement each other perfectly. Every long conversation at night strengthened our belief that we were destined to be together.",
-      image: "/assets/wedding/stare.jpg"
+      type: 'video' as const,
+      src: '/assets/story/flight.mp4',
+      poster: '/assets/story/flight-poster.jpg',
+      alt: 'Flight from Surabaya to Kalimantan',
+      caption: 'Our Flights',
+      year: '2022'
     },
     {
-      year: "2021 - 2023",
-      title: "Building Dreams Together",
-      content: "We began weaving dreams together. Through joy and sorrow, we learned the true meaning of love - not just happiness, but also patience, understanding, and commitment. Every challenge we faced together strengthened our bond.",
-      image: "/assets/wedding/window.jpg"
+      type: 'image' as const,
+      src: '/assets/story/bromo.jpeg',
+      alt: 'Mount Bromo Adventure',
+      caption: 'Bromo Sunrise',
+      year: '2023'
     },
     {
-      year: "2024",
-      title: "Sacred Promise",
-      content: "Under Bali's bright sky, Joseph proposed to Ayu with full confidence. With tears of joy, Ayu accepted the proposal. Now, we are ready to step into a new chapter of life with our parents' blessings and friends' prayers.",
-      image: "/assets/wedding/with-us.jpg"
+      type: 'video' as const,
+      src: '/assets/story/bromo-timelapse.mp4',
+      poster: '/assets/story/bromo-poster.jpg',
+      alt: 'Bromo Timelapse',
+      caption: 'time flies',
+      year: '2023'
+    }
+  ],
+  // Chapter 3: Building Dreams (2023-2024)
+  [
+    {
+      type: 'image' as const,
+      src: '/assets/story/engagement.jpeg',
+      alt: 'Building our future',
+      caption: 'Dreams together'
+    }
+  ],
+  // Chapter 4: Sacred Promise (2025)
+  [
+    {
+      type: 'image' as const,
+      src: '/assets/wedding/with-us.jpg',
+      alt: 'Our engagement',
+      caption: 'Forever Begins'
     }
   ]
-}
+]
 
 function RingAnimation({ language }: { language: 'id' | 'en' }) {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -192,50 +201,126 @@ function RingAnimation({ language }: { language: 'id' | 'en' }) {
   )
 }
 
-function PolaroidPhoto({ image, title, year, index }: { image: string; title: string; year: string; index: number }) {
+function PolaroidMedia({ media, index }: { 
+  media: typeof storyMedia[0][0]; 
+  index: number;
+}) {
+  const ref = useRef<HTMLDivElement>(null)
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"]
+  })
+  
+  // Grayscale effect based on scroll - color when in center, grayscale when away
+  const grayscaleValue = useTransform(
+    scrollYProgress,
+    [0, 0.3, 0.5, 0.7, 1],
+    [100, 0, 0, 0, 100]
+  )
+  
+  const filter = useTransform(grayscaleValue, (value) => `grayscale(${value}%)`)
+  
+  // Calculate vertical position - responsive stacking
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768
+  const cardHeight = isMobile ? 340 : 400 // Smaller on mobile
+  const overlap = -50 // Only 50px overlap so text is visible
+  const spacing = cardHeight - overlap // Spacing between cards
+  
+  // Slight rotation for visual interest - alternating pattern
+  const rotations = [-3, 2, -1, 3, -2]
+  const rotation = rotations[index % rotations.length]
+  
   return (
     <motion.div
-      initial={{ opacity: 0, y: 50 }}
+      ref={ref}
+      initial={{ opacity: 0, y: 50, rotate: rotation }}
       whileInView={{ 
         opacity: 1, 
         y: 0,
-        rotate: index % 2 === 0 ? -1 : 1
+        rotate: rotation,
       }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ 
         duration: 0.6,
-        delay: 0.2,
+        delay: index * 0.2, // Sequential appearance
         type: "spring",
         stiffness: 100
+      }}
+      className="absolute"
+      style={{
+        left: 0,
+        top: `${index * spacing}px`,
+        zIndex: index + 1, // First photo at bottom, last on top
       }}
       whileHover={{ 
         scale: 1.05,
         rotate: 0,
+        zIndex: 20,
         transition: { duration: 0.3 }
       }}
-      className="inline-block cursor-pointer"
     >
-      <div className="bg-white p-4 shadow-2xl transform hover:shadow-2xl transition-all duration-300">
-        <div className="relative w-72 h-[350px] md:w-[300px] md:h-[375px] overflow-hidden">
-          <Image
-            src={image}
-            alt={title}
-            fill
-            className="object-cover filter grayscale hover:grayscale-0 transition-all duration-500"
-          />
-        </div>
-        <div className="mt-4 text-center">
-          <p className="font-homemade text-lg text-brown">{title}</p>
-          <p className="font-libre text-sm text-brown-soft">{year}</p>
+      <div className="bg-white p-3 md:p-4 shadow-2xl transform hover:shadow-2xl transition-all duration-300">
+        <motion.div 
+          className="relative w-[240px] h-[300px] md:w-[280px] md:h-[350px] overflow-hidden bg-gray-100"
+          style={{ filter }}
+        >
+          {media.type === 'video' ? (
+            <video
+              src={media.src}
+              poster={media.poster}
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-full h-full object-cover"
+            />
+          ) : (
+            <Image
+              src={media.src}
+              alt={media.alt}
+              fill
+              className="object-cover"
+            />
+          )}
+        </motion.div>
+        <div className="mt-3 text-center">
+          <p className="font-homemade text-xl text-brown">{media.caption}</p>
+          {'year' in media && media.year && (
+            <p className="font-homemade text-base text-brown-soft">{media.year}</p>
+          )}
         </div>
       </div>
     </motion.div>
   )
 }
 
+function StackedPolaroids({ mediaList }: {
+  mediaList: typeof storyMedia[0];
+}) {
+  // Calculate height based on number of photos
+  const cardHeight = 400
+  const overlap = 50 // Only 50px overlap - match PolaroidMedia
+  const spacing = cardHeight - overlap
+  const totalHeight = mediaList.length > 0 ? spacing * (mediaList.length - 1) + cardHeight + 100 : 600
+  
+  return (
+    <div className="relative w-full flex justify-center px-8 mb-32">
+      <div className="relative w-[280px] md:w-[320px]" style={{ height: `${totalHeight}px` }}>
+        {mediaList.map((media, idx) => (
+          <PolaroidMedia 
+            key={idx} 
+            media={media} 
+            index={idx}
+          />
+        ))}
+      </div>
+    </div>
+  )
+}
+
 export default function OurStory() {
   const { language, t } = useLanguage()
-  const stories = storyData[language]
+  const chapters = t.ourStory.chapters
   
   return (
     <section id="our-story" className="bg-gradient-to-b from-cream to-white">
@@ -250,10 +335,10 @@ export default function OurStory() {
         >
           <div className="mb-8">
             <p className="font-monsieur text-4xl md:text-5xl text-sage">
-              {language === 'id' ? 'Kisah' : 'Our'}
+              {t.ourStory.our}
             </p>
             <h2 className="font-bodoni text-5xl md:text-6xl text-brown uppercase -mt-2">
-              {language === 'id' ? 'Cinta Kami' : 'Love Story'}
+              {t.ourStory.loveStory}
             </h2>
           </div>
           <p className="font-libre text-lg text-brown-soft max-w-2xl mx-auto">
@@ -277,22 +362,17 @@ export default function OurStory() {
       </div>
 
       {/* Story Chapters with Text Reveal */}
-      {stories.map((story, index) => (
+      {chapters.map((chapter, index) => (
         <div key={index} className="relative">
           {/* Text Reveal Section */}
           <TextReveal className="mb-0">
-            {story.content}
+            {chapter.content}
           </TextReveal>
           
-          {/* Polaroid Photo */}
-          <div className="flex justify-center -mt-64 px-8 mb-20">
-            <PolaroidPhoto 
-              image={story.image} 
-              title={story.title}
-              year={story.year}
-              index={index}
+          {/* Stacked Polaroid Media */}
+            <StackedPolaroids 
+              mediaList={storyMedia[index] || []}
             />
-          </div>
         </div>
       ))}
 

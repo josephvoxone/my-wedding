@@ -5,6 +5,7 @@ import HelloSection from '@/components/HelloSection'
 import Hero from '@/components/Hero'
 import Parents from '@/components/Parents'
 import OurStory from '@/components/OurStory'
+import SpiritualJourney from '@/components/SpiritualJourney'
 import Location from '@/components/Location'
 import Gallery from '@/components/Gallery'
 import RSVP from '@/components/RSVP'
@@ -52,6 +53,7 @@ export default function Home() {
           </Suspense>
           <Parents />
           <OurStory />
+          <SpiritualJourney />
           <Location />
           <RSVP />
           <LiveStreaming />

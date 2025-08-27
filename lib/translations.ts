@@ -47,24 +47,24 @@ export const translations = {
       quote: 'Cinta sejati bukanlah menemukan seseorang yang sempurna, tapi belajar melihat seseorang yang tidak sempurna dengan sempurna',
       chapters: [
         {
-          title: 'Awal Pertemuan',
-          date: '2018',
-          content: 'Takdir mempertemukan kami di sebuah acara kampus. Joseph dengan canggungnya mencoba memulai percakapan, sementara Ayu hanya tersenyum malu. Siapa sangka, pertemuan sederhana itu menjadi awal dari kisah yang akan kami kenang selamanya. Kami mulai sering bertemu, berbagi cerita, dan tanpa sadar, hati kami mulai saling terikat.',
+          title: 'First Cough',
+          date: '2021',
+          content: 'Di tengah pandemi COVID-19, takdir mempertemukan kami. Saat dunia terbatas oleh jarak, kami memberanikan diri untuk bertemu di Surabaya. Pertemuan pertama yang penuh kehati-hatian di masa pandemi, dengan masker dan hand sanitizer, justru menjadi awal dari kisah cinta yang tak terduga. "First cough" kami sebut moment itu, karena deg-degan bertemu membuat kami gugup hingga terbatuk-batuk.',
         },
         {
-          title: 'Mengenal Lebih Dalam',
-          date: '2019 - 2020',
-          content: 'Dari sekadar teman menjadi sahabat, kami belajar memahami satu sama lain. Joseph yang penuh semangat dan Ayu yang lembut hati ternyata saling melengkapi dengan sempurna. Setiap percakapan panjang di malam hari, setiap tawa yang kami bagi, menguatkan keyakinan bahwa kami ditakdirkan bersama.',
+          title: 'Kalimantan - Surabaya',
+          date: '2022 - 2023',
+          content: 'Kami saling mengunjungi, Kalimantan dan Surabaya menjadi saksi perjalanan cinta kami. Bersama kami mendaki Gunung Bromo, menikmati sunrise yang memukau. Menjelajahi kota kecil Tanjung Redeb, setiap penerbangan adalah petualangan baru. Dari bandara ke bandara, dari kota ke kota, jarak tak lagi menjadi penghalang untuk saling mengenal lebih dalam.',
         },
         {
           title: 'Membangun Mimpi Bersama',
-          date: '2021 - 2023',
-          content: 'Kami mulai merajut mimpi bersama. Melalui suka dan duka, kami belajar arti sesungguhnya dari cinta - bukan hanya kebahagiaan, tapi juga kesabaran, pengertian, dan komitmen. Setiap tantangan yang kami hadapi bersama semakin memperkuat ikatan kami. Keluarga kami pun mulai saling mengenal dan memberikan restu.',
+          date: '2023 - 2024',
+          content: 'Setiap pertemuan menguatkan keyakinan kami. Dari video call malam hari hingga perjalanan panjang, kami belajar arti komitmen sejati. Keluarga kami mulai saling mengenal, memberikan restu dan dukungan. Mimpi untuk bersama selamanya semakin nyata.',
         },
         {
           title: 'Janji Suci',
-          date: '2024',
-          content: 'Di bawah langit Bali yang cerah, Joseph melamar Ayu dengan penuh keyakinan. Dengan air mata bahagia, Ayu menerima lamaran itu. Kini, kami siap melangkah ke babak baru kehidupan. Dengan restu orang tua dan doa dari sahabat, kami akan mengikat janji suci di hadapan Tuhan untuk saling mencintai dan setia selamanya.',
+          date: '2025',
+          content: 'Setelah melewati jarak dan waktu, akhirnya tiba saatnya kami bersatu. Joseph melamar Ayu dengan penuh keyakinan, dan dengan bahagia Ayu menjawab "ya". Kini di Berau, kota yang menjadi saksi perjalanan kami, kami akan mengikat janji suci di hadapan Tuhan, keluarga, dan sahabat tercinta.',
         },
       ],
     },
@@ -166,6 +166,63 @@ export const translations = {
       by: 'oleh',
       allRightsReserved: 'Hak cipta dilindungi',
     },
+    
+    // Spiritual Journey
+    spiritualJourney: {
+      title: 'Spiritual Journey',
+      subtitle: 'Tuhan bawa kita melangkah, satu mengalahkan seribu dan dua mengalahkan sepuluh ribu',
+      buttonText: 'Read Our Testimony',
+      chapters: [
+        {
+          title: 'tanda dari tuhan (2021)',
+          content: 'Flashback ke awal kami menjalin hubungan di tahun 2021. Saat aku harus memutuskan untuk berpacaran dengan Ayu, aku tidak langsung mengiyakan. Aku berdoa dan mengkonfirmasi dengan Tuhan terlebih dahulu. "Tuhan, jika ini dari-Mu, berikan aku tanda yang jelas dan spesifik." Aku meminta tanda yang sangat spesifik, yang tidak mungkin kebetulan. Dan Tuhan memberikan tanda itu dengan cara yang begitu nyata, tepat seperti yang kuminta. Yang membuatku semakin yakin dan terkejut - ternyata Ayu juga berdoa hal yang sama! Dia juga meminta tanda yang persis sama kepada Tuhan. Kami berdua mendapat konfirmasi yang sama. Ini bukan kebetulan - ini adalah bukti nyata bahwa Tuhan yang menyatukan kami.'
+        },
+        {
+          title: 'Hubungan Pasang Surut (2021-2022)',
+          content: 'Hubungan kami di tahun-tahun awal penuh dinamika. Ada masa-masa indah, ada masa-masa sulit. Kami pernah bertengkar hebat, bahkan sempat hampir putus. Ego kami berbenturan. Karakterku yang keras kepala bertemu dengan Ayu yang juga punya prinsip kuat. Tapi di setiap pergumulan, kami belajar. Belajar mengalah, belajar memahami, belajar mengasihi dengan tulus. Setiap masalah yang kami hadapi justru membuat kami semakin dewasa. Tuhan memakai setiap konflik untuk membentuk karakter kami, mempersiapkan kami untuk pernikahan yang sesungguhnya.'
+        },
+        {
+          title: 'Penginjilan yang Penuh Penolakan',
+          content: 'Setelah mengetahui bahwa Ayu hanya menjadi orang Kristen KTP - yang ke gereja hanya saat Natal dan Paskah - hatiku terbebani berat. Bagaimana mungkin aku menjalin hubungan dengan seseorang yang tidak sungguh-sungguh mengenal Tuhan? Sepanjang tahun aku mulai melakukan penginjilan. Hampir setiap hari aku berbagi Firman lewat WhatsApp tapi responnya yang biasa aja. Mengajak ke gereja lokal dan berkomunitas. Tapi yang kuterima adalah penolakan demi penolakan. "Aku gak punya waktu untuk ini, kamu gak tau apa yang aku alamin" katanya. "Kamu terlalu sok tau tentang diriku, aku minggu sudah pasti tidak bisa ke gereja." Kata-kata itu menusuk hatiku. Berkali-kali aku hampir menyerah. Berbulan-bulan berlalu tanpa perubahan. Tapi aku terus berdoa, "Tuhan, jamah hatinya. Buka matanya untuk melihat-Mu."'
+        },
+        {
+          title: 'tahun-tahun Penuh Beban',
+          content: 'Selama tahun 2019, aku merasa menjadi orang paling sial sedunia. Beban finansial yang menghimpit, gaji pas-pasan, kebutuhan yang tidak pernah cukup dan mengalami beban sebagai generasi sandwhich. Stuck di perusahaan lama tanpa pertumbuhan. Tekanan mental yang mencekik - ekspektasi keluarga, tuntutan pekerjaan, pergumulan relationship. Masalah keluarga yang tak kunjung selesai - konflik yang sama berulang terus, luka yang sama terbuka lagi dan lagi. Aku merasa tidak berguna, menjadi beban bagi semua orang di sekitarku. Berkali-kali aku bertanya, "Tuhan, kenapa hidupku begini terus? Apa salahku?"'
+        },
+        {
+          title: 'tawaran Pekerjaan Misterius (Akhir 2023)',
+          content: 'Di penghujung 2023, di saat yang tidak terduga, seorang teman menawariku pekerjaan. Perusahaan baru yang aku tidak tahu asal-usulnya. Sistem kontrak yang membuatku ragu - bagaimana kalau di-layoff? Setelah meninmbang disatu sisi karena mau resign bosku kantor lama mau menaikan jabatan aku tapi tidak dengan gajinya, jadi ini sebuah tanda dimana aku harus mengambil pekerjaan baru. Dengan penuh keraguan, aku terima tawaran itu. Bulan-bulan pertama penuh ketidakpastian tetapi aku tetap bekerja secara WFH. Aku belum pernah bertemu bosku. Belum kenal siapa rekan kerjaku kecuali teman yang mengajakku. Semuanya terasa seperti berjalan dalam kabut. Tapi aku percaya Tuhan punya rencana.'
+        },
+        {
+          title: 'Perjalanan ke Dubai',
+          content: 'Akhir 2024, bosku yang belum pernah kutemui menawariku ke Dubai! Aku yang belum pernah ke luar negeri sama sekali. Visa diurus dengan cepat - mukjizat! Tapi drama dimulai di bandara. Petugas maskapai menanyakan tiket pulangku. Ternyata aku hanya diberi tiket sekali jalan oleh bosku! Panik? Sudah pasti. Aku telepon kesana-kemari. Akhirnya diminta tanda tangan surat pernyataan bahwa maskapai tidak bertanggung jawab atas diriku. Dengan tangan gemetar, aku tanda tangan. "Tuhan, aku percaya Engkau menyertaiku," bisikku. Aku memberanikan diri naik pesawat, sendirian, menuju negeri asing, dengan tiket sekali jalan, percaya penuh pada penyertaan Tuhan.'
+        },
+        {
+          title: 'Pertemuan dengan Keluarga Bos',
+          content: 'Sampai di Dubai, aku disambut dengan hangat oleh keluarga bosku. Mereka memperlakukanku seperti keluarga sendiri. Yang mengejutkan - setiap percakapan selalu berujung pada hal-hal rohani! Pagi hari dimulai dengan sharing Firman waktu berangkat kerja. Malam hari kadang ditutup dengan saling mendoakan. Aku bertemu pendeta dari Iran yang bercerita tentang penganiayaan. Misionaris dari Indonesia yang berbagi tentang pelayanan underground. Orang-orang yang memiliki iman yang sama dari Afrika, Srilanka semuanya punya kesaksian luar biasa tentang Tuhan. Ini bukan business trip - ini retreat rohani!'
+        },
+        {
+          title: 'tuhan Membuka Pintu-Pintu (2024)',
+          content: 'Di Dubai, Tuhan mulai berbicara kepadaku dengan jelas. Setiap doa dijawab. Setiap pergumulan yang kupikir tidak ada jalan keluarnya, tiba-tiba terbuka. Masalah keluarga yang bertahun-tahun membebaniku - Tuhan berikan hikmat bagaimana menghadapinya. Tuhan tunjukkan dan mulai ubahkan. Luka-luka masa lalu - Tuhan mulai pulihkan. Di tengah gedung pencakar langit Dubai, di negeri asing, jauh dari rumah, aku justru merasa paling dekat dengan Tuhan. Dia membuka pintu-pintu yang selama ini tertutup rapat dalam hidupku.'
+        },
+        {
+          title: 'Panggilan Hidup',
+          content: 'Tuhan berbicara jelas melalui pendeta sebagai perantara "God is going to use you to help others stay the course and accomplish the task. It`s who you are, and it`s what God has called you to be." Aku menangis. Pulang dari Dubai, aku punya misi yang jelas. Bukan lagi sekedar penginjilan, tapi penyelamatan jiwa. Aku mulai dengan cara yang berbeda. Bukan lagi memaksa, tapi menunjukkan kasih Kristus melalui hidupku. Bukan lagi berdebat, tapi mendoakan dengan sungguh-sungguh.'
+        },
+        {
+          title: 'Mukjizat Pertobatan Ayu',
+          content: 'Perlahan tapi pasti, sejak pertengahan 2024, Tuhan bekerja. Ayu yang dulu menolak, mulai kesaksian mengenai iman. Yang dulu malas ke gereja, tiba-tiba rajin ibadah. Yang dulu skeptis dengan komunitas, sekarang mempunyai teman yang saling menajamkan. Aku melihat transformasi nyata di depan mataku. Dari yang cuek dengan komsel, sekarang aktif. Dan puncaknya - 16 Maret 2025, Ayu Lestari memutuskan untuk dibaptis! Satu jiwa telah diselamatkan. Air mataku tidak bisa kubendung. Ini mukjizat nyata!'
+        },
+        {
+          title: 'tuhan Memutar Balikkan Segalanya (2025)',
+          content: 'Kini di tahun 2025, aku melihat dengan jelas perspektif Tuhan. Dia menempatkanku di keluarga bermasalah agar aku belajar mengampuni tanpa syarat. Dia membiarkanku menghadapi masalah finansial agar aku belajar bergantung penuh pada-Nya. Dia ijinkan aku mengalami penolakan dalam penginjilan agar aku mengerti betapa berharganya satu jiwa. Tuhan membuatku lemah untuk menyingkirkan kesombonganku. Dia membuatku tidak berdaya agar aku tetap berharap kepada-Nya. Seperti emas dimurnikan dalam api 1000 derajat celsius, aku diproses melalui masalah-masalah berat. Sekarang aku mengerti - "Di dalam kelemahanku, kuasa-Nya menjadi sempurna."'
+        },
+        {
+          title: 'Bukan Sekedar Undangan',
+          content: 'Website yang saya buat ini. Ini adalah kabar baik yang ingin kami bagikan. Kami tidak malu bersaksi tentang Tuhan yang telah mengubah hidup kami. Dalam kesesakanmu, kepahitan hidupmu, kesedihanmu, kehampaanmu, kekecewaanmu - jangan pernah kehilangan satu hal yaitu PENGHARAPAN! Pengharapan itu nyata. Pengharapan itu ada. Dan namanya YESUS KRISTUS. Dia yang telah mengubah hidup kita dari pecundang menjadi pemenang. Dia yang mempersatukan kami bukan sekedar dalam cinta manusiawi, tapi dalam kasih ilahi. Tuhan tidak pernah meninggalkan anak-Nya yang terluka. Percayalah, rancangan-Nya indah pada waktu-Nya. Karena sejak awal, sejak sebelum dunia dijadikan, Tuhan tidak pernah meninggalkan kita!'
+        }
+      ]
+    },
   },
   
   en: {
@@ -216,24 +273,24 @@ export const translations = {
       quote: 'True love is not about finding someone perfect, but learning to see someone imperfect perfectly',
       chapters: [
         {
-          title: 'First Meeting',
-          date: '2018',
-          content: "Fate brought us together at a campus event. Joseph awkwardly tried to start a conversation, while Ayu just smiled shyly. Who would have thought that simple meeting would become the beginning of a story we'll cherish forever. We started meeting often, sharing stories, and without realizing it, our hearts began to connect.",
+          title: 'First Cough',
+          date: '2021',
+          content: "In the midst of the COVID-19 pandemic, fate brought us together. When the world was limited by distance, we braved to meet in Surabaya. Our first meeting, careful with masks and hand sanitizer during the pandemic, became the beginning of an unexpected love story. We call it our 'First Cough' moment, because the nervousness of meeting made us cough from excitement.",
         },
         {
-          title: 'Getting to Know Each Other',
-          date: '2019 - 2020',
-          content: "From just friends to best friends, we learned to understand each other. Joseph's enthusiasm and Ayu's gentle heart turned out to complement each other perfectly. Every long conversation at night, every laugh we shared, strengthened our belief that we were meant to be together.",
+          title: 'Kalimantan - Surabaya',
+          date: '2022 - 2023',
+          content: "We visited each other, Kalimantan and Surabaya witnessed our love journey. Together we climbed Mount Bromo, enjoying the breathtaking sunrise. Exploring the small town of Tanjung Redeb, every flight was a new adventure. From airport to airport, city to city, distance was no longer a barrier to knowing each other deeper.",
         },
         {
           title: 'Building Dreams Together',
-          date: '2021 - 2023',
-          content: "We began weaving dreams together. Through ups and downs, we learned the true meaning of love - not just happiness, but also patience, understanding, and commitment. Every challenge we faced together only strengthened our bond. Our families began to know each other and gave their blessings.",
+          date: '2023 - 2024',
+          content: "Every meeting strengthened our conviction. From late night video calls to long journeys, we learned the meaning of true commitment. Our families began to know each other, giving their blessings and support. The dream of being together forever became more real.",
         },
         {
           title: 'Sacred Promise',
-          date: '2024',
-          content: "Under Bali's clear sky, Joseph proposed to Ayu with full confidence. With tears of joy, Ayu accepted the proposal. Now, we're ready to step into a new chapter of life. With our parents' blessings and friends' prayers, we will make our sacred vows before God to love and be faithful to each other forever.",
+          date: '2025',
+          content: "After overcoming distance and time, finally the moment has come for us to unite. Joseph proposed to Ayu with full confidence, and joyfully Ayu said 'yes'. Now in Berau, the city that witnessed our journey, we will make our sacred vows before God, family, and beloved friends.",
         },
       ],
     },
@@ -334,6 +391,40 @@ export const translations = {
       madeWith: 'Made with',
       by: 'by',
       allRightsReserved: 'All rights reserved',
+    },
+    
+    // Spiritual Journey
+    spiritualJourney: {
+      title: 'Our Spiritual Journey',
+      subtitle: 'God leads our steps, one can defeat a thousand and two can defeat ten thousand',
+      buttonText: 'Read Our Testimony',
+      closeButton: 'Close',
+      chapters: [
+        {
+          title: 'Signs from God',
+          content: 'When deciding to start our relationship, I confirmed with God and asked for a sign. God gave that sign, and unexpectedly, Ayu also asked for the same sign. This strengthened our conviction that this was His way.'
+        },
+        {
+          title: 'Evangelism & Conversion',
+          content: 'Our relationship had ups and downs. After learning Ayu was only a nominal Christian, I began evangelizing. Though initially met with rejection, God answered my prayers. Ayu was finally transformed, from refusing church to actively attending and joining cell groups.'
+        },
+        {
+          title: 'Journey to Dubai',
+          content: 'Feeling stuck in my old job, I prayed for growth. God opened doors through a job offer to Dubai. This first overseas experience turned out to be more than work - it was like a spiritual retreat. In Dubai, God opened doors that had been storms in my life.'
+        },
+        {
+          title: 'Life Calling',
+          content: 'In Dubai, I received God\'s message and calling for my life - to save lost souls and bring them back to the right path. One soul was won - Ayu Lestari decided to be baptized on March 16, 2025.'
+        },
+        {
+          title: 'Strength in Weakness',
+          content: 'For years I experienced financial, mental, and family burdens. But God still cared. He made me weak to remove my pride, made me powerless so I would keep hoping in Him. "In my weakness, His power is made perfect."'
+        },
+        {
+          title: 'Good News',
+          content: 'What we\'ve created isn\'t just an invitation, but good news. In your distress, bitterness, sadness, emptiness, don\'t lose one thing: HOPE! Hope arises because of Jesus Christ whom we\'ve personally experienced.'
+        }
+      ]
     },
   },
 }
