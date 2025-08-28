@@ -26,20 +26,20 @@ export default function StructuredData() {
       }
     },
     "image": [
-      "https://wedding-joseph-ayu.com/assets/wedding/with-us.jpg",
-      "https://wedding-joseph-ayu.com/assets/wedding/stare.jpg",
-      "https://wedding-joseph-ayu.com/assets/wedding/mirror.jpg"
+      "https://www.josephayu.com/assets/wedding/with-us.jpg",
+      "https://www.josephayu.com/assets/wedding/stare.jpeg",
+      "https://www.josephayu.com/assets/wedding/mirror.jpg"
     ],
     "organizer": [
       {
         "@type": "Person",
         "name": "Joseph Shandy Harvian",
-        "url": "https://wedding-joseph-ayu.com"
+        "url": "https://www.josephayu.com"
       },
       {
         "@type": "Person",
         "name": "Ayu Lestari",
-        "url": "https://wedding-joseph-ayu.com"
+        "url": "https://www.josephayu.com"
       }
     ],
     "offers": {
@@ -48,7 +48,7 @@ export default function StructuredData() {
       "priceCurrency": "IDR",
       "availability": "https://schema.org/InStock",
       "validFrom": "2024-01-01",
-      "url": "https://wedding-joseph-ayu.com"
+      "url": "https://www.josephayu.com"
     },
     "performer": {
       "@type": "Person",

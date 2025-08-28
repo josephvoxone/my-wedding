@@ -23,7 +23,7 @@ const photos = [
   },
   { 
     id: 4, 
-    src: "/assets/wedding/stare.jpg", 
+    src: "/assets/wedding/stare.jpeg", 
     caption: "Lost in each other"
   },
   { 

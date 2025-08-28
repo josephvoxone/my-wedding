@@ -53,7 +53,7 @@ export default function Home() {
           </Suspense>
           <Parents />
           <OurStory />
-          <SpiritualJourney />
+          <SpiritualJourney musicPlayerRef={musicPlayerRef} />
           <Location />
           <RSVP />
           <LiveStreaming />

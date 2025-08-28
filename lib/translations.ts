@@ -172,6 +172,12 @@ export const translations = {
       title: 'Spiritual Journey',
       subtitle: 'Tuhan bawa kita melangkah, satu mengalahkan seribu dan dua mengalahkan sepuluh ribu',
       buttonText: 'Read Our Testimony',
+      testimonyTitle: 'Our',
+      testimonySubtitle: 'Testimony',
+      testimonyIntro: 'Ini adalah kesaksian kami tentang kasih dan kesetiaan Tuhan dalam perjalanan hidup kami',
+      scrollIndicator: 'Gulir untuk membaca kesaksian kami',
+      closingTitle: 'Pesan Kami',
+      closingMessage: 'Pernikahan kami bukan hanya tentang dua orang yang bersatu, tapi tentang bagaimana Tuhan mempersatukan dua jiwa yang telah Dia ubahkan.\n\nKami berharap kesaksian ini dapat menjadi berkat bagi setiap orang yang membacanya.',
       chapters: [
         {
           title: 'tanda dari tuhan',
@@ -187,7 +193,7 @@ export const translations = {
         },
         {
           title: 'tahun-tahun Penuh Beban',
-          content: 'Selama tahun 2019, aku merasa menjadi orang paling sial sedunia. Beban finansial yang menghimpit, gaji pas-pasan, kebutuhan yang tidak pernah cukup dan mengalami beban sebagai generasi sandwhich. Stuck di perusahaan lama tanpa pertumbuhan. Tekanan mental yang mencekik - ekspektasi keluarga, tuntutan pekerjaan, pergumulan relationship. Masalah yang tak kunjung selesai - konflik yang sama berulang terus, luka yang sama terbuka lagi dan lagi. Aku merasa tidak berguna, menjadi beban bagi semua orang di sekitarku. Berkali-kali aku bertanya, "Tuhan, kenapa hidupku begini terus? Apa salahku?"'
+          content: 'Flashack tahun 2019, aku merasa menjadi orang paling sial sedunia. Beban finansial yang menghimpit, gaji pas-pasan, kebutuhan yang tidak pernah cukup dan mengalami beban sebagai generasi sandwhich. Stuck di perusahaan lama tanpa pertumbuhan. Tekanan mental yang mencekik - ekspektasi keluarga, tuntutan pekerjaan, pergumulan relationship. Masalah yang tak kunjung selesai - konflik yang sama berulang terus, luka yang sama terbuka lagi dan lagi. Aku merasa tidak berguna, menjadi beban bagi semua orang di sekitarku. Berkali-kali aku bertanya, "Tuhan, kenapa hidupku begini terus? Apa salahku?"'
         },
         {
           title: 'Pekerjaan Misterius',
@@ -195,7 +201,7 @@ export const translations = {
         },
         {
           title: 'Perjalanan ke Dubai',
-          content: 'Akhir 2024, bosku yang belum pernah kutemui menawariku ke Dubai! Aku yang belum pernah ke luar negeri sama sekali. Visa diurus dengan cepat - mukjizat! Tapi drama dimulai di bandara. Petugas maskapai menanyakan tiket pulangku. Ternyata aku hanya diberi tiket sekali jalan oleh bosku! Panik? Sudah pasti. Aku telepon kesana-kemari. Akhirnya diminta tanda tangan surat pernyataan bahwa maskapai tidak bertanggung jawab atas diriku. Dengan tangan gemetar, aku tanda tangan. "Tuhan, aku percaya Engkau menyertaiku," bisikku. Aku memberanikan diri naik pesawat, sendirian, menuju negeri asing, dengan tiket sekali jalan, percaya penuh pada penyertaan Tuhan.'
+          content: 'Akhir 2024, bosku yang belum pernah kutemui menawariku ke Dubai! Aku yang belum pernah ke luar negeri sama sekali. Visa diurus dengan cepat, luar biasa! Tapi drama dimulai di bandara. Petugas maskapai menanyakan tiket pulangku. Ternyata aku hanya diberi tiket sekali jalan oleh bosku! Panik? Sudah pasti. Aku telepon kesana-kemari. Akhirnya diminta tanda tangan surat pernyataan bahwa maskapai tidak bertanggung jawab atas diriku. Dengan tangan gemetar, aku tanda tangan. "Tuhan, aku percaya Engkau menyertaiku," bisikku. Aku memberanikan diri naik pesawat, sendirian, menuju negeri asing, dengan tiket sekali jalan, percaya penuh pada penyertaan Tuhan.'
         },
         {
           title: 'tuhan gunung batuku',
@@ -399,30 +405,60 @@ export const translations = {
       subtitle: 'God leads our steps, one can defeat a thousand and two can defeat ten thousand',
       buttonText: 'Read Our Testimony',
       closeButton: 'Close',
+      testimonyTitle: 'Our',
+      testimonySubtitle: 'Testimony',
+      testimonyIntro: 'This is our testimony about God\'s love and faithfulness in our life journey',
+      scrollIndicator: 'Scroll to read our testimony',
+      closingTitle: 'Our Message',
+      closingMessage: 'Our marriage is not just about two people uniting, but about how God united two souls that He has transformed.\n\nWe hope this testimony can be a blessing to everyone who reads it.',
       chapters: [
         {
           title: 'Signs from God',
-          content: 'When deciding to start our relationship, I confirmed with God and asked for a sign. God gave that sign, and unexpectedly, Ayu also asked for the same sign. This strengthened our conviction that this was His way.'
+          content: 'Flashback to the beginning of our relationship in 2021. When I had to decide whether to date Ayu, I didn\'t immediately say yes. I prayed and confirmed with God first. "Lord, if this is from You, give me a clear and specific sign." I asked for a very specific sign, one that couldn\'t be coincidence. And God gave that sign in such a real way, exactly as I asked. What made me even more convinced and amazed - Ayu also prayed for the same thing! She also asked God for the exact same sign. We both received the same confirmation. This wasn\'t coincidence - this was real proof that God brought us together.'
         },
         {
-          title: 'Evangelism & Conversion',
-          content: 'Our relationship had ups and downs. After learning Ayu was only a nominal Christian, I began evangelizing. Though initially met with rejection, God answered my prayers. Ayu was finally transformed, from refusing church to actively attending and joining cell groups.'
+          title: 'Relationship Ups and Downs',
+          content: 'Our relationship in the early years was full of dynamics. There were beautiful times, there were difficult times. We fought intensely, even almost broke up. Our egos clashed. My stubborn character met Ayu who also had strong principles. But in every struggle, we learned. Learned to give in, learned to understand, learned to love sincerely. Every problem we faced actually made us more mature. God used every conflict to shape our character, preparing us for true marriage.'
+        },
+        {
+          title: 'Rejection',
+          content: 'After learning that Ayu was only a nominal Christian - who almost never went to church - my heart was heavily burdened. How could I be in a relationship with someone who didn\'t truly know God? Throughout the year I started evangelizing. Almost every day I shared the Word through WhatsApp but her response was just ordinary. Inviting her to local church and community. But what I received was rejection after rejection. "I don\'t have time for this, you don\'t know what I\'m going through," she said. "You\'re too presumptuous about me, I definitely can\'t go to church on Sunday." Those words pierced my heart. Many times I almost gave up. Months passed without change. But I kept praying, "Lord, touch her heart. Open her eyes to see You."'
+        },
+        {
+          title: 'Years of Burden',
+          content: 'During 2019, I felt like the unluckiest person in the world. Financial burdens crushing me, barely enough salary, needs never satisfied and experiencing the burden of being a sandwich generation. Stuck in an old company without growth. Mental pressure suffocating - family expectations, work demands, relationship struggles. Problems that never ended - the same conflicts repeating, the same wounds opening again and again. I felt useless, becoming a burden to everyone around me. Many times I asked, "Lord, why is my life always like this? What did I do wrong?"'
+        },
+        {
+          title: 'Mysterious Job',
+          content: 'In early 2024, unexpectedly, a friend offered me a job. A new company whose origins I didn\'t know. A contract system that made me hesitate - what if I got laid off? After considering, on one side because I wanted to resign, my old boss wanted to promote me but not with the salary, so this was a sign that I should take the new job. With full doubt, I accepted the offer. The first months were full of uncertainty but I kept working from home. I had never met my boss. Didn\'t know who my colleagues were except the friend who invited me. Everything felt like walking in fog. But I believed God had a plan.'
         },
         {
           title: 'Journey to Dubai',
-          content: 'Feeling stuck in my old job, I prayed for growth. God opened doors through a job offer to Dubai. This first overseas experience turned out to be more than work - it was like a spiritual retreat. In Dubai, God opened doors that had been storms in my life.'
+          content: 'Late 2024, my boss whom I\'d never met offered me to go to Dubai! Me who had never been abroad at all. The visa was processed quickly, wow! But drama started at the airport. The airline staff asked for my return ticket. Turns out I was only given a one-way ticket by my boss! Panic? Definitely. I called here and there. Finally asked to sign a statement that the airline wasn\'t responsible for me. With trembling hands, I signed. "Lord, I believe You\'re with me," I whispered. I bravely boarded the plane, alone, to a foreign land, with a one-way ticket, fully trusting in God\'s presence.'
+        },
+        {
+          title: 'God My Rock',
+          content: 'Arriving in Dubai, I was warmly welcomed by my boss\'s family. They treated me like their own family. What surprised me - every conversation always led to spiritual matters! Mornings started with sharing the Word on the way to work. Evenings sometimes closed with praying for each other. I met missionaries from Indonesia sharing about underground ministry. People with the same faith from Africa, Sri Lanka all had amazing testimonies about God. This wasn\'t a business trip - this was a spiritual retreat!'
+        },
+        {
+          title: 'it will be bright',
+          content: 'In Dubai, God began speaking to me clearly. Every prayer was answered. Every struggle I thought had no way out suddenly opened up. Family problems that had burdened me for years - God gave wisdom on how to handle them. God showed and began to change. Past wounds - God began to heal. In the midst of Dubai\'s skyscrapers, in a foreign land, far from home, I actually felt closest to God. He opened doors that had been tightly closed in my life.'
         },
         {
           title: 'Life Calling',
-          content: 'In Dubai, I received God\'s message and calling for my life - to save lost souls and bring them back to the right path. One soul was won - Ayu Lestari decided to be baptized on March 16, 2025.'
+          content: 'God spoke clearly through a pastor as an intermediary: "God is going to use you to help others stay the course and accomplish the task. It\'s who you are, and it\'s what God has called you to be." I cried. Returning from Dubai, I had a clear mission. No longer just evangelism, but soul salvation. I started differently. No longer forcing, but showing Christ\'s love through my life. No longer debating, but praying earnestly.'
         },
         {
-          title: 'Strength in Weakness',
-          content: 'For years I experienced financial, mental, and family burdens. But God still cared. He made me weak to remove my pride, made me powerless so I would keep hoping in Him. "In my weakness, His power is made perfect."'
+          title: 'Conversion',
+          content: 'Slowly but surely, since late 2024, God worked. Ayu who once rejected, began testifying about faith. Who was once lazy about church, suddenly diligent in worship. Who was once skeptical about community, now has friends who sharpen each other. I saw real transformation before my eyes. From being indifferent to cell groups, now active. And the pinnacle - March 16, 2025, Ayu Lestari decided to be baptized! One soul has been saved!'
         },
         {
-          title: 'Good News',
-          content: 'What we\'ve created isn\'t just an invitation, but good news. In your distress, bitterness, sadness, emptiness, don\'t lose one thing: HOPE! Hope arises because of Jesus Christ whom we\'ve personally experienced.'
+          title: 'His Presence',
+          content: 'Now in 2025, I see clearly God\'s perspective. He placed me in a troubled family so I would learn to forgive unconditionally. He allowed me to face financial problems so I would learn to depend fully on Him. He permitted me to experience rejection in evangelism so I would understand how precious one soul is. God made me weak to remove my pride. He made me powerless so I would keep hoping in Him. Like gold refined in 1000-degree Celsius fire, I was processed through heavy problems. Now I understand - "In my weakness, His power is made perfect."'
+        },
+        {
+          title: 'We Are One',
+          content: 'This website I created. This is the good news we want to share. We\'re not ashamed to testify about God who has changed our lives. In your distress, bitterness of life, sadness, emptiness, disappointment - never lose one thing: HOPE! Hope is real. Hope exists. And His name is JESUS CHRIST. He who has changed our lives from losers to winners. He who unites us not just in human love, but in divine love. God never leaves His wounded children. Believe, His plan is beautiful in His time. Because from the beginning, before the world was created, God never left us!'
         }
       ]
     },

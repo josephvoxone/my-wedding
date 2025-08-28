@@ -5,12 +5,18 @@ import { Howl } from 'howler'
 
 export interface MusicPlayerRef {
   startMusic: () => void
+  changeTrack: (src: string) => void
+  fadeOut: () => Promise<void>
+  fadeIn: () => Promise<void>
 }
 
 const MusicPlayer = forwardRef<MusicPlayerRef>((props, ref) => {
   const [isPlaying, setIsPlaying] = useState(false)
+  const [currentTrack, setCurrentTrack] = useState('/music/before-spring.mp3')
   const soundRef = useRef<Howl | null>(null)
   const isInitialized = useRef(false)
+  const fadeTimeoutRef = useRef<NodeJS.Timeout | null>(null)
+  const isChangingTrack = useRef(false)
 
   useEffect(() => {
     // Prevent double initialization in React StrictMode
@@ -31,21 +37,114 @@ const MusicPlayer = forwardRef<MusicPlayerRef>((props, ref) => {
     })
 
     return () => {
-      // Clean up audio
+      // Clean up audio and timeouts
       if (soundRef.current) {
         soundRef.current.unload()
         soundRef.current = null
+      }
+      if (fadeTimeoutRef.current) {
+        clearTimeout(fadeTimeoutRef.current)
       }
       isInitialized.current = false
     }
   }, [])
 
-  // Expose startMusic method to parent
+  // Expose methods to parent
   useImperativeHandle(ref, () => ({
     startMusic: () => {
       if (soundRef.current && !soundRef.current.playing()) {
         soundRef.current.play()
+        setIsPlaying(true)
       }
+    },
+    changeTrack: (src: string) => {
+      // Prevent multiple simultaneous track changes
+      if (isChangingTrack.current) {
+        return
+      }
+      
+      // Check if already playing this track
+      if (currentTrack === src) {
+        // Just ensure it's playing
+        if (!soundRef.current?.playing()) {
+          soundRef.current?.play()
+          setIsPlaying(true)
+        }
+        return
+      }
+      
+      if (soundRef.current) {
+        isChangingTrack.current = true
+        const wasPlaying = soundRef.current.playing() || isPlaying // Check both actual playing state and React state
+        
+        // Store old sound for cleanup
+        const oldSound = soundRef.current
+        
+        // Immediately unload old sound to prevent any issues
+        oldSound.stop()
+        oldSound.unload()
+        
+        // Create new track
+        const newSound = new Howl({
+          src: [src],
+          loop: true,
+          volume: 0.3,
+          autoplay: wasPlaying, // Auto-play if previous was playing
+          html5: true,
+          preload: true,
+          onplay: () => setIsPlaying(true),
+          onpause: () => setIsPlaying(false),
+          onstop: () => setIsPlaying(false),
+          onload: () => {
+            // Track has loaded, allow new changes
+            isChangingTrack.current = false
+          },
+          onloaderror: () => {
+            // On error, also reset the flag
+            isChangingTrack.current = false
+          }
+        })
+        
+        // Set new sound as current
+        soundRef.current = newSound
+        setCurrentTrack(src)
+        
+        // If was playing, ensure the new track starts
+        if (wasPlaying && !newSound.playing()) {
+          setTimeout(() => {
+            soundRef.current?.play()
+          }, 50)
+        }
+      }
+    },
+    fadeOut: () => {
+      return new Promise<void>((resolve) => {
+        if (soundRef.current && soundRef.current.playing()) {
+          const currentVolume = soundRef.current.volume()
+          soundRef.current.fade(currentVolume, 0.05, 800)  // Fade to very low, not zero
+          fadeTimeoutRef.current = setTimeout(() => {
+            resolve()
+          }, 800)
+        } else {
+          resolve()
+        }
+      })
+    },
+    fadeIn: () => {
+      return new Promise<void>((resolve) => {
+        if (soundRef.current) {
+          if (!soundRef.current.playing()) {
+            soundRef.current.volume(0.05)
+            soundRef.current.play()
+          }
+          soundRef.current.fade(soundRef.current.volume(), 0.3, 800)
+          fadeTimeoutRef.current = setTimeout(() => {
+            resolve()
+          }, 800)
+        } else {
+          resolve()
+        }
+      })
     }
   }))
 

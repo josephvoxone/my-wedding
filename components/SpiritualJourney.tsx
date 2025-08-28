@@ -1,20 +1,94 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
 import { useLanguage } from '@/contexts/LanguageContext'
 import { TextRevealGsap } from '@/components/magicui/text-reveal-gsap'
+import type { MusicPlayerRef } from '@/components/MusicPlayer'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-export default function SpiritualJourney() {
+interface SpiritualJourneyProps {
+  musicPlayerRef?: React.RefObject<MusicPlayerRef>
+}
+
+export default function SpiritualJourney({ musicPlayerRef }: SpiritualJourneyProps) {
   const { t } = useLanguage()
   const [showTestimony, setShowTestimony] = useState(false)
+  
+  // Handle music change when opening testimony
+  useEffect(() => {
+    if (showTestimony && musicPlayerRef?.current) {
+      // Change to spiritual music (will auto-play if music was already playing)
+      setTimeout(() => {
+        musicPlayerRef.current?.changeTrack('/music/I Sing Praises.mp3')
+      }, 100)
+    }
+  }, [showTestimony, musicPlayerRef])
+  
+  // Handle close function with music change
+  const handleClose = () => {
+    // First set closing state to prevent re-triggering
+    setShowTestimony(false)
+    
+    // Only change music back if we have a valid ref
+    // Use requestAnimationFrame to ensure DOM has updated
+    requestAnimationFrame(() => {
+      if (musicPlayerRef?.current) {
+        musicPlayerRef.current.changeTrack('/music/before-spring.mp3')
+      }
+    })
+  }
+  
+  // Store scroll position
+  const scrollPositionRef = useRef(0)
+  
+  // Handle scroll locking separately
+  useEffect(() => {
+    if (showTestimony) {
+      // Save current scroll position BEFORE locking
+      scrollPositionRef.current = window.scrollY
+      
+      // Lock scroll
+      document.body.style.position = 'fixed'
+      document.body.style.top = `-${scrollPositionRef.current}px`
+      document.body.style.width = '100%'
+      
+      // Refresh ScrollTrigger after DOM changes
+      setTimeout(() => {
+        if (typeof window !== 'undefined' && ScrollTrigger) {
+          ScrollTrigger.refresh()
+        }
+      }, 100)
+    } else if (scrollPositionRef.current > 0) {
+      // Restore scroll position and unlock
+      document.body.style.position = ''
+      document.body.style.top = ''
+      document.body.style.width = ''
+      
+      // Restore to the saved position (stay at spiritual journey section)
+      window.scrollTo(0, scrollPositionRef.current)
+      
+      // Refresh ScrollTrigger after restoring scroll
+      setTimeout(() => {
+        if (typeof window !== 'undefined' && ScrollTrigger) {
+          ScrollTrigger.refresh()
+        }
+      }, 100)
+    }
+    
+    return () => {
+      // Cleanup on unmount
+      document.body.style.position = ''
+      document.body.style.top = ''
+      document.body.style.width = ''
+    }
+  }, [showTestimony])
 
   return (
     <section id="spiritual-journey" className="bg-gradient-to-b from-cream to-white">
-      {/* Button Section */}
-      {!showTestimony ? (
-        <div className="min-h-screen flex items-center justify-center px-8">
+      {/* Button Section - Always rendered */}
+      <div className={`min-h-screen flex items-center justify-center px-8 ${showTestimony ? 'pointer-events-none opacity-0' : 'pointer-events-auto opacity-100'} transition-opacity duration-500`}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -44,7 +118,10 @@ export default function SpiritualJourney() {
             </p>
             
             <motion.button
-              onClick={() => setShowTestimony(true)}
+              onClick={() => {
+                setShowTestimony(true)
+                // Don't start music here - let useEffect handle it
+              }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="bg-sage hover:bg-sage-dark text-white font-libre text-lg py-4 px-8 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl"
@@ -53,26 +130,48 @@ export default function SpiritualJourney() {
             </motion.button>
           </motion.div>
         </div>
-      ) : (
-        <>
+      
+      {/* Testimony overlay - shown on top when active */}
+      {showTestimony && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          className="fixed inset-0 z-45 bg-gradient-to-b from-cream to-white"
+        >
+          {/* Scrollable content container */}
+          <div className="h-full overflow-y-auto">
+          {/* Close button - fixed at top right */}
+          <motion.button
+            onClick={handleClose}
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            className="fixed top-8 right-8 z-50 bg-white/90 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-white"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <span className="font-libre text-brown font-medium">✕ Close</span>
+          </motion.button>
+          
           {/* Title Section when testimony is shown */}
-          <div className="min-h-screen flex items-center justify-center px-8">
+          <div className="min-h-screen flex items-center justify-center px-8 relative">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1 }}
+              transition={{ duration: 1, delay: 0.5 }}
               className="text-center"
             >
               <div className="mb-8">
                 <p className="font-monsieur text-4xl md:text-5xl text-sage">
-                  Our
+                  {t.spiritualJourney.testimonyTitle}
                 </p>
                 <h2 className="font-bodoni text-5xl md:text-6xl text-brown uppercase -mt-2">
-                  Testimony
+                  {t.spiritualJourney.testimonySubtitle}
                 </h2>
               </div>
               <p className="font-libre text-lg text-brown-soft max-w-2xl mx-auto">
-                Ini adalah kesaksian kami tentang kasih dan kesetiaan Tuhan dalam perjalanan hidup kami
+                {t.spiritualJourney.testimonyIntro}
               </p>
               
               {/* Scroll indicator */}
@@ -82,7 +181,7 @@ export default function SpiritualJourney() {
                 className="mt-20"
               >
                 <p className="font-libre text-sm text-brown-soft mb-2">
-                  Gulir untuk membaca kesaksian kami
+                  {t.spiritualJourney.scrollIndicator}
                 </p>
                 <svg className="w-6 h-6 mx-auto text-brown-soft" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
@@ -233,16 +332,16 @@ export default function SpiritualJourney() {
               className="text-center max-w-3xl"
             >
               <h3 className="font-monsieur text-4xl md:text-5xl text-brown mb-6">
-                Pesan Kami
+                {t.spiritualJourney.closingTitle}
               </h3>
-              <p className="font-libre text-lg text-brown-soft mb-8">
-                Pernikahan kami bukan hanya tentang dua orang yang bersatu, tapi tentang bagaimana Tuhan mempersatukan dua jiwa yang telah Dia ubahkan. 
-                <br/><br/>
-                Kami berharap kesaksian ini dapat menjadi berkat bagi setiap orang yang membacanya.
+              <p className="font-libre text-lg text-brown-soft mb-8 whitespace-pre-line">
+                {t.spiritualJourney.closingMessage}
               </p>
             </motion.div>
           </div>
-        </>
+          
+          </div>
+        </motion.div>
       )}
     </section>
   )
