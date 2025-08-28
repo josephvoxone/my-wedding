@@ -265,7 +265,6 @@ function PolaroidMedia({ media, index }: {
           {media.type === 'video' ? (
             <video
               src={media.src}
-              poster={media.poster}
               autoPlay
               muted
               loop
