@@ -2,8 +2,9 @@
 
 import { motion } from 'framer-motion'
 import { useState } from 'react'
+import Image from 'next/image'
 import { useLanguage } from '@/contexts/LanguageContext'
-import { TextRevealJustified } from '@/components/magicui/text-reveal-justified'
+import { TextRevealGsap } from '@/components/magicui/text-reveal-gsap'
 
 export default function SpiritualJourney() {
   const { t } = useLanguage()
@@ -91,17 +92,27 @@ export default function SpiritualJourney() {
           </div>
 
           {/* Testimony Chapters with Text Reveal */}
-          {t.spiritualJourney.chapters.map((chapter, index) => (
-            <div key={index} className="relative h-[100vh]">
-              {/* Text Reveal Section with Justify - Dynamic gap based on content length */}
-              <TextRevealJustified 
-                className={chapter.content.length > 800 ? "mb-64" : chapter.content.length > 500 ? "mt-72 mb-68" : "mb-32"}
-              >
+          {t.spiritualJourney.chapters.map((chapter, index) => {
+            // Define media paths for specific chapters
+            const chapterMedia: { [key: number]: { type: 'image' | 'video', src: string } } = {
+              0: { type: 'image', src: '/assets/spiritual/tanda.jpeg' }, // tanda dari tuhan
+              1: { type: 'image', src: '/assets/spiritual/wave.jpeg' }, // Hubungan Pasang Surut
+              2: { type: 'image', src: '/assets/spiritual/penolakan.jpeg' }, // Penolakan (index 2)
+              3: { type: 'video', src: '/assets/spiritual/lost.mp4' }, // tahun-tahun Penuh Beban (index 3)
+              4: { type: 'image', src: '/assets/spiritual/job.jpg' }, // Pekerjaan Misterius (index 4)
+              5: { type: 'video', src: '/assets/spiritual/dubai.mp4' }, // Perjalanan ke Dubai (index 5)
+              8: { type: 'video', src: '/assets/spiritual/guidence.mp4' }, // Panggilan Hidup (index 8)
+            }
+            
+            return (
+            <div key={index} className="mb-20">
+              {/* Text Reveal Section - GSAP version for smooth scroll */}
+              <TextRevealGsap>
                 {chapter.content}
-              </TextRevealJustified>
+              </TextRevealGsap>
               
-              {/* Photo/Illustration with dynamic margin based on previous content */}
-              <div className={`flex justify-center px-8 ${index < t.spiritualJourney.chapters.length - 1 ? 'mt-0' : 'mb-20'}`}>
+              {/* Photo/Illustration - flows naturally after text */}
+              <div className="flex justify-center px-8 mt-12">
                 <motion.div
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ 
@@ -125,12 +136,32 @@ export default function SpiritualJourney() {
                 >
                   <div className="bg-white p-4 shadow-2xl transform hover:shadow-2xl transition-all duration-300">
                     <div className="relative w-72 h-[350px] md:w-[300px] md:h-[375px] overflow-hidden">
-                      <div className="absolute inset-0 bg-gradient-to-br from-sage/10 to-sage-dark/20 flex items-center justify-center">
-                        <div className="text-center">
-                          <p className="font-bodoni text-2xl text-brown mb-2">{chapter.title}</p>
-                          <p className="font-libre text-sm text-brown-soft">Chapter {index + 1}</p>
+                      {chapterMedia[index] ? (
+                        chapterMedia[index].type === 'video' ? (
+                          <video
+                            src={chapterMedia[index].src}
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            className="w-full h-full object-cover"
+                          />
+                        ) : (
+                          <Image
+                            src={chapterMedia[index].src}
+                            alt={chapter.title}
+                            fill
+                            className="object-cover"
+                          />
+                        )
+                      ) : (
+                        <div className="absolute inset-0 bg-gradient-to-br from-sage/10 to-sage-dark/20 flex items-center justify-center">
+                          <div className="text-center">
+                            <p className="font-bodoni text-2xl text-brown mb-2">{chapter.title}</p>
+                            <p className="font-libre text-sm text-brown-soft">Chapter {index + 1}</p>
+                          </div>
                         </div>
-                      </div>
+                      )}
                     </div>
                     <div className="mt-4 text-center">
                       <p className="font-homemade text-lg text-brown">{chapter.title}</p>
@@ -139,7 +170,8 @@ export default function SpiritualJourney() {
                 </motion.div>
               </div>
             </div>
-          ))}
+            )
+          })}
 
           {/* Closing Message */}
           <div className="min-h-screen flex items-center justify-center px-8">
@@ -155,13 +187,8 @@ export default function SpiritualJourney() {
               </h3>
               <p className="font-libre text-lg text-brown-soft mb-8">
                 Pernikahan kami bukan hanya tentang dua orang yang bersatu, tapi tentang bagaimana Tuhan mempersatukan dua jiwa yang telah Dia ubahkan. 
+                <br/><br/>
                 Kami berharap kesaksian ini dapat menjadi berkat bagi setiap orang yang membacanya.
-              </p>
-              <p className="font-bodoni text-xl text-brown mb-4">
-                2 Korintus 12:9
-              </p>
-              <p className="font-libre text-lg text-brown-soft italic">
-                "Tetapi jawab Tuhan kepadaku: Cukuplah kasih karunia-Ku bagimu, sebab justru dalam kelemahanlah kuasa-Ku menjadi sempurna."
               </p>
             </motion.div>
           </div>

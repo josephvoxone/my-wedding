@@ -174,15 +174,15 @@ export const translations = {
       buttonText: 'Read Our Testimony',
       chapters: [
         {
-          title: 'tanda dari tuhan (2021)',
+          title: 'tanda dari tuhan',
           content: 'Flashback ke awal kami menjalin hubungan di tahun 2021. Saat aku harus memutuskan untuk berpacaran dengan Ayu, aku tidak langsung mengiyakan. Aku berdoa dan mengkonfirmasi dengan Tuhan terlebih dahulu. "Tuhan, jika ini dari-Mu, berikan aku tanda yang jelas dan spesifik." Aku meminta tanda yang sangat spesifik, yang tidak mungkin kebetulan. Dan Tuhan memberikan tanda itu dengan cara yang begitu nyata, tepat seperti yang kuminta. Yang membuatku semakin yakin dan terkejut - ternyata Ayu juga berdoa hal yang sama! Dia juga meminta tanda yang persis sama kepada Tuhan. Kami berdua mendapat konfirmasi yang sama. Ini bukan kebetulan - ini adalah bukti nyata bahwa Tuhan yang menyatukan kami.'
         },
         {
-          title: 'Hubungan Pasang Surut (2021-2022)',
+          title: 'Hubungan Pasang Surut',
           content: 'Hubungan kami di tahun-tahun awal penuh dinamika. Ada masa-masa indah, ada masa-masa sulit. Kami pernah bertengkar hebat, bahkan sempat hampir putus. Ego kami berbenturan. Karakterku yang keras kepala bertemu dengan Ayu yang juga punya prinsip kuat. Tapi di setiap pergumulan, kami belajar. Belajar mengalah, belajar memahami, belajar mengasihi dengan tulus. Setiap masalah yang kami hadapi justru membuat kami semakin dewasa. Tuhan memakai setiap konflik untuk membentuk karakter kami, mempersiapkan kami untuk pernikahan yang sesungguhnya.'
         },
         {
-          title: 'Penginjilan yang Penuh Penolakan',
+          title: 'Penolakan',
           content: 'Setelah mengetahui bahwa Ayu hanya menjadi orang Kristen KTP - yang ke gereja hanya saat Natal dan Paskah - hatiku terbebani berat. Bagaimana mungkin aku menjalin hubungan dengan seseorang yang tidak sungguh-sungguh mengenal Tuhan? Sepanjang tahun aku mulai melakukan penginjilan. Hampir setiap hari aku berbagi Firman lewat WhatsApp tapi responnya yang biasa aja. Mengajak ke gereja lokal dan berkomunitas. Tapi yang kuterima adalah penolakan demi penolakan. "Aku gak punya waktu untuk ini, kamu gak tau apa yang aku alamin" katanya. "Kamu terlalu sok tau tentang diriku, aku minggu sudah pasti tidak bisa ke gereja." Kata-kata itu menusuk hatiku. Berkali-kali aku hampir menyerah. Berbulan-bulan berlalu tanpa perubahan. Tapi aku terus berdoa, "Tuhan, jamah hatinya. Buka matanya untuk melihat-Mu."'
         },
         {
@@ -190,8 +190,8 @@ export const translations = {
           content: 'Selama tahun 2019, aku merasa menjadi orang paling sial sedunia. Beban finansial yang menghimpit, gaji pas-pasan, kebutuhan yang tidak pernah cukup dan mengalami beban sebagai generasi sandwhich. Stuck di perusahaan lama tanpa pertumbuhan. Tekanan mental yang mencekik - ekspektasi keluarga, tuntutan pekerjaan, pergumulan relationship. Masalah keluarga yang tak kunjung selesai - konflik yang sama berulang terus, luka yang sama terbuka lagi dan lagi. Aku merasa tidak berguna, menjadi beban bagi semua orang di sekitarku. Berkali-kali aku bertanya, "Tuhan, kenapa hidupku begini terus? Apa salahku?"'
         },
         {
-          title: 'tawaran Pekerjaan Misterius (Akhir 2023)',
-          content: 'Di penghujung 2023, di saat yang tidak terduga, seorang teman menawariku pekerjaan. Perusahaan baru yang aku tidak tahu asal-usulnya. Sistem kontrak yang membuatku ragu - bagaimana kalau di-layoff? Setelah meninmbang disatu sisi karena mau resign bosku kantor lama mau menaikan jabatan aku tapi tidak dengan gajinya, jadi ini sebuah tanda dimana aku harus mengambil pekerjaan baru. Dengan penuh keraguan, aku terima tawaran itu. Bulan-bulan pertama penuh ketidakpastian tetapi aku tetap bekerja secara WFH. Aku belum pernah bertemu bosku. Belum kenal siapa rekan kerjaku kecuali teman yang mengajakku. Semuanya terasa seperti berjalan dalam kabut. Tapi aku percaya Tuhan punya rencana.'
+          title: 'Pekerjaan Misterius',
+          content: 'Di awal 2024, di saat yang tidak terduga, seorang teman menawariku pekerjaan. Perusahaan baru yang aku tidak tahu asal-usulnya. Sistem kontrak yang membuatku ragu - bagaimana kalau di-layoff? Setelah meninmbang disatu sisi karena mau resign bosku kantor lama mau menaikan jabatan aku tapi tidak dengan gajinya, jadi ini sebuah tanda dimana aku harus mengambil pekerjaan baru. Dengan penuh keraguan, aku terima tawaran itu. Bulan-bulan pertama penuh ketidakpastian tetapi aku tetap bekerja secara WFH. Aku belum pernah bertemu bosku. Belum kenal siapa rekan kerjaku kecuali teman yang mengajakku. Semuanya terasa seperti berjalan dalam kabut. Tapi aku percaya Tuhan punya rencana.'
         },
         {
           title: 'Perjalanan ke Dubai',
@@ -199,7 +199,7 @@ export const translations = {
         },
         {
           title: 'Pertemuan dengan Keluarga Bos',
-          content: 'Sampai di Dubai, aku disambut dengan hangat oleh keluarga bosku. Mereka memperlakukanku seperti keluarga sendiri. Yang mengejutkan - setiap percakapan selalu berujung pada hal-hal rohani! Pagi hari dimulai dengan sharing Firman waktu berangkat kerja. Malam hari kadang ditutup dengan saling mendoakan. Aku bertemu pendeta dari Iran yang bercerita tentang penganiayaan. Misionaris dari Indonesia yang berbagi tentang pelayanan underground. Orang-orang yang memiliki iman yang sama dari Afrika, Srilanka semuanya punya kesaksian luar biasa tentang Tuhan. Ini bukan business trip - ini retreat rohani!'
+          content: 'Sampai di Dubai, aku disambut dengan hangat oleh keluarga bosku. Mereka memperlakukanku seperti keluarga sendiri. Yang mengejutkan - setiap percakapan selalu berujung pada hal-hal rohani! Pagi hari dimulai dengan sharing Firman waktu berangkat kerja. Malam hari kadang ditutup dengan saling mendoakan. Aku bertemu misionaris dari Indonesia yang berbagi tentang pelayanan underground. Orang-orang yang memiliki iman yang sama dari Afrika, Srilanka semuanya punya kesaksian luar biasa tentang Tuhan. Ini bukan business trip - ini retreat rohani!'
         },
         {
           title: 'tuhan Membuka Pintu-Pintu (2024)',
@@ -210,8 +210,8 @@ export const translations = {
           content: 'Tuhan berbicara jelas melalui pendeta sebagai perantara "God is going to use you to help others stay the course and accomplish the task. It`s who you are, and it`s what God has called you to be." Aku menangis. Pulang dari Dubai, aku punya misi yang jelas. Bukan lagi sekedar penginjilan, tapi penyelamatan jiwa. Aku mulai dengan cara yang berbeda. Bukan lagi memaksa, tapi menunjukkan kasih Kristus melalui hidupku. Bukan lagi berdebat, tapi mendoakan dengan sungguh-sungguh.'
         },
         {
-          title: 'Mukjizat Pertobatan Ayu',
-          content: 'Perlahan tapi pasti, sejak pertengahan 2024, Tuhan bekerja. Ayu yang dulu menolak, mulai kesaksian mengenai iman. Yang dulu malas ke gereja, tiba-tiba rajin ibadah. Yang dulu skeptis dengan komunitas, sekarang mempunyai teman yang saling menajamkan. Aku melihat transformasi nyata di depan mataku. Dari yang cuek dengan komsel, sekarang aktif. Dan puncaknya - 16 Maret 2025, Ayu Lestari memutuskan untuk dibaptis! Satu jiwa telah diselamatkan. Air mataku tidak bisa kubendung. Ini mukjizat nyata!'
+          title: 'Pertobatan',
+          content: 'Perlahan tapi pasti, sejak akhir 2024, Tuhan bekerja. Ayu yang dulu menolak, mulai kesaksian mengenai iman. Yang dulu malas ke gereja, tiba-tiba rajin ibadah. Yang dulu skeptis dengan komunitas, sekarang mempunyai teman yang saling menajamkan. Aku melihat transformasi nyata di depan mataku. Dari yang cuek dengan komsel, sekarang aktif. Dan puncaknya - 16 Maret 2025, Ayu Lestari memutuskan untuk dibaptis! Satu jiwa telah diselamatkan. Air mataku tidak bisa kubendung. Ini mukjizat nyata!'
         },
         {
           title: 'tuhan Memutar Balikkan Segalanya (2025)',
