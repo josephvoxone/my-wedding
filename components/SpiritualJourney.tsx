@@ -101,7 +101,12 @@ export default function SpiritualJourney() {
               3: { type: 'video', src: '/assets/spiritual/lost.mp4' }, // tahun-tahun Penuh Beban (index 3)
               4: { type: 'image', src: '/assets/spiritual/job.jpg' }, // Pekerjaan Misterius (index 4)
               5: { type: 'video', src: '/assets/spiritual/dubai.mp4' }, // Perjalanan ke Dubai (index 5)
+              6: { type: 'video', src: '/assets/spiritual/gunung.mp4' }, // tuhan gunung batuku (index 6)
+              7: { type: 'video', src: '/assets/spiritual/sunset.mp4' }, // Akan cerah, sebab langit merah (index 7)
               8: { type: 'video', src: '/assets/spiritual/guidence.mp4' }, // Panggilan Hidup (index 8)
+              9: { type: 'image', src: '/assets/spiritual/pertobatan.jpeg' }, // Pertobatan (index 9)
+              10: { type: 'image', src: '/assets/spiritual/penyertaan.jpeg' }, // Penyertaan Dia (index 10)
+              11: { type: 'image', src: '/assets/spiritual/kami satu.jpeg' }, // kami satu (index 11)
             }
             
             return (
@@ -164,11 +169,56 @@ export default function SpiritualJourney() {
                       )}
                     </div>
                     <div className="mt-4 text-center">
-                      <p className="font-homemade text-lg text-brown">{chapter.title}</p>
+                      <p className={`font-homemade text-brown ${
+                        index === 7 ? 'text-sm' : 'text-lg'
+                      }`}>{chapter.title}</p>
                     </div>
                   </div>
                 </motion.div>
               </div>
+              
+              {/* Additional video for Dubai journey */}
+              {index === 5 && (
+                <div className="flex justify-center px-8 mt-12 mb-20">
+                  <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ 
+                      opacity: 1, 
+                      y: 0,
+                      rotate: -2
+                    }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ 
+                      duration: 0.6,
+                      delay: 0.4,
+                      type: "spring",
+                      stiffness: 100
+                    }}
+                    whileHover={{ 
+                      scale: 1.05,
+                      rotate: 0,
+                      transition: { duration: 0.3 }
+                    }}
+                    className="inline-block cursor-pointer"
+                  >
+                    <div className="bg-white p-4 shadow-2xl transform hover:shadow-2xl transition-all duration-300">
+                      <div className="relative w-72 h-[350px] md:w-[300px] md:h-[375px] overflow-hidden">
+                        <video
+                          src="/assets/spiritual/journey.mp4"
+                          autoPlay
+                          loop
+                          muted
+                          playsInline
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div className="mt-4 text-center">
+                        <p className="font-homemade text-lg text-brown">journey to middle east</p>
+                      </div>
+                    </div>
+                  </motion.div>
+                </div>
+              )}
             </div>
             )
           })}

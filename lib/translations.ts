@@ -183,11 +183,11 @@ export const translations = {
         },
         {
           title: 'Penolakan',
-          content: 'Setelah mengetahui bahwa Ayu hanya menjadi orang Kristen KTP - yang ke gereja hanya saat Natal dan Paskah - hatiku terbebani berat. Bagaimana mungkin aku menjalin hubungan dengan seseorang yang tidak sungguh-sungguh mengenal Tuhan? Sepanjang tahun aku mulai melakukan penginjilan. Hampir setiap hari aku berbagi Firman lewat WhatsApp tapi responnya yang biasa aja. Mengajak ke gereja lokal dan berkomunitas. Tapi yang kuterima adalah penolakan demi penolakan. "Aku gak punya waktu untuk ini, kamu gak tau apa yang aku alamin" katanya. "Kamu terlalu sok tau tentang diriku, aku minggu sudah pasti tidak bisa ke gereja." Kata-kata itu menusuk hatiku. Berkali-kali aku hampir menyerah. Berbulan-bulan berlalu tanpa perubahan. Tapi aku terus berdoa, "Tuhan, jamah hatinya. Buka matanya untuk melihat-Mu."'
+          content: 'Setelah mengetahui bahwa Ayu hanya menjadi orang Kristen identitas - yang hampir tidak pernah ke gereja - hatiku terbebani berat. Bagaimana mungkin aku menjalin hubungan dengan seseorang yang tidak sungguh-sungguh mengenal Tuhan? Sepanjang tahun aku mulai melakukan penginjilan. Hampir setiap hari aku berbagi Firman lewat WhatsApp tapi responnya yang biasa aja. Mengajak ke gereja lokal dan berkomunitas. Tapi yang kuterima adalah penolakan demi penolakan. "Aku gak punya waktu untuk ini, kamu gak tau apa yang aku alamin" katanya. "Kamu terlalu sok tau tentang diriku, aku minggu sudah pasti tidak bisa ke gereja." Kata-kata itu menusuk hatiku. Berkali-kali aku hampir menyerah. Berbulan-bulan berlalu tanpa perubahan. Tapi aku terus berdoa, "Tuhan, jamah hatinya. Buka matanya untuk melihat-Mu."'
         },
         {
           title: 'tahun-tahun Penuh Beban',
-          content: 'Selama tahun 2019, aku merasa menjadi orang paling sial sedunia. Beban finansial yang menghimpit, gaji pas-pasan, kebutuhan yang tidak pernah cukup dan mengalami beban sebagai generasi sandwhich. Stuck di perusahaan lama tanpa pertumbuhan. Tekanan mental yang mencekik - ekspektasi keluarga, tuntutan pekerjaan, pergumulan relationship. Masalah keluarga yang tak kunjung selesai - konflik yang sama berulang terus, luka yang sama terbuka lagi dan lagi. Aku merasa tidak berguna, menjadi beban bagi semua orang di sekitarku. Berkali-kali aku bertanya, "Tuhan, kenapa hidupku begini terus? Apa salahku?"'
+          content: 'Selama tahun 2019, aku merasa menjadi orang paling sial sedunia. Beban finansial yang menghimpit, gaji pas-pasan, kebutuhan yang tidak pernah cukup dan mengalami beban sebagai generasi sandwhich. Stuck di perusahaan lama tanpa pertumbuhan. Tekanan mental yang mencekik - ekspektasi keluarga, tuntutan pekerjaan, pergumulan relationship. Masalah yang tak kunjung selesai - konflik yang sama berulang terus, luka yang sama terbuka lagi dan lagi. Aku merasa tidak berguna, menjadi beban bagi semua orang di sekitarku. Berkali-kali aku bertanya, "Tuhan, kenapa hidupku begini terus? Apa salahku?"'
         },
         {
           title: 'Pekerjaan Misterius',
@@ -198,11 +198,11 @@ export const translations = {
           content: 'Akhir 2024, bosku yang belum pernah kutemui menawariku ke Dubai! Aku yang belum pernah ke luar negeri sama sekali. Visa diurus dengan cepat - mukjizat! Tapi drama dimulai di bandara. Petugas maskapai menanyakan tiket pulangku. Ternyata aku hanya diberi tiket sekali jalan oleh bosku! Panik? Sudah pasti. Aku telepon kesana-kemari. Akhirnya diminta tanda tangan surat pernyataan bahwa maskapai tidak bertanggung jawab atas diriku. Dengan tangan gemetar, aku tanda tangan. "Tuhan, aku percaya Engkau menyertaiku," bisikku. Aku memberanikan diri naik pesawat, sendirian, menuju negeri asing, dengan tiket sekali jalan, percaya penuh pada penyertaan Tuhan.'
         },
         {
-          title: 'Pertemuan dengan Keluarga Bos',
+          title: 'tuhan gunung batuku',
           content: 'Sampai di Dubai, aku disambut dengan hangat oleh keluarga bosku. Mereka memperlakukanku seperti keluarga sendiri. Yang mengejutkan - setiap percakapan selalu berujung pada hal-hal rohani! Pagi hari dimulai dengan sharing Firman waktu berangkat kerja. Malam hari kadang ditutup dengan saling mendoakan. Aku bertemu misionaris dari Indonesia yang berbagi tentang pelayanan underground. Orang-orang yang memiliki iman yang sama dari Afrika, Srilanka semuanya punya kesaksian luar biasa tentang Tuhan. Ini bukan business trip - ini retreat rohani!'
         },
         {
-          title: 'tuhan Membuka Pintu-Pintu (2024)',
+          title: 'Akan cerah, sebab langit merah',
           content: 'Di Dubai, Tuhan mulai berbicara kepadaku dengan jelas. Setiap doa dijawab. Setiap pergumulan yang kupikir tidak ada jalan keluarnya, tiba-tiba terbuka. Masalah keluarga yang bertahun-tahun membebaniku - Tuhan berikan hikmat bagaimana menghadapinya. Tuhan tunjukkan dan mulai ubahkan. Luka-luka masa lalu - Tuhan mulai pulihkan. Di tengah gedung pencakar langit Dubai, di negeri asing, jauh dari rumah, aku justru merasa paling dekat dengan Tuhan. Dia membuka pintu-pintu yang selama ini tertutup rapat dalam hidupku.'
         },
         {
@@ -211,14 +211,14 @@ export const translations = {
         },
         {
           title: 'Pertobatan',
-          content: 'Perlahan tapi pasti, sejak akhir 2024, Tuhan bekerja. Ayu yang dulu menolak, mulai kesaksian mengenai iman. Yang dulu malas ke gereja, tiba-tiba rajin ibadah. Yang dulu skeptis dengan komunitas, sekarang mempunyai teman yang saling menajamkan. Aku melihat transformasi nyata di depan mataku. Dari yang cuek dengan komsel, sekarang aktif. Dan puncaknya - 16 Maret 2025, Ayu Lestari memutuskan untuk dibaptis! Satu jiwa telah diselamatkan. Air mataku tidak bisa kubendung. Ini mukjizat nyata!'
+          content: 'Perlahan tapi pasti, sejak akhir 2024, Tuhan bekerja. Ayu yang dulu menolak, mulai kesaksian mengenai iman. Yang dulu malas ke gereja, tiba-tiba rajin ibadah. Yang dulu skeptis dengan komunitas, sekarang mempunyai teman yang saling menajamkan. Aku melihat transformasi nyata di depan mataku. Dari yang cuek dengan komsel, sekarang aktif. Dan puncaknya - 16 Maret 2025, Ayu Lestari memutuskan untuk dibaptis! Satu jiwa telah diselamatkan!'
         },
         {
-          title: 'tuhan Memutar Balikkan Segalanya (2025)',
+          title: 'Penyertaan Dia',
           content: 'Kini di tahun 2025, aku melihat dengan jelas perspektif Tuhan. Dia menempatkanku di keluarga bermasalah agar aku belajar mengampuni tanpa syarat. Dia membiarkanku menghadapi masalah finansial agar aku belajar bergantung penuh pada-Nya. Dia ijinkan aku mengalami penolakan dalam penginjilan agar aku mengerti betapa berharganya satu jiwa. Tuhan membuatku lemah untuk menyingkirkan kesombonganku. Dia membuatku tidak berdaya agar aku tetap berharap kepada-Nya. Seperti emas dimurnikan dalam api 1000 derajat celsius, aku diproses melalui masalah-masalah berat. Sekarang aku mengerti - "Di dalam kelemahanku, kuasa-Nya menjadi sempurna."'
         },
         {
-          title: 'Bukan Sekedar Undangan',
+          title: 'kami satu',
           content: 'Website yang saya buat ini. Ini adalah kabar baik yang ingin kami bagikan. Kami tidak malu bersaksi tentang Tuhan yang telah mengubah hidup kami. Dalam kesesakanmu, kepahitan hidupmu, kesedihanmu, kehampaanmu, kekecewaanmu - jangan pernah kehilangan satu hal yaitu PENGHARAPAN! Pengharapan itu nyata. Pengharapan itu ada. Dan namanya YESUS KRISTUS. Dia yang telah mengubah hidup kita dari pecundang menjadi pemenang. Dia yang mempersatukan kami bukan sekedar dalam cinta manusiawi, tapi dalam kasih ilahi. Tuhan tidak pernah meninggalkan anak-Nya yang terluka. Percayalah, rancangan-Nya indah pada waktu-Nya. Karena sejak awal, sejak sebelum dunia dijadikan, Tuhan tidak pernah meninggalkan kita!'
         }
       ]
