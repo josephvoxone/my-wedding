@@ -157,6 +157,33 @@ export default function HelloSection({ onMessageOpen, scrollLocked = false }: He
                     {getSpecialMessage(guest) || ''}
                   </TextAnimate>
                 )}
+                
+                {/* Open Message Button - below text */}
+                <motion.button
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 5, duration: 1 }}
+                  onClick={handleOpenMessage}
+                  className="mt-48 px-8 py-3 bg-white-soft/80 backdrop-blur-sm border-2 border-sage/30 rounded-full font-libre text-sage-dark hover:bg-sage/10 hover:border-sage/50 transition-all duration-300 shadow-md hover:shadow-lg flex items-center gap-2 mx-auto"
+                >
+                  <span>{language === 'id' ? 'Buka Pesan' : 'Open Message'}</span>
+                  
+                  {/* Notification Bell */}
+                  <motion.div
+                    animate={{ 
+                      rotate: [0, -10, 10, -10, 10, 0],
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      repeatDelay: 3,
+                    }}
+                  >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                    </svg>
+                  </motion.div>
+                </motion.button>
               </div>
             )}
             
@@ -231,54 +258,6 @@ export default function HelloSection({ onMessageOpen, scrollLocked = false }: He
           </motion.div>
         )}
       </AnimatePresence>
-
-      {/* Open Message Button Container - positioned at bottom */}
-      {guestName && !showMessage && (
-        <div className="absolute bottom-20 left-0 right-0 flex justify-center">
-          <motion.button
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 5, duration: 1 }}
-            onClick={handleOpenMessage}
-            className="px-8 py-3 bg-white-soft/80 backdrop-blur-sm border-2 border-sage/30 rounded-full font-libre text-sage-dark hover:bg-sage/10 hover:border-sage/50 transition-all duration-300 shadow-md hover:shadow-lg flex items-center gap-2"
-          >
-            <span>{language === 'id' ? 'Buka Pesan' : 'Open Message'}</span>
-            
-            {/* Notification Bell */}
-            <motion.div
-              animate={{ 
-                rotate: [0, -10, 10, -10, 10, -10, 10, 0],
-              }}
-              transition={{ 
-                duration: 0.5,
-                repeat: Infinity,
-                repeatDelay: 2,
-                ease: "easeInOut"
-              }}
-              className="relative"
-            >
-              <svg 
-                className="w-6 h-6 text-gold-elegant" 
-                fill="none" 
-                viewBox="0 0 24 24" 
-                stroke="currentColor"
-              >
-                <path 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round" 
-                  strokeWidth={2} 
-                  d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" 
-                />
-              </svg>
-              
-              {/* Badge Dot */}
-              <div
-                className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-red-500 rounded-full"
-              />
-            </motion.div>
-          </motion.button>
-        </div>
-      )}
 
       {/* Scroll Indicator - only show when message is opened or no guest name */}
       {(showMessage || !guestName) && (

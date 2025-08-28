@@ -21,7 +21,7 @@ export default function SpiritualJourney({ musicPlayerRef }: SpiritualJourneyPro
     if (showTestimony && musicPlayerRef?.current) {
       // Change to spiritual music (will auto-play if music was already playing)
       setTimeout(() => {
-        musicPlayerRef.current?.changeTrack('/music/I Sing Praises.mp3')
+        musicPlayerRef.current?.changeTrack('/music/I-Sing-Praises.mp3')
       }, 100)
     }
   }, [showTestimony, musicPlayerRef])

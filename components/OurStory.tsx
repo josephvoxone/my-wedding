@@ -29,7 +29,6 @@ const storyMedia = [
     {
       type: 'video' as const,
       src: '/assets/story/flight.mp4',
-      poster: '/assets/story/flight-poster.jpg',
       alt: 'Flight from Surabaya to Kalimantan',
       caption: 'Our Flights',
       year: '2022'
@@ -44,7 +43,6 @@ const storyMedia = [
     {
       type: 'video' as const,
       src: '/assets/story/bromo-timelapse.mp4',
-      poster: '/assets/story/bromo-poster.jpg',
       alt: 'Bromo Timelapse',
       caption: 'time flies',
       year: '2023'
