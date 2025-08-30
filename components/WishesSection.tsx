@@ -166,11 +166,11 @@ export default function WishesSection() {
   const getAttendanceIcon = (status: string | null) => {
     switch(status) {
       case 'hadir':
-        return '✅'
+        return '✓'
       case 'tidak_hadir':
-        return '❌'
-      case 'masih_ragu':
-        return '🤔'
+        return '✗'
+      case 'streaming':
+        return '📺'
       default:
         return ''
     }
@@ -182,7 +182,7 @@ export default function WishesSection() {
     const texts = {
       hadir: language === 'id' ? 'Akan Hadir' : 'Will Attend',
       tidak_hadir: language === 'id' ? 'Tidak Bisa Hadir' : 'Cannot Attend',
-      masih_ragu: language === 'id' ? 'Masih Ragu' : 'Undecided'
+      streaming: language === 'id' ? 'Nonton Streaming' : 'Watch Streaming'
     }
     
     return texts[status as keyof typeof texts] || ''
@@ -198,10 +198,10 @@ export default function WishesSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-dancingScript text-brown mb-4">
+          <h2 className="font-bodoni text-6xl md:text-7xl text-brown mb-4">
             {language === 'id' ? 'Ucapan & Doa' : 'Wishes & Prayers'}
           </h2>
-          <p className="text-lg font-libre text-brown-soft">
+          <p className="font-libre text-base text-brown-soft">
             {language === 'id' 
               ? 'Berikan ucapan dan doa terbaik untuk kami' 
               : 'Share your best wishes and prayers for us'}
@@ -235,28 +235,33 @@ export default function WishesSection() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setShowForm(true)}
-              className="px-8 py-3 bg-gradient-to-r from-gold-soft to-gold rounded-full text-white font-libre shadow-lg hover:shadow-xl transition-all"
+              className="px-8 py-3 bg-white-soft/80 backdrop-blur-sm border-2 border-sage/30 rounded-full font-libre text-sage-dark hover:bg-sage/10 hover:border-sage/50 transition-all duration-300 shadow-md hover:shadow-lg"
             >
-              {language === 'id' ? '✍️ Tulis Ucapan' : '✍️ Write a Wish'}
+              <span className="flex items-center gap-2">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                </svg>
+                {language === 'id' ? 'Tulis Ucapan' : 'Write a Wish'}
+              </span>
             </motion.button>
           </motion.div>
         ) : (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-white rounded-2xl shadow-xl p-6 md:p-8 mb-8"
+            className="bg-white-soft/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl mb-8"
           >
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-6">
               {/* Name Input */}
               <div>
-                <label className="block text-sm font-libre text-brown mb-2">
+                <label className="block font-libre text-xl text-brown mb-2">
                   {language === 'id' ? 'Nama' : 'Name'} *
                 </label>
                 <input
                   type="text"
                   value={formData.guest_name}
                   onChange={(e) => setFormData(prev => ({ ...prev, guest_name: e.target.value }))}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-gold"
+                  className="w-full px-4 py-3 bg-white rounded-xl font-libre border-2 border-sage/20 focus:border-sage/50 focus:outline-none transition-colors"
                   placeholder={language === 'id' ? 'Nama Anda' : 'Your Name'}
                   required
                 />
@@ -264,13 +269,13 @@ export default function WishesSection() {
 
               {/* Message Input */}
               <div>
-                <label className="block text-sm font-libre text-brown mb-2">
+                <label className="block font-libre text-xl text-brown mb-2">
                   {language === 'id' ? 'Ucapan & Doa' : 'Wishes & Prayers'} *
                 </label>
                 <textarea
                   value={formData.message}
                   onChange={(e) => setFormData(prev => ({ ...prev, message: e.target.value }))}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-gold resize-none"
+                  className="w-full px-4 py-3 bg-white rounded-xl font-libre border-2 border-sage/20 focus:border-sage/50 focus:outline-none transition-colors resize-none"
                   rows={4}
                   placeholder={language === 'id' 
                     ? 'Tuliskan ucapan dan doa terbaik Anda...' 
@@ -281,50 +286,19 @@ export default function WishesSection() {
 
               {/* Attendance Status */}
               <div>
-                <label className="block text-sm font-libre text-brown mb-2">
+                <label className="block font-libre text-xl text-brown mb-2">
                   {language === 'id' ? 'Kehadiran' : 'Attendance'}
                 </label>
-                <div className="flex flex-wrap gap-3">
-                  <label className="flex items-center cursor-pointer">
-                    <input
-                      type="radio"
-                      name="attendance"
-                      value="hadir"
-                      checked={formData.attendance_status === 'hadir'}
-                      onChange={(e) => setFormData(prev => ({ ...prev, attendance_status: e.target.value }))}
-                      className="mr-2"
-                    />
-                    <span className="font-libre text-sm">
-                      ✅ {language === 'id' ? 'Akan Hadir' : 'Will Attend'}
-                    </span>
-                  </label>
-                  <label className="flex items-center cursor-pointer">
-                    <input
-                      type="radio"
-                      name="attendance"
-                      value="tidak_hadir"
-                      checked={formData.attendance_status === 'tidak_hadir'}
-                      onChange={(e) => setFormData(prev => ({ ...prev, attendance_status: e.target.value }))}
-                      className="mr-2"
-                    />
-                    <span className="font-libre text-sm">
-                      ❌ {language === 'id' ? 'Tidak Bisa Hadir' : 'Cannot Attend'}
-                    </span>
-                  </label>
-                  <label className="flex items-center cursor-pointer">
-                    <input
-                      type="radio"
-                      name="attendance"
-                      value="masih_ragu"
-                      checked={formData.attendance_status === 'masih_ragu'}
-                      onChange={(e) => setFormData(prev => ({ ...prev, attendance_status: e.target.value }))}
-                      className="mr-2"
-                    />
-                    <span className="font-libre text-sm">
-                      🤔 {language === 'id' ? 'Masih Ragu' : 'Undecided'}
-                    </span>
-                  </label>
-                </div>
+                <select
+                  value={formData.attendance_status}
+                  onChange={(e) => setFormData(prev => ({ ...prev, attendance_status: e.target.value }))}
+                  className="w-full px-4 py-3 bg-white rounded-xl font-libre border-2 border-sage/20 focus:border-sage/50 focus:outline-none transition-colors cursor-pointer"
+                >
+                  <option value="">{language === 'id' ? 'Pilih kehadiran...' : 'Select attendance...'}</option>
+                  <option value="hadir">{language === 'id' ? 'Akan Hadir' : 'Will Attend'}</option>
+                  <option value="tidak_hadir">{language === 'id' ? 'Tidak Bisa Hadir' : 'Cannot Attend'}</option>
+                  <option value="streaming">{language === 'id' ? 'Nonton Streaming' : 'Watch Streaming'}</option>
+                </select>
               </div>
 
               {/* Submit Buttons */}
@@ -332,14 +306,14 @@ export default function WishesSection() {
                 <button
                   type="button"
                   onClick={() => setShowForm(false)}
-                  className="px-6 py-2 border border-gray-300 rounded-lg text-gray-600 font-libre hover:bg-gray-50 transition-colors"
+                  className="px-6 py-3 bg-white border-2 border-sage/20 rounded-xl font-libre text-brown hover:bg-sage/10 hover:border-sage/30 transition-all"
                 >
                   {language === 'id' ? 'Batal' : 'Cancel'}
                 </button>
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="px-6 py-2 bg-gradient-to-r from-gold-soft to-gold rounded-lg text-white font-libre disabled:opacity-50 hover:shadow-lg transition-all"
+                  className="px-6 py-3 bg-sage text-white rounded-xl font-libre hover:bg-sage-dark transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting 
                     ? (language === 'id' ? 'Mengirim...' : 'Sending...') 
@@ -373,7 +347,7 @@ export default function WishesSection() {
                     </p>
                   </div>
                   {wish.attendance_status && (
-                    <span className="text-sm" title={getAttendanceText(wish.attendance_status)}>
+                    <span className="flex items-center justify-center w-8 h-8 rounded-full bg-sage/10 text-sage-dark font-bold" title={getAttendanceText(wish.attendance_status)}>
                       {getAttendanceIcon(wish.attendance_status)}
                     </span>
                   )}
@@ -407,7 +381,7 @@ export default function WishesSection() {
             <button
               onClick={() => fetchWishes(page + 1)}
               disabled={isLoading}
-              className="px-8 py-3 bg-white border-2 border-gold rounded-full text-gold font-libre hover:bg-gold hover:text-white transition-colors disabled:opacity-50"
+              className="px-8 py-3 bg-white-soft/80 backdrop-blur-sm border-2 border-sage/30 rounded-full font-libre text-sage-dark hover:bg-sage/10 hover:border-sage/50 transition-all duration-300 shadow-md hover:shadow-lg disabled:opacity-50"
             >
               {isLoading 
                 ? (language === 'id' ? 'Memuat...' : 'Loading...') 

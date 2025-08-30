@@ -77,7 +77,7 @@ export async function onRequestPost({ request, env }) {
     }
     
     // Validate attendance status
-    const validStatuses = ['hadir', 'tidak_hadir', 'masih_ragu'];
+    const validStatuses = ['hadir', 'tidak_hadir', 'streaming'];
     if (attendance_status && !validStatuses.includes(attendance_status)) {
       return new Response(JSON.stringify({ error: 'Invalid attendance status' }), {
         status: 400,
