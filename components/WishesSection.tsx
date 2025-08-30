@@ -30,80 +30,80 @@ const dummyWishes: Wish[] = [
   {
     id: -1,
     guest_slug: null,
-    guest_name: "Sarah & James",
-    message: "Wishing you both a lifetime of love and happiness! Can't wait to celebrate with you.",
+    guest_name: "Edy Wahono",
+    message: "Selamat menempuh hidup baru untuk Joseph dan Ayu. Semoga menjadi keluarga yang sakinah, mawaddah, warahmah. Doa terbaik kami sertai langkah kalian berdua.",
     attendance_status: "hadir",
     created_at: new Date(Date.now() - 86400000).toISOString()
   },
   {
     id: -2,
     guest_slug: null,
-    guest_name: "The Johnson Family",
-    message: "So happy for you both! May your love story be as beautiful as your wedding day.",
+    guest_name: "Reza",
+    message: "Congrats bro! Akhirnya sampeyan nikah juga hahaha. Semoga langgeng sampai maut memisahkan. Jangan lupa traktir kita-kita ya!",
     attendance_status: "hadir",
     created_at: new Date(Date.now() - 172800000).toISOString()
   },
   {
     id: -3,
     guest_slug: null,
-    guest_name: "Emily Chen",
-    message: "Congratulations on finding your soulmate! Wishing you endless joy and laughter.",
+    guest_name: "Bima & Keluarga",
+    message: "Turut berbahagia atas pernikahan Joseph dan Ayu. Semoga Allah SWT memberkahi pernikahan ini dengan kebahagiaan dan rezeki yang melimpah.",
     attendance_status: "streaming",
     created_at: new Date(Date.now() - 259200000).toISOString()
   },
   {
     id: -4,
     guest_slug: null,
-    guest_name: "Michael & Lisa",
-    message: "Your love inspires us all. Here's to a wonderful journey ahead!",
+    guest_name: "Hwat",
+    message: "Happy wedding bro! Semoga jadi keluarga yang harmonis dan diberkati selalu. Cepet punya momongan ya!",
     attendance_status: "hadir",
     created_at: new Date(Date.now() - 345600000).toISOString()
   },
   {
     id: -5,
     guest_slug: null,
-    guest_name: "David Park",
-    message: "May God bless your union with everlasting love and happiness.",
+    guest_name: "Sum",
+    message: "Bahagia rasanya melihat kalian bersatu. Semoga cinta kalian abadi selamanya. God bless your marriage!",
     attendance_status: "tidak_hadir",
     created_at: new Date(Date.now() - 432000000).toISOString()
   },
   {
     id: -6,
     guest_slug: null,
-    guest_name: "The Williams",
-    message: "Two hearts, one love. Congratulations on your special day!",
+    guest_name: "Thing & Family",
+    message: "Selamat menempuh kehidupan yang baru. Semoga menjadi pasangan yang saling melengkapi dan mendukung dalam suka maupun duka.",
     attendance_status: "hadir",
     created_at: new Date(Date.now() - 518400000).toISOString()
   },
   {
     id: -7,
     guest_slug: null,
-    guest_name: "Jennifer & Tom",
-    message: "Wishing you a marriage filled with all the right ingredients: love, laughter, and happiness!",
+    guest_name: "Wong",
+    message: "Mantap kali bah! Akhirnya jadi juga kalian nikah. Semoga rukun selalu, kompak terus sampai kakek nenek!",
     attendance_status: "streaming",
     created_at: new Date(Date.now() - 604800000).toISOString()
   },
   {
     id: -8,
     guest_slug: null,
-    guest_name: "Robert Anderson",
-    message: "May your love be the foundation for a beautiful life together.",
+    guest_name: "Seno",
+    message: "Selamat ya Joseph & Ayu! Semoga pernikahan kalian dipenuhi dengan cinta, tawa, dan kebahagiaan yang tak terhingga.",
     attendance_status: "hadir",
     created_at: new Date(Date.now() - 691200000).toISOString()
   },
   {
     id: -9,
     guest_slug: null,
-    guest_name: "Amanda & Kevin",
-    message: "Here's to love, laughter, and happily ever after!",
+    guest_name: "Meli",
+    message: "MasyaAllah tabarakallah! Selamat menempuh bahtera rumah tangga. Semoga menjadi keluarga yang dirahmati Allah SWT.",
     attendance_status: "hadir",
     created_at: new Date(Date.now() - 777600000).toISOString()
   },
   {
     id: -10,
     guest_slug: null,
-    guest_name: "The Garcia Family",
-    message: "May your wedding day be the beginning of a long and happy life together.",
+    guest_name: "Windy & Keluarga",
+    message: "Dengan penuh sukacita kami mengucapkan selamat atas pernikahan kalian. Semoga menjadi pasangan yang langgeng dan berbahagia selamanya.",
     attendance_status: "streaming",
     created_at: new Date(Date.now() - 864000000).toISOString()
   }
@@ -151,30 +151,6 @@ const WishCard = ({ wish, language }: { wish: Wish; language: string }) => {
     }
   }
 
-  const getAttendanceIcon = (status: string | null) => {
-    switch(status) {
-      case 'hadir':
-        return '✓'
-      case 'tidak_hadir':
-        return '✗'
-      case 'streaming':
-        return '📺'
-      default:
-        return ''
-    }
-  }
-
-  const getAttendanceText = (status: string | null) => {
-    if (!status) return ''
-    
-    const texts = {
-      hadir: language === 'id' ? 'Akan Hadir' : 'Will Attend',
-      tidak_hadir: language === 'id' ? 'Tidak Bisa Hadir' : 'Cannot Attend',
-      streaming: language === 'id' ? 'Nonton Streaming' : 'Watch Streaming'
-    }
-    
-    return texts[status as keyof typeof texts] || ''
-  }
 
   return (
     <figure
@@ -184,31 +160,17 @@ const WishCard = ({ wish, language }: { wish: Wish; language: string }) => {
         "transition-all duration-300 hover:shadow-lg"
       )}
     >
-      <div className="flex flex-row items-start justify-between mb-3">
-        <div>
-          <figcaption className="font-caveat text-xl text-brown">
-            {wish.guest_name}
-          </figcaption>
-          <p className="text-xs font-libre text-gray-500">
-            {formatDate(wish.created_at)}
-          </p>
-        </div>
-        {wish.attendance_status && (
-          <span className="flex items-center justify-center w-8 h-8 rounded-full bg-sage/10 text-sage-dark font-bold" title={getAttendanceText(wish.attendance_status)}>
-            {getAttendanceIcon(wish.attendance_status)}
-          </span>
-        )}
+      <div className="mb-3">
+        <figcaption className="font-caveat text-xl text-brown">
+          {wish.guest_name}
+        </figcaption>
+        <p className="text-xs font-libre text-gray-500">
+          {formatDate(wish.created_at)}
+        </p>
       </div>
       <blockquote className="text-sm font-libre text-gray-700 leading-relaxed">
         {wish.message}
       </blockquote>
-      {wish.attendance_status && (
-        <div className="mt-3 pt-3 border-t border-gray-100">
-          <span className="text-xs font-libre text-gray-500">
-            {getAttendanceText(wish.attendance_status)}
-          </span>
-        </div>
-      )}
     </figure>
   )
 }
