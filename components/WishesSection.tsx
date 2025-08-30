@@ -229,18 +229,25 @@ export default function WishesSection() {
         const data: WishesResponse = await response.json()
         let allWishes = data.wishes
         
-        // If less than 10 wishes, add dummy wishes
-        if (allWishes.length < 10) {
+        // Always ensure at least 10 wishes are shown
+        if (allWishes.length === 0) {
+          // If no wishes at all, show all dummy wishes
+          allWishes = dummyWishes
+        } else if (allWishes.length < 10) {
+          // If less than 10 wishes, add dummy wishes to make it 10
           const dummyCount = 10 - allWishes.length
           const dummyToAdd = dummyWishes.slice(0, dummyCount)
           allWishes = [...allWishes, ...dummyToAdd]
         }
         
         setWishes(allWishes)
+      } else {
+        // On error or empty response, use all dummy wishes
+        setWishes(dummyWishes)
       }
     } catch (error) {
       console.error('Error fetching wishes:', error)
-      // Use dummy wishes on error
+      // Use all dummy wishes on error
       setWishes(dummyWishes)
     } finally {
       setIsLoading(false)

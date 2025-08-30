@@ -217,7 +217,7 @@ export default function Gift() {
               ? 'Atas segala ucapan, doa, dan perhatian yang Bapak/Ibu/Saudara/i berikan, kami ucapkan terima kasih yang sebesar-besarnya. Semoga Tuhan membalas segala kebaikan dengan berlipat ganda.'
               : 'We are deeply grateful for your love, prayers, and support as we begin this beautiful journey together. May God bless you abundantly for your kindness.'}
           </p>
-          <p className="font-homemade text-lg text-brown mt-6">
+          <p className="font-homemade text-sm text-brown mt-6">
             {language === 'id' ? 'Dengan cinta' : 'With love'}, Joseph & Ayu
           </p>
         </motion.div>
