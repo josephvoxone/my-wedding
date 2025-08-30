@@ -180,18 +180,6 @@ export default function HelloSection({ onMessageOpen, scrollLocked = false }: He
                 >
                   {guest?.nickname || guestName}
                 </TextAnimate>
-                {/* Show special message if available */}
-                {guest?.special_message && (
-                  <TextAnimate
-                    animation="fadeIn"
-                    duration={1}
-                    delay={4}
-                    className="font-libre text-sm md:text-base text-brown-soft text-center mt-2"
-                    as="p"
-                  >
-                    {guest.special_message}
-                  </TextAnimate>
-                )}
                 
                 {/* Open Message Button - below text */}
                 <motion.button
@@ -249,17 +237,22 @@ export default function HelloSection({ onMessageOpen, scrollLocked = false }: He
             {/* Custom Message or Default Thank You Message */}
             <div className="space-y-6">
               {guest?.special_message ? (
-                // Show custom message if available
-                <TextAnimate
-                  animation="fadeIn"
-                  by="word"
-                  duration={3}
-                  delay={0.8}
-                  className="font-libre text-lg md:text-xl text-brown-soft text-justify leading-relaxed whitespace-pre-wrap"
-                  as="p"
-                >
-                  {guest.special_message}
-                </TextAnimate>
+                // Show custom message if available - split by \n\n for paragraphs
+                <div className="space-y-4">
+                  {guest.special_message.split('\n\n').map((paragraph, index) => (
+                    <TextAnimate
+                      key={index}
+                      animation="fadeIn"
+                      by="word"
+                      duration={3}
+                      delay={0.8 + index * 1.5}
+                      className="font-libre text-lg md:text-xl text-brown-soft text-justify leading-relaxed"
+                      as="p"
+                    >
+                      {paragraph}
+                    </TextAnimate>
+                  ))}
+                </div>
               ) : (
                 // Show default messages
                 <>
