@@ -139,27 +139,43 @@ export default function WishesSection() {
   }
 
   const formatDate = (dateString: string) => {
-    const date = new Date(dateString)
+    // Handle both UTC and local time formats from database
+    let date = new Date(dateString)
+    
+    // If the date string doesn't have timezone info, assume it's UTC
+    if (!dateString.includes('Z') && !dateString.includes('+') && !dateString.includes('-')) {
+      // Add Z to indicate UTC
+      date = new Date(dateString + 'Z')
+    }
+    
     const now = new Date()
     const diffInSeconds = Math.floor((now.getTime() - date.getTime()) / 1000)
     
-    if (diffInSeconds < 60) {
+    // Handle negative differences (future dates) or very recent
+    if (diffInSeconds < 0 || diffInSeconds < 60) {
       return language === 'id' ? 'Baru saja' : 'Just now'
     } else if (diffInSeconds < 3600) {
       const minutes = Math.floor(diffInSeconds / 60)
       return language === 'id' 
         ? `${minutes} menit yang lalu` 
-        : `${minutes} minutes ago`
+        : `${minutes} minute${minutes > 1 ? 's' : ''} ago`
     } else if (diffInSeconds < 86400) {
       const hours = Math.floor(diffInSeconds / 3600)
       return language === 'id' 
         ? `${hours} jam yang lalu` 
-        : `${hours} hours ago`
-    } else {
+        : `${hours} hour${hours > 1 ? 's' : ''} ago`
+    } else if (diffInSeconds < 604800) { // Less than a week
       const days = Math.floor(diffInSeconds / 86400)
       return language === 'id' 
         ? `${days} hari yang lalu` 
-        : `${days} days ago`
+        : `${days} day${days > 1 ? 's' : ''} ago`
+    } else {
+      // For older dates, show the actual date
+      return date.toLocaleDateString(language === 'id' ? 'id-ID' : 'en-US', {
+        day: 'numeric',
+        month: 'short',
+        year: date.getFullYear() !== now.getFullYear() ? 'numeric' : undefined
+      })
     }
   }
 

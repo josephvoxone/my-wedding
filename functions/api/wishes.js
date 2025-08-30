@@ -85,10 +85,10 @@ export async function onRequestPost({ request, env }) {
       });
     }
     
-    // Insert wish
+    // Insert wish with current timestamp
     await env.DB.prepare(
-      `INSERT INTO wishes (guest_slug, guest_name, message, attendance_status, is_approved) 
-       VALUES (?, ?, ?, ?, 1)`
+      `INSERT INTO wishes (guest_slug, guest_name, message, attendance_status, is_approved, created_at) 
+       VALUES (?, ?, ?, ?, 1, datetime('now'))`
     ).bind(
       guest_slug || null,
       guest_name,
