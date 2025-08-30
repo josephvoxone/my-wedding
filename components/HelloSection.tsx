@@ -5,7 +5,7 @@ import { useSearchParams } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import { MorphingText } from '@/components/magicui/morphing-text'
 import { TextAnimate } from '@/components/magicui/text-animate'
-import { findGuest, getPersonalizedGreeting, getSpecialMessage, getGuestImage } from '@/lib/guests'
+import { getPersonalizedGreeting, getSpecialMessage, getGuestImage } from '@/lib/guests'
 import { useLanguage } from '@/contexts/LanguageContext'
 
 const greetings = [
@@ -24,10 +24,19 @@ interface HelloSectionProps {
   scrollLocked?: boolean
 }
 
+interface GuestData {
+  id: number
+  slug: string
+  name: string
+  nickname: string | null
+  special_message: string | null
+  created_at: string
+}
+
 export default function HelloSection({ onMessageOpen, scrollLocked = false }: HelloSectionProps) {
   const searchParams = useSearchParams()
   const [guestName, setGuestName] = useState('')
-  const [guest, setGuest] = useState<ReturnType<typeof findGuest>>()
+  const [guest, setGuest] = useState<GuestData | null>(null)
   const [showMessage, setShowMessage] = useState(false)
   const { language } = useLanguage()
   
@@ -40,18 +49,32 @@ export default function HelloSection({ onMessageOpen, scrollLocked = false }: He
     const slugOrName = toParam || namaParam
     
     if (slugOrName) {
-      // Try to find guest by slug (or name as fallback)
-      const foundGuest = findGuest(decodeURIComponent(slugOrName))
-      
-      if (foundGuest) {
-        setGuest(foundGuest)
-        setGuestName(foundGuest.nickname || foundGuest.name || 'Tamu Undangan')
-      } else {
-        // If no guest found, use the parameter as display name
-        setGuestName(decodeURIComponent(slugOrName))
-      }
+      // Fetch guest from database
+      fetchGuestFromDatabase(decodeURIComponent(slugOrName))
     }
   }, [searchParams])
+  
+  const fetchGuestFromDatabase = async (slug: string) => {
+    try {
+      const response = await fetch(`/api/guests/${slug}`)
+      if (response.ok) {
+        const data = await response.json()
+        if (data.guest) {
+          setGuest(data.guest)
+          setGuestName(data.guest.nickname || data.guest.name || 'Tamu Undangan')
+        } else {
+          // If no guest found in DB, just use the parameter as display name
+          setGuestName(slug)
+        }
+      } else {
+        // If API fails or guest not found, use the parameter as display name
+        setGuestName(slug)
+      }
+    } catch (error) {
+      console.error('Error fetching guest:', error)
+      setGuestName(slug)
+    }
+  }
 
   // Handle scroll lock when guest has a name but hasn't opened message
   useEffect(() => {
@@ -146,7 +169,7 @@ export default function HelloSection({ onMessageOpen, scrollLocked = false }: He
                   {guest?.nickname || guestName}
                 </TextAnimate>
                 {/* Show special message if available */}
-                {getSpecialMessage(guest) && (
+                {guest?.special_message && (
                   <TextAnimate
                     animation="fadeIn"
                     duration={1}
@@ -154,7 +177,7 @@ export default function HelloSection({ onMessageOpen, scrollLocked = false }: He
                     className="font-libre text-sm md:text-base text-brown-soft text-center mt-2"
                     as="p"
                   >
-                    {getSpecialMessage(guest) || ''}
+                    {guest.special_message}
                   </TextAnimate>
                 )}
                 
@@ -213,17 +236,17 @@ export default function HelloSection({ onMessageOpen, scrollLocked = false }: He
             
             {/* Custom Message or Default Thank You Message */}
             <div className="space-y-6">
-              {guest?.specialMessage ? (
+              {guest?.special_message ? (
                 // Show custom message if available
                 <TextAnimate
                   animation="fadeIn"
                   by="word"
                   duration={3}
                   delay={0.8}
-                  className="font-libre text-lg md:text-xl text-brown-soft text-justify leading-relaxed"
+                  className="font-libre text-lg md:text-xl text-brown-soft text-justify leading-relaxed whitespace-pre-wrap"
                   as="p"
                 >
-                  {guest.specialMessage}
+                  {guest.special_message}
                 </TextAnimate>
               ) : (
                 // Show default messages
