@@ -237,9 +237,9 @@ export default function HelloSection({ onMessageOpen, scrollLocked = false }: He
             {/* Custom Message or Default Thank You Message */}
             <div className="space-y-6">
               {guest?.special_message ? (
-                // Show custom message if available - split by \n\n for paragraphs
+                // Show custom message if available - replace literal \n\n with actual newlines, then split
                 <div className="space-y-4">
-                  {guest.special_message.split('\n\n').map((paragraph, index) => (
+                  {guest.special_message.replace(/\\n\\n/g, '\n\n').split('\n\n').map((paragraph, index) => (
                     <TextAnimate
                       key={index}
                       animation="fadeIn"
@@ -249,7 +249,7 @@ export default function HelloSection({ onMessageOpen, scrollLocked = false }: He
                       className="font-libre text-lg md:text-xl text-brown-soft text-justify leading-relaxed"
                       as="p"
                     >
-                      {paragraph}
+                      {paragraph.replace(/\\n/g, '\n')}
                     </TextAnimate>
                   ))}
                 </div>

@@ -3,17 +3,17 @@ const localGuestData = {
   'djordi': {
     name: 'Djordi',
     nickname: 'Djordi',
-    special_message: 'Halo bosq, pedas, manis dan sing seger-seger kita rasakan, kwkwkw terima kasih sudah menjadi teman dan pendengar yang baik, saling menajamkan satu sama lain, kita ditempatkan di orang-orang yang percaya Tuhan supaya kita diasah dan ditempa menjadi lebih baik. Usaha dan bisnis kita di IT semoga diberikan pintu buat Tuhan bukakan 1000x\n\nI`m so grateful untuk perjalanan kita, dan Thank you bukan hanya teman, tapi teman yang awesome, ditunggu awakmu mbe ailen!'
+    special_message: 'Halo bosq, pedas, manis dan sing seger-seger kita rasakan, kwkwkw terima kasih sudah menjadi teman dan pendengar yang baik, saling menajamkan satu sama lain, kita ditempatkan di orang-orang yang percaya Tuhan supaya kita diasah dan ditempa menjadi lebih baik. Usaha dan bisnis kita di IT semoga diberikan pintu buat Tuhan bukakan 1000x\\n\\nI`m so grateful untuk perjalanan kita, dan Thank you bukan hanya teman, tapi teman yang awesome, ditunggu awakmu mbe ailen!'
   },
   'andy': {
     name: 'Andy',
     nickname: 'Andy',
-    special_message: 'Terima kasih sudah menjadi teman baik bagian perjalanan hidupku. Perjalanan kita bersama telah membentuk siapa kita hari ini, pedas, manis, bahagia, kecewa dan aku sangat bersyukur untuk hal yang kita lakukan, dukungan, dan persaudaraan yang telah kita bangun bersama kwkwkw.\n\nKehadiranmu di hari bahagia kami akan melengkapi sukacita yang Tuhan berikan. Kiranya berkat Tuhan juga menyertai perjalanan hidupmu ndy dan kamu dapat menemukan apa yang kamu cari!.'
+    special_message: 'Terima kasih sudah menjadi teman baik bagian perjalanan hidupku. Perjalanan kita bersama telah membentuk siapa kita hari ini, pedas, manis, bahagia, kecewa dan aku sangat bersyukur untuk hal yang kita lakukan, dukungan, dan persaudaraan yang telah kita bangun bersama kwkwkw.\\n\\nKehadiranmu di hari bahagia kami akan melengkapi sukacita yang Tuhan berikan. Kiranya berkat Tuhan juga menyertai perjalanan hidupmu ndy dan kamu dapat menemukan apa yang kamu cari!.'
   },
   'liko-elyn': {
     name: 'Liko & Elyn',
     nickname: 'Liko & Elyn',
-    special_message: 'Halo ce Elyn dan ko Liko, terima kasih sudah mengajarkan aku banyak hal, aku percaya kita ketemu bukan suatu kebetulan. Terima kasih juga menjadi cerminan keluarga yang baik didalam Tuhan sebelum aku menikah, hehe. Terima kasih banyak pokoknya sudah bantu banyak hal dan membukakan pintu jawaban untuk aku dari Tuhan. Sudah membantu dan menjadi terang buat aku.\n\nSelama di dubai aku melihat prespektif yang baru didalam hidup aku, Terima kasih yang tidak terhingga 😊, sebentar lagi kami akan menikah, kami tunggu kehadiran atau nonton streaming. May Liko`s family always be blessed and guided by the Lord'
+    special_message: 'Halo ce Elyn dan ko Liko, terima kasih sudah mengajarkan aku banyak hal, aku percaya kita ketemu bukan suatu kebetulan. Terima kasih juga menjadi cerminan keluarga yang baik didalam Tuhan sebelum aku menikah, hehe. Terima kasih banyak pokoknya sudah bantu banyak hal dan membukakan pintu jawaban untuk aku dari Tuhan. Sudah membantu dan menjadi terang buat aku.\\n\\nSelama di dubai aku melihat prespektif yang baru didalam hidup aku, Terima kasih yang tidak terhingga 😊, sebentar lagi kami akan menikah, kami tunggu kehadiran atau nonton streaming. May Liko`s family always be blessed and guided by the Lord'
   }
 };
 
