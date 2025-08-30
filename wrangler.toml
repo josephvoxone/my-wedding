@@ -1,0 +1,13 @@
+name = "wedding-website"
+compatibility_date = "2024-01-01"
+pages_build_output_dir = "out"
+
+# D1 Database binding
+[[d1_databases]]
+binding = "DB"
+database_name = "wedding-database"
+database_id = "15a8694b-8a8c-4748-94a6-a523d1e29460"
+
+# Environment variables (if needed)
+[vars]
+NEXT_PUBLIC_SITE_URL = "https://josephayu.com"

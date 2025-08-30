@@ -15,6 +15,7 @@ import Footer from '@/components/Footer'
 import MusicPlayer, { MusicPlayerRef } from '@/components/MusicPlayer'
 import LanguageSwitcher from '@/components/LanguageSwitcher'
 import WelcomeScreen from '@/components/WelcomeScreen'
+import WishesSection from '@/components/WishesSection'
 
 export default function Home() {
   const [showWelcome, setShowWelcome] = useState(true)
@@ -58,6 +59,7 @@ export default function Home() {
           <RSVP />
           <LiveStreaming />
           <Gallery />
+          <WishesSection />
           <Gift />
           <Footer />
         </>

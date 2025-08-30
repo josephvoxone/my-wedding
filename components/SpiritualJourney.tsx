@@ -7,6 +7,7 @@ import { useLanguage } from '@/contexts/LanguageContext'
 import { TextRevealGsap } from '@/components/magicui/text-reveal-gsap'
 import type { MusicPlayerRef } from '@/components/MusicPlayer'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import BlessedVoting from '@/components/BlessedVoting'
 
 interface SpiritualJourneyProps {
   musicPlayerRef?: React.RefObject<MusicPlayerRef>
@@ -205,7 +206,7 @@ export default function SpiritualJourney({ musicPlayerRef }: SpiritualJourneyPro
               8: { type: 'video', src: '/assets/spiritual/guidence.mp4' }, // Panggilan Hidup (index 8)
               9: { type: 'image', src: '/assets/spiritual/pertobatan.jpeg' }, // Pertobatan (index 9)
               10: { type: 'image', src: '/assets/spiritual/penyertaan.jpeg' }, // Penyertaan Dia (index 10)
-              11: { type: 'image', src: '/assets/spiritual/kami satu.jpeg' }, // kami satu (index 11)
+              11: { type: 'image', src: '/assets/spiritual/kami-satu.jpeg' }, // kami satu (index 11)
             }
             
             return (
@@ -338,6 +339,9 @@ export default function SpiritualJourney({ musicPlayerRef }: SpiritualJourneyPro
                 {t.spiritualJourney.closingMessage}
               </p>
             </motion.div>
+            
+            {/* Blessed Voting Component */}
+            <BlessedVoting />
           </div>
           
           </div>
