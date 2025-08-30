@@ -24,7 +24,16 @@ export async function GET(request: NextRequest) {
     const db = process.env.DB as D1Database;
     
     if (!db) {
-      return Response.json({ error: 'Database not configured' }, { status: 500 });
+      // Return empty wishes for local dev
+      return Response.json({
+        wishes: [],
+        pagination: {
+          page: 1,
+          limit: 20,
+          total: 0,
+          totalPages: 0
+        }
+      });
     }
     
     const url = new URL(request.url);
@@ -69,7 +78,11 @@ export async function POST(request: NextRequest) {
     const db = process.env.DB as D1Database;
     
     if (!db) {
-      return Response.json({ error: 'Database not configured' }, { status: 500 });
+      // For local dev, just return success
+      return Response.json({ 
+        success: true,
+        message: 'Ucapan berhasil dikirim! (Local mode - not saved)' 
+      });
     }
     
     const body = await request.json();

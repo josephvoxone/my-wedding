@@ -20,7 +20,14 @@ export async function GET(request: NextRequest) {
     const db = process.env.DB as D1Database;
     
     if (!db) {
-      return Response.json({ error: 'Database not configured' }, { status: 500 });
+      // Return mock data for local dev
+      return Response.json({
+        total: 245,
+        blessed: 213,
+        notBlessed: 32,
+        blessedPercentage: 87,
+        notBlessedPercentage: 13
+      });
     }
     
     // Get voting statistics
@@ -66,7 +73,16 @@ export async function POST(request: NextRequest) {
     const db = process.env.DB as D1Database;
     
     if (!db) {
-      return Response.json({ error: 'Database not configured' }, { status: 500 });
+      // Return mock success for local dev
+      return Response.json({ 
+        success: true,
+        message: 'Terima kasih atas feedback Anda! (Local mode)',
+        stats: {
+          total: 246,
+          blessed: 214,
+          percentage: 87
+        }
+      });
     }
     
     const body = await request.json();

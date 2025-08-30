@@ -64,15 +64,27 @@ export default function HelloSection({ onMessageOpen, scrollLocked = false }: He
           setGuestName(data.guest.nickname || data.guest.name || 'Tamu Undangan')
         } else {
           // If no guest found in DB, just use the parameter as display name
-          setGuestName(slug)
+          // Format the slug to be more readable (replace - with space, capitalize)
+          const displayName = slug
+            .replace(/-/g, ' ')
+            .replace(/\b\w/g, l => l.toUpperCase())
+          setGuestName(displayName)
         }
       } else {
         // If API fails or guest not found, use the parameter as display name
-        setGuestName(slug)
+        // Format the slug to be more readable
+        const displayName = slug
+          .replace(/-/g, ' ')
+          .replace(/\b\w/g, l => l.toUpperCase())
+        setGuestName(displayName)
       }
     } catch (error) {
       console.error('Error fetching guest:', error)
-      setGuestName(slug)
+      // Format the slug to be more readable
+      const displayName = slug
+        .replace(/-/g, ' ')
+        .replace(/\b\w/g, l => l.toUpperCase())
+      setGuestName(displayName)
     }
   }
 
