@@ -7,7 +7,6 @@ import { useLanguage } from '@/contexts/LanguageContext'
 import { TextRevealGsap } from '@/components/magicui/text-reveal-gsap'
 import type { MusicPlayerRef } from '@/components/MusicPlayer'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import BlessedVoting from '@/components/BlessedVoting'
 
 interface SpiritualJourneyProps {
   musicPlayerRef?: React.RefObject<MusicPlayerRef>
@@ -339,9 +338,6 @@ export default function SpiritualJourney({ musicPlayerRef }: SpiritualJourneyPro
                 {t.spiritualJourney.closingMessage}
               </p>
             </motion.div>
-            
-            {/* Blessed Voting Component */}
-            <BlessedVoting />
           </div>
           
           </div>
