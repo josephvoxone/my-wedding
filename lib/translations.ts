@@ -373,7 +373,7 @@ export const translations = {
         mirror: 'Reflections of love',
         stare: 'Lost in each other',
         window: 'Looking towards our future',
-        withUs: 'Together forever',
+        withUs: 'together forever',
       },
     },
     

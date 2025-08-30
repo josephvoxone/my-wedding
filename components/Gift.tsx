@@ -1,11 +1,12 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
 import { useLanguage } from '@/contexts/LanguageContext'
 
 export default function Gift() {
   const [copiedAccount, setCopiedAccount] = useState<string | null>(null)
+  const [showGiftOptions, setShowGiftOptions] = useState(false)
   const { language } = useLanguage()
 
   const handleCopyAccount = (accountNumber: string, bank: string) => {
@@ -46,15 +47,48 @@ export default function Gift() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8 mb-12">
-          {/* Bank Transfer Section */}
+        {/* Gift Button */}
+        {!showGiftOptions && (
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="bg-white-soft/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl"
+            className="text-center mb-12"
           >
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setShowGiftOptions(true)}
+              className="px-8 py-3 bg-white-soft/80 backdrop-blur-sm border-2 border-sage/30 rounded-full font-libre text-sage-dark hover:bg-sage/10 hover:border-sage/50 transition-all duration-300 shadow-md hover:shadow-lg inline-flex items-center gap-3"
+            >
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
+              </svg>
+              <span>
+                {language === 'id' ? 'Berikan Hadiah' : 'Give a Gift'}
+              </span>
+            </motion.button>
+          </motion.div>
+        )}
+
+        {/* Gift Options Cards */}
+        <AnimatePresence>
+          {showGiftOptions && (
+            <motion.div 
+              className="grid md:grid-cols-2 gap-8 mb-12"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5 }}
+            >
+              {/* Bank Transfer Section */}
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="bg-white-soft/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl"
+              >
             <div className="text-center mb-6">
               <div className="w-16 h-16 bg-sage/20 rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg className="w-8 h-8 text-sage" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -108,14 +142,13 @@ export default function Gift() {
             </div>
           </motion.div>
 
-          {/* Address Section */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="bg-white-soft/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl"
-          >
+              {/* Address Section */}
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                className="bg-white-soft/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl"
+              >
             <div className="text-center mb-6">
               <div className="w-16 h-16 bg-gold-elegant/20 rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg className="w-8 h-8 text-gold-elegant" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -161,7 +194,9 @@ export default function Gift() {
               </div>
             </div>
           </motion.div>
-        </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         {/* Thank You Message */}
         <motion.div

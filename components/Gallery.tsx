@@ -34,7 +34,7 @@ const photos = [
   { 
     id: 6, 
     src: "/assets/wedding/with-us.jpg", 
-    caption: "Together forever"
+    caption: "together forever"
   },
 ]
 
