@@ -26,7 +26,6 @@ export default function Hero() {
   })
   
   const y = useTransform(scrollYProgress, [0, 1], [0, 300])
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
   const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8])
   
   useEffect(() => {
@@ -70,7 +69,7 @@ export default function Hero() {
     <section id="hero" ref={containerRef} className="min-h-screen flex flex-col items-center justify-center relative px-8 overflow-hidden">
       
       <motion.div
-        style={{ y, opacity, scale }}
+        style={{ y, scale }}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
