@@ -155,12 +155,13 @@ const WishCard = ({ wish, language }: { wish: Wish; language: string }) => {
   return (
     <figure
       className={cn(
-        "relative h-full w-80 cursor-pointer overflow-hidden rounded-xl border p-6",
+        "relative w-80 min-h-[200px] cursor-pointer overflow-hidden rounded-xl border p-6",
         "border-sage/20 bg-white/80 hover:bg-white/90",
-        "transition-all duration-300 hover:shadow-lg"
+        "transition-all duration-300 hover:shadow-lg",
+        "flex flex-col"
       )}
     >
-      <div className="mb-3">
+      <div className="mb-3 flex-shrink-0">
         <figcaption className="font-caveat text-xl text-brown">
           {wish.guest_name}
         </figcaption>
@@ -168,7 +169,7 @@ const WishCard = ({ wish, language }: { wish: Wish; language: string }) => {
           {formatDate(wish.created_at)}
         </p>
       </div>
-      <blockquote className="text-sm font-libre text-gray-700 leading-relaxed">
+      <blockquote className="text-sm font-libre text-gray-700 leading-relaxed flex-grow">
         {wish.message}
       </blockquote>
     </figure>

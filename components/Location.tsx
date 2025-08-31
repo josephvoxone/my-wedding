@@ -52,7 +52,7 @@ export default function Location() {
               <div className="space-y-6">
                 {/* Ceremony */}
                 <div>
-                  <h3 className="font-monsieur text-3xl md:text-4xl text-brown mb-4">{t.location.holyMatrimony}</h3>
+                  <h3 className="font-bodoni text-3xl md:text-4xl text-brown mb-4">{t.location.holyMatrimony}</h3>
                   <div className="space-y-3 text-brown-soft">
                     <div className="flex items-start gap-3">
                       <svg className="w-5 h-5 mt-0.5 text-sage" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -71,7 +71,7 @@ export default function Location() {
 
                 {/* Reception */}
                 <div className="border-t border-sage/20 pt-6">
-                  <h3 className="font-monsieur text-3xl md:text-4xl text-brown mb-4">{t.location.weddingReception}</h3>
+                  <h3 className="font-bodoni text-3xl md:text-4xl text-brown mb-4">{t.location.weddingReception}</h3>
                   <div className="space-y-3 text-brown-soft">
                     <div className="flex items-start gap-3">
                       <svg className="w-5 h-5 mt-0.5 text-sage" fill="none" viewBox="0 0 24 24" stroke="currentColor">

@@ -137,10 +137,10 @@ export default function SpiritualJourney({ musicPlayerRef }: SpiritualJourneyPro
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
-          className="fixed inset-0 z-45 bg-gradient-to-b from-cream to-white"
+          className="fixed inset-0 z-45 bg-gradient-to-b from-cream to-white overflow-y-auto"
         >
           {/* Scrollable content container */}
-          <div className="h-full overflow-y-auto">
+          <div className="relative">
           {/* Close button - fixed at top right */}
           <motion.button
             onClick={handleClose}
