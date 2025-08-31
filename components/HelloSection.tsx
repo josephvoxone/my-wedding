@@ -126,19 +126,20 @@ export default function HelloSection({ onMessageOpen, scrollLocked = false }: He
 
   return (
     <motion.section 
-      className="min-h-screen flex flex-col items-center justify-center p-8 bg-gradient-to-b from-cream to-cream-dark relative"
+      className="min-h-screen flex flex-col p-8 bg-gradient-to-b from-cream to-cream-dark"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1, delay: 0.3 }}
     >
-      <AnimatePresence mode="wait">
-        {!showMessage ? (
-          <motion.div
-            key="greeting"
-            exit={{ opacity: 0, y: -50 }}
-            transition={{ duration: 0.5 }}
-            className="w-full flex flex-col items-center"
-          >
+      <div className="flex-grow flex items-center justify-center">
+        <AnimatePresence mode="wait">
+          {!showMessage ? (
+            <motion.div
+              key="greeting"
+              exit={{ opacity: 0, y: -50 }}
+              transition={{ duration: 0.5 }}
+              className="w-full flex flex-col items-center"
+            >
             {/* Morphing Greeting Text */}
             <motion.div 
               className="mb-4 w-full flex flex-col items-center"
@@ -284,8 +285,9 @@ export default function HelloSection({ onMessageOpen, scrollLocked = false }: He
               )}
             </div>
           </motion.div>
-        )}
-      </AnimatePresence>
+          )}
+        </AnimatePresence>
+      </div>
 
       {/* Scroll Indicator - only show when message is opened or no guest name */}
       {(showMessage || !guestName) && (
@@ -293,7 +295,7 @@ export default function HelloSection({ onMessageOpen, scrollLocked = false }: He
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: showMessage ? 3.5 : 2 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+          className="pb-8 mt-auto"
         >
         <motion.div
           animate={{ y: [0, 10, 0] }}
