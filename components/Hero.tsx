@@ -26,7 +26,6 @@ export default function Hero() {
   })
   
   const y = useTransform(scrollYProgress, [0, 1], [0, 300])
-  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8])
   
   useEffect(() => {
     const name = searchParams.get('to') || searchParams.get('nama')
@@ -69,7 +68,7 @@ export default function Hero() {
     <section id="hero" ref={containerRef} className="min-h-screen flex flex-col items-center justify-center relative px-8 overflow-hidden">
       
       <motion.div
-        style={{ y, scale }}
+        style={{ y }}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
