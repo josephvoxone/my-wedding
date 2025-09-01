@@ -171,16 +171,73 @@ export default function HelloSection({ onMessageOpen, scrollLocked = false }: He
                 >
                   {language === 'id' ? 'Untuk yang terkasih,' : 'Dear beloved,'}
                 </TextAnimate>
-                <TextAnimate
-                  animation="blurInUp"
-                  by="character"
-                  duration={2}
-                  delay={3}
-                  className="font-monsieur text-5xl md:text-7xl lg:text-8xl text-brown text-center text-shadow-soft"
-                  as="h2"
-                >
-                  {guest?.nickname || guestName}
-                </TextAnimate>
+                {(() => {
+                  const displayName = guest?.nickname || guestName
+                  const hasAmpersand = displayName.includes('&')
+                  const nameLength = displayName.length
+                  
+                  // Dynamic font size based on name length
+                  let fontSizeClass = 'text-5xl md:text-7xl lg:text-8xl'
+                  if (nameLength > 20) {
+                    fontSizeClass = 'text-3xl md:text-4xl lg:text-5xl'
+                  } else if (nameLength > 15) {
+                    fontSizeClass = 'text-4xl md:text-5xl lg:text-6xl'
+                  } else if (nameLength > 10) {
+                    fontSizeClass = 'text-4xl md:text-6xl lg:text-7xl'
+                  }
+                  
+                  // Split on & if present
+                  if (hasAmpersand) {
+                    const names = displayName.split('&').map(n => n.trim())
+                    return (
+                      <div className="space-y-2">
+                        <TextAnimate
+                          animation="blurInUp"
+                          by="character"
+                          duration={2}
+                          delay={3}
+                          className={`font-monsieur ${fontSizeClass} text-brown text-center text-shadow-soft`}
+                          as="h2"
+                        >
+                          {names[0]}
+                        </TextAnimate>
+                        <TextAnimate
+                          animation="blurInUp"
+                          by="character"
+                          duration={2}
+                          delay={3.5}
+                          className="font-monsieur text-2xl md:text-3xl lg:text-4xl text-brown text-center text-shadow-soft"
+                          as="p"
+                        >
+                          &
+                        </TextAnimate>
+                        <TextAnimate
+                          animation="blurInUp"
+                          by="character"
+                          duration={2}
+                          delay={4}
+                          className={`font-monsieur ${fontSizeClass} text-brown text-center text-shadow-soft`}
+                          as="h2"
+                        >
+                          {names[1]}
+                        </TextAnimate>
+                      </div>
+                    )
+                  }
+                  
+                  return (
+                    <TextAnimate
+                      animation="blurInUp"
+                      by="character"
+                      duration={2}
+                      delay={3}
+                      className={`font-monsieur ${fontSizeClass} text-brown text-center text-shadow-soft`}
+                      as="h2"
+                    >
+                      {displayName}
+                    </TextAnimate>
+                  )
+                })()}
                 
                 {/* Open Message Button - below text */}
                 <motion.button
@@ -230,9 +287,45 @@ export default function HelloSection({ onMessageOpen, scrollLocked = false }: He
               <p className="font-libre text-2xl md:text-3xl lg:text-4xl text-sage-dark mb-4">
                 {language === 'id' ? 'Untuk yang terkasih,' : 'Dear beloved,'}
               </p>
-              <h2 className="font-monsieur text-5xl md:text-7xl lg:text-8xl text-brown text-shadow-soft">
-                {guest?.nickname || guestName}
-              </h2>
+              {(() => {
+                const displayName = guest?.nickname || guestName
+                const hasAmpersand = displayName.includes('&')
+                const nameLength = displayName.length
+                
+                // Dynamic font size based on name length
+                let fontSizeClass = 'text-5xl md:text-7xl lg:text-8xl'
+                if (nameLength > 20) {
+                  fontSizeClass = 'text-3xl md:text-4xl lg:text-5xl'
+                } else if (nameLength > 15) {
+                  fontSizeClass = 'text-4xl md:text-5xl lg:text-6xl'
+                } else if (nameLength > 10) {
+                  fontSizeClass = 'text-4xl md:text-6xl lg:text-7xl'
+                }
+                
+                // Split on & if present
+                if (hasAmpersand) {
+                  const names = displayName.split('&').map(n => n.trim())
+                  return (
+                    <div className="space-y-1">
+                      <h2 className={`font-monsieur ${fontSizeClass} text-brown text-shadow-soft`}>
+                        {names[0]}
+                      </h2>
+                      <p className="font-monsieur text-2xl md:text-3xl lg:text-4xl text-brown text-shadow-soft">
+                        &
+                      </p>
+                      <h2 className={`font-monsieur ${fontSizeClass} text-brown text-shadow-soft`}>
+                        {names[1]}
+                      </h2>
+                    </div>
+                  )
+                }
+                
+                return (
+                  <h2 className={`font-monsieur ${fontSizeClass} text-brown text-shadow-soft`}>
+                    {displayName}
+                  </h2>
+                )
+              })()}
             </motion.div>
             
             {/* Custom Message or Default Thank You Message */}
