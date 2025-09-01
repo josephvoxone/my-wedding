@@ -52,3 +52,33 @@ The main page (`app/page.tsx`) orchestrates these sections in order:
 
 ### Path Aliases
 - `@/*` maps to the root directory for imports
+
+## Database Management (Cloudflare D1)
+
+### CRITICAL: Guest Data Updates
+When updating guest data, **NEVER DELETE OTHER TABLES**. Only the `guests` table should be modified.
+
+**Correct procedure for updating guests:**
+```bash
+# 1. Delete ONLY guests table data (preserves wishes and spiritual_votes)
+CLOUDFLARE_ACCOUNT_ID=d0e7e4244a29fb11989a7d552a82336b npx wrangler d1 execute wedding-database --remote --command="DELETE FROM guests;"
+
+# 2. Import new guest data
+CLOUDFLARE_ACCOUNT_ID=d0e7e4244a29fb11989a7d552a82336b npx wrangler d1 execute wedding-database --remote --file=./import-guests.sql
+```
+
+**NEVER do this:**
+```bash
+# WRONG - This deletes all data including wishes!
+DELETE FROM wishes; DELETE FROM spiritual_votes; DELETE FROM guests;
+```
+
+### Database Schema
+- **guests** table: Contains guest information with personalized messages
+- **wishes** table: Stores RSVP and wishes from guests (MUST BE PRESERVED)
+- **spiritual_votes** table: Voting data (MUST BE PRESERVED)
+
+### Important Notes
+- The `wishes` and `spiritual_votes` tables contain user-submitted data that must never be deleted during guest updates
+- Guest updates should only affect the `guests` table
+- Always verify data integrity after updates using COUNT queries

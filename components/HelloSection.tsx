@@ -166,7 +166,7 @@ export default function HelloSection({ onMessageOpen, scrollLocked = false }: He
                   by="character"
                   duration={1.5}
                   delay={1.5}
-                  className="font-homemade text-2xl md:text-3xl lg:text-4xl text-sage-dark text-center"
+                  className="font-libre text-2xl md:text-3xl lg:text-4xl text-sage-dark text-center"
                   as="p"
                 >
                   {language === 'id' ? 'Untuk yang terkasih,' : 'Dear beloved,'}
@@ -176,7 +176,7 @@ export default function HelloSection({ onMessageOpen, scrollLocked = false }: He
                   by="character"
                   duration={2}
                   delay={3}
-                  className="font-homemade text-5xl md:text-7xl lg:text-8xl text-brown text-center text-shadow-soft"
+                  className="font-monsieur text-5xl md:text-7xl lg:text-8xl text-brown text-center text-shadow-soft"
                   as="h2"
                 >
                   {guest?.nickname || guestName}
@@ -227,10 +227,10 @@ export default function HelloSection({ onMessageOpen, scrollLocked = false }: He
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.3, duration: 0.8 }}
             >
-              <p className="font-homemade text-2xl md:text-3xl lg:text-4xl text-sage-dark mb-4">
+              <p className="font-libre text-2xl md:text-3xl lg:text-4xl text-sage-dark mb-4">
                 {language === 'id' ? 'Untuk yang terkasih,' : 'Dear beloved,'}
               </p>
-              <h2 className="font-homemade text-5xl md:text-7xl lg:text-8xl text-brown text-shadow-soft">
+              <h2 className="font-monsieur text-5xl md:text-7xl lg:text-8xl text-brown text-shadow-soft">
                 {guest?.nickname || guestName}
               </h2>
             </motion.div>
