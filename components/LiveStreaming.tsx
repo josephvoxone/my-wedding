@@ -12,7 +12,7 @@ export default function LiveStreaming() {
     // Create calendar event
     const eventTitle = "Joseph & Ayu Wedding Live Stream"
     const eventDetails = "Watch the wedding ceremony live on YouTube"
-    const eventLocation = "https://youtube.com/live/wedding-joseph-ayu"
+    const eventLocation = "https://youtube.com/live/EjFCDuE9sKE?feature=share"
     const startDate = "20250909T084500+0800" // September 9, 2025, 08:45 AM WITA
     const endDate = "20250909T140000+0800" // September 9, 2025, 02:00 PM WITA
     
@@ -84,7 +84,7 @@ export default function LiveStreaming() {
               </div>
               
               <a
-                href="https://youtube.com/live/wedding-joseph-ayu"
+                href="https://youtube.com/live/EjFCDuE9sKE?feature=share"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full bg-red-500 hover:bg-red-600 text-white font-libre py-3 px-6 rounded-full transition-colors duration-300 flex items-center justify-center gap-2"

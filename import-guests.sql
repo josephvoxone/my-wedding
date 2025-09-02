@@ -119,3 +119,12 @@ VALUES ('gerry', 'gerry', 'Gerry', ' Halo Ger kwkwkw, eling yo jaman biyen dolen
 \n\nNgadem pinik nang villa, rasane asik pol, momen sing gak iso ilang saka memori. Lek gak ono kowe, ra seru blas kui, wong kowe wes dadi bagian gawe rame dewe.
 \n\nPokoke makasih yo Ger, wes dadi kanca sing apik lan gawe kenangan sing lucu-lucu bareng.
 \n\nTak dungakno uripmu tambah lancar, rejeki akeh, lan lek Gusti Allah maringi, mugo-mugo engko kowe iso entuk anak maneh sing sehat lan nggawa kabungahan anyar sak keluarga.');
+
+INSERT INTO guests (slug, name, nickname, special_message) 
+VALUES ('indah', 'indah', 'Indah', ' Halo Ndah, salah satu temenku cewek yang aktif banget nggak ada matinya. Aku masih inget dulu kamu ikut eskul eco, aktif di macem-macem kegiatan, rame banget kalo ada kamu.
+\n\n
+Tapi di sisi lain, kamu juga bisa jadi pendengar yang baik dan punya integritas. Aku masih inget kamu pernah cerita soal mau resign, dan menurutku itu langkah yang tepat. Di luar sana pasti banyak hal baru yang bisa bikin kamu berkembang, nggak cuma stuck di satu tempat.
+\n\n
+Sebelum itu juga aku inget banget waktu kamu ikut panitia yel-yel. Pas kamu latihan, aku sampai mikir dalam hati: “gila, energynya gak ada habisnya.”
+\n\n
+Terima kasih Ndah buat pertemanan kita dari sekolah sampai sekarang. Semoga apa pun yang kamu kejar dalam hidup ini selalu disertai Tuhan. Bentar lagi aku akan nikah karena kejauhan kamu bisa nonton streaming ndah. TYM');

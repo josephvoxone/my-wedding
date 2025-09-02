@@ -30,7 +30,7 @@ const dummyWishes: Wish[] = [
   {
     id: -1,
     guest_slug: null,
-    guest_name: "Edy Wahono",
+    guest_name: "Editya",
     message: "Selamat menempuh hidup baru untuk Joseph dan Ayu. Semoga menjadi keluarga yang sakinah, mawaddah, warahmah. Doa terbaik kami sertai langkah kalian berdua.",
     attendance_status: "hadir",
     created_at: new Date(Date.now() - 86400000).toISOString()
