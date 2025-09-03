@@ -57,6 +57,9 @@ INSERT INTO guests (slug, name, nickname, special_message)
 VALUES ('stephanie', 'stephanie', 'stephanie', 'Halo ce steph, terima kasih dulu bimbing Joseph pas waktu masih cupu, cece juga mengajarkan aku bikin desain ppt yang keren waktu wisuda, waktu reteat fotografi dan sebagainya. Tapi dibalik itu cece juga punya integritas yang tinggi, dan kepedulian juga buat aku waktu retreat dan kuliah. Aku bersyukur kenal cece sebagai orang yang baik dan cerminan buat aku bertumbuh didalam Tuhan.\n\nSemoga apa yang dilalui ce steph entah bahagia, kecewa, suka dan duka membuat ce steph semakin tajamn didalam Tuhan! Kangen juga bisa kumpul-kumpul sama ce steph, ko mike dan temen-temen gak jelas lainnya lol (surya), aku berharap ce steph mendapatkan jawaban apa yang cece cari dan terus berkarya didalam Tuhan. Sekarang kami mau mulai chapter baru dalam hidup, dan kami harapkan kehadirannya atau cece bisa lihat streaming. Thanks for being an incredible friend!');
 
 INSERT INTO guests (slug, name, nickname, special_message) 
+VALUES ('vivian', 'vivian', 'Vivian', 'Halo Vivian, sudah lama banget kita nggak ketemu. Aku masih ingat masa-masa kita sering menghabiskan waktu bareng buat belajar praktikum, ngerjain tugas, dan ikut kepanitiaan.\n\nKadang aku merasa stuck banget pas praktikum, dan kamu itu satu-satunya teman yang bisa aku andalkan. Walaupun kamu orangnya lebih banyak diam, tapi kamu selalu punya hati buat ngajarin aku. Jujur, aku nggak nyangka kamu sepintar itu, lol dan kamu punya hati untuk ngajarin orang dan gak semua orang bisa kayak kamu. Aku sampai penasaran kamu makan apa tiap hari biar bisa sepintar kamu, hahaha.\n\nDibalik sikapmu yang pendiam, aku selalu lihat kamu punya integritas, ketelitian, dan keuletan. Kamu juga sabar banget, dan yang aku suka, kamu bisa jadi pendengar yang baik. Kamu bahkan jadi satu-satunya orang yang dulu pernah ngajak aku ngobrol pas kuliah, padahal aku ini orangnya agak introvert. Aku bersyukur banget punya satu teman jurusan yang bisa diajak ngobrol dengan nyaman.\n\nAku harap kamu terus bertumbuh, selalu dapat lingkungan yang baik, dan menemukan tempat di mana kamu semakin ditinggikan lagi. Terima kasih juga karena dulu sering bantu aku kerjain praktikum, kasih contekan, benerin kodinganku yang salah, sampai bareng-bareng kerjain tugas akhir. Kadang aku merasa, karena kamu lebih pendiam daripada aku, justru aku yang jadi kebanyakan ngomongnya dibanding kamu, hahaha.\n\nSekali lagi makasih banyak, Vi. Semoga Tuhan kasih jalan dan pengharapan baru di kamu!');
+
+INSERT INTO guests (slug, name, nickname, special_message) 
 VALUES ('daniel-wongso', 'Daniel', 'Daniel', 'Terima kasih ko Daniel, menjadi pendengar dan teman yang baik. Menikmati keseruan bersama waktu kumpul-kumpul bareng\n\nDi hari bahagia kami. Terima kasih sudah jadi teman yang selalu bisa diandalkan. Can''t wait to celebrate with you!');
 
 INSERT INTO guests (slug, name, nickname, special_message) 
@@ -96,6 +99,17 @@ VALUES ('elviana', 'elviana', 'Elviana Tjoa', 'Terima kasih ya, dulu Joseph bany
 
 INSERT INTO guests (slug, name, nickname, special_message) 
 VALUES ('yosua', 'yosua', 'yosua', 'Halo ndoll, lama wes gak ketemu, terima kasih atas menjadi teman kecil yang dulu saling menajamkan satu sama lain, bertumbuh di gereja dan kamu salah satu yang membangun spiritualku menjadi lebih baik juga waktu kecil. Seru, Bahagia, Manis dan kecewa untuk saling menajamkan kita satu sama lain mbe (alm Deni). \n\nBtw, adekku nde jakarta kuliah sekarang, Thank you for being not just a great colleague, but also a wonderful friend!');
+
+INSERT INTO guests (slug, name, nickname, special_message) 
+VALUES ('iona', 'iona', 'Iona', 'Halo Iona, kamu itu adek kelasku yang paling aktif dan care banget.
+\n\n
+Entah kenapa aku dulu langsung klop sama kamu dan sampai sekarang masih keinget jelas. Kamu punya sikap yang beda, gak banyak orang bisa sepeduli dan seberani kamu.
+\n\n
+Dibalik itu aku tau perjuanganmu gak gampang, apalagi dengan kondisi keluargamu. Tapi aku percaya, Tuhan lagi ijinkan semua itu jadi proses yang akan bawa kamu lebih tinggi lagi. Gak mudah loh ada di posisi kamu—harus jagain, mikirin, bahkan ngurus hal-hal yang sebenarnya bukan tanggung jawabmu, tapi kamu tetap jalanin dengan keberanian.
+\n\n
+Aku percaya banget, setiap kepedihan, kesendirian, kekecewaan, bahkan kebahagiaan dan sukacita, semuanya itu sedang membentuk kamu jadi pribadi yang jauh lebih kuat, lebih matang, dan lebih siap untuk hal-hal besar yang Tuhan sediakan di depan.
+\n\n
+Kamu itu orang yang berharga. Jangan pernah lupa kalau ada banyak orang yang sayang sama kamu dan bangga sama perjalananmu Terima kasih sudah menjadi memory teman baikku');
 
 
 INSERT INTO guests (slug, name, nickname, special_message) 
